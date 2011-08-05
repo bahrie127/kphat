@@ -15,7 +15,7 @@
 
         <label>Gambar</label>
         <div class="input_group">
-            <input type="file"></div>
+            <input type="file" id="gambar"></div>
 
 
         <br/>
@@ -64,4 +64,36 @@
         toggle:{text:'source',activetext:'wysiwyg',cssclass:'toggler'},
         resize:{cssclass:'resize'}
     });
+</script>
+
+<script type="text/javascript">
+    $('#kirim').click(function(){
+    //alert('jalan');
+    var form_data={
+        codeevent: $('#codeevent').val(),
+        namaevent: $('#namaevent').val(),
+        materi: $('#materi').val(),
+        praktek: $('#praktek').val(),
+        gambar: $('#gambar').val(),
+        
+        ajax:1
+    };
+    $.ajax({
+        url : "<?php echo site_url('admin2/event/add') ?>",
+        type : 'POST',
+        data : form_data,
+        success: function(msg){
+            
+            $('#codeevent').val(''),
+            $('#namaevent').val(''),
+            $('#praktek').val(''),
+            $('#gambar').val(''),
+            $('#materi').val(''),
+            
+           // alert('data telah tersimpan');
+            window.location='';
+        }
+    });
+    return false;
+});
 </script>

@@ -33,8 +33,9 @@ class Event extends CI_Controller {
     
     function add(){
         $data=array(
-            'codeivent'=>  $this->input->post('code'),
-            'namaevent'=>  $this->input->post('nama'),
+            'codeivent'=>  $this->input->post('codeevent'),
+            'namaevent'=>  $this->input->post('namaevent'),
+            'gambar'=>  $this->input->post('gambar'),
             'materi'=>  $this->input->post('materi'),
             'praktek'=>  $this->input->post('praktek')
         );
