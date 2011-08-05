@@ -35,11 +35,11 @@
                 <div class="post">
                     <h3><a href="#">EVENT</a></h3>
                     <ul>
-                        <li>Perulangan Event1</li>
-                        <li>Perulangan Event2</li>
-                        <li>Perulangan Event3</li>
-                        <li>Perulangan Event4</li>
-                        <li>Perulangan Event5</li>
+                         <?php foreach ($data as $row): ?>
+                        
+                        <li><?php echo $row->event_namaevent; ?></li>
+                        
+                        <?php endforeach; ?>
                         
                     </ul>
                 </div>
