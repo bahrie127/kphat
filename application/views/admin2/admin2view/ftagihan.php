@@ -35,5 +35,9 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/adminica/adminica_datatables.js"></script>
-
+<div id="confirm-formTagihan" title="Confirm Tagihan?"> 
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+        <input type="hidden" value='' id="con_id" name="con_id">
+		Are you sure to confirm?</p> 
+</div>

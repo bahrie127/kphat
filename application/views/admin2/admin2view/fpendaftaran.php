@@ -35,5 +35,4 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/adminica/adminica_datatables.js"></script>
 

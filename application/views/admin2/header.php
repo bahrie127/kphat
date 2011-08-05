@@ -66,6 +66,8 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formTempat.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formEvent.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formJadwal.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formTagihan.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formBatal.js"></script>
 
 
         <style>
