@@ -71,7 +71,7 @@ class Model_join extends CI_Model {
 
     function get_tagih_admin() {
         $this->db->select('tagihan.codepembayaran as tagihan_codepembayaran,tagihan.jumlahharga as tagihan_jumlahharga');
-        $this->db->select(',tagihan.status as tagihan_status,user.nama as user_nama');
+        $this->db->select(',tagihan.tanggal as tagihan_tanggal,tagihan.status as tagihan_status,user.nama as user_nama');
         $this->db->from('user');
         $this->db->join('tagihan', 'user.codeuser=tagihan.codeuser', 'INNER');
         $query = $this->db->get();

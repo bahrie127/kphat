@@ -6,7 +6,7 @@
                     <th>Nama user</th> 
                     <th>Status</th>
                     <th>Total</th>
-                    
+                    <th>Tanggal</th>
                     <th>Confirm Pembayaran</th> 
 
                 </tr> 
@@ -22,8 +22,8 @@
             echo "<td>$row->user_nama</td>";
             echo "<td>$row->tagihan_status</td>";
             echo "<td>$row->tagihan_jumlahharga</td>";
-            
-            echo "<td align=\"center\"><a href=\"#\" class=\"conbuttontagihan\" id=\"$row->tagihan_codepembayaran\">Confirm</a>";
+            echo "<td>$row->tagihan_tanggal</td>";
+            echo "<td align=\"center\"><a href=\"#\" class=\"conbuttontagihan\" idtagihan=\"$row->tagihan_codepembayaran\">Confirm</a>";
             
             echo "</td></tr>";
         }

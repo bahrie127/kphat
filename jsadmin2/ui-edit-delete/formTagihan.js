@@ -15,7 +15,7 @@ $(function() {
                 };
                 $.ajax({
                     type: "POST",
-                    url : "tempat/update",
+                    url : "tagihan/update",
                     data: con_id,
                     success: function(msg){
                             $('#show21').html(msg);       
@@ -36,9 +36,9 @@ $(function() {
 
 $(".conbuttontagihan").live("click",function(){
     var element = $(this);
-    var con_id = element.attr("id");
+    var con_id = element.attr("idtagihan");
     
-    $('#del_id').val(con_id);
+    $('#con_id').val(con_id);
     $( "#confirm-formTagihan" ).dialog( "open" );
     	
     return false;
