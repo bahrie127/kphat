@@ -101,9 +101,9 @@
                 });
             });
             $(function() {
-                $( "#tanggl" ).datepicker();
-                $( "#tanggl" ).change(function() {
-                    $( "#tanggl" ).datepicker( "option", "dateFormat","yy-mm-dd" );
+                $( "#tanggalJadwal" ).datepicker();
+                $( "#tanggalJadwal" ).change(function() {
+                    $( "#tanggalJadwal" ).datepicker( "option", "dateFormat","yy-mm-dd" );
                 });
             });
         </script>

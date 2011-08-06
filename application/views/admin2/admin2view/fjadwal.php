@@ -23,9 +23,9 @@
             <div class="toggle_container" >
 
                 <div id="tabs-1" class="block no_padding">
-     
+
                     <div id="show21">
-                        
+
                         <?php $this->load->view('admin2/admin2view/acaraView/showtablejadwal'); ?>
                     </div>
 
@@ -41,32 +41,68 @@
 </div>
 
 <div id="form_jadwal" title="Edit Jadwal">
-        <table>
-            <?php echo form_open('jadwal/submit'); ?>
+    <table>
 
-            <tr >
-                <th> <?php echo form_label('Code Jadwal'); ?></th>
-                <td> <?php echo form_input('codeJadwal', '', 'id="codeJadwal" readonly="readonly"'); ?></td>
-            </tr>
-            <tr>
-                <th> <?php echo form_label('Nama Event'); ?> </th>
-                <td> <?php echo form_input('namaEvent', '', 'id="namaEvent"'); ?></td>
-            </tr>
-            <tr>
-                <th> <?php echo form_label('jam'); ?> </th>
-                <td> <?php echo form_input('waktu', '', 'id="waktu"'); ?></td>
-            </tr>
-            <tr>
-                <th> <?php echo form_label('Tanggal'); ?> </th>
-                <td> <input id="tanggl" name="tanggal" type="text" class="medium datepicker"/></td>
-            </tr>
-            
-        </table>
-    </div>
 
-    <div id="confirm-formJadwal" title="Delete Item ?"> 
-        <p>
-            <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
-            <input type="hidden" value='' id="del_id" name="del_id">
+        <tr >
+            <th> <?php echo form_label('Code Jadwal'); ?></th>
+            <td> <?php echo form_input('codeJadwal', '', 'id="codeJadwal" readonly="readonly"'); ?></td>
+        </tr>
+        <tr>
+            <th> <?php echo form_label('Nama Event'); ?> </th>
+            <td>
+                <div class="input_group">
+                    <select name="event" id="codeevent"> <?php foreach ($event as $row) : ?>
+                            <option value="<?php echo $row->codeivent; ?>">
+                                <?php echo $row->namaevent; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </td>
+
+        </tr>
+        
+        <tr>
+            <th><label>Nama Pemateri</label> </th>
+            <td><div class="input_group">
+
+                    <select name="pemateri" id="codepemateri"> <?php foreach ($pemateri as $row) : ?>
+                            <option value="<?php echo $row->codepemateri; ?>">
+                                <?php echo $row->nama; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div></td>
+        </tr>
+        <tr>
+            <th> <label>Tempat</label> </th>
+            <td><div class="input_group">
+
+                    <select name="tempat" id="codetempat"> <?php foreach ($tempat as $row) : ?>
+                            <option value="<?php echo $row->codetempat; ?>">
+                                <?php echo $row->namatempat; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th> <?php echo form_label('jam'); ?> </th>
+            <td> <?php echo form_input('waktu', '', 'id="waktuJadwal"'); ?></td>
+        </tr>
+        <tr>
+            <th> <?php echo form_label('Tanggal'); ?> </th>
+            <td> <input id="tanggalJadwal" name="tanggal" type="text" class="medium datepicker"/></td>
+        </tr>
+        <tr>
+            <th><label>Harga</label> </th>
+            <td><input id="hargaJadwal" name="harga" title="Harga event" type="text" class="medium"></td>
+        </tr>
+    </table>
+</div>
+
+<div id="confirm-formJadwal" title="Delete Item ?"> 
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+        <input type="hidden" value='' id="del_id" name="del_id">
 		Are you sure?</p> 
-    </div> 
+</div> 

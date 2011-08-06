@@ -40,7 +40,7 @@ class Model_join extends CI_Model {
     function get_jadwal_event_admin() {
         $this->db->select('jadwalevent.tanggal as jadwalevent_tanggal, jadwalevent.codejadwalevent as jadwalevent_codejadwalevent');
         $this->db->select(',jadwalevent.harga as jadwalevent_harga,event.namaevent as event_namaevent,pemateri.nama as pemateri_nama');
-        $this->db->select(',tempat.namatempat as tempat_namatempat');
+        $this->db->select(',tempat.namatempat as tempat_namatempat,jadwalevent.waktu as jadwalevent_waktu');
         $this->db->from('event');
         $this->db->join('jadwalevent', 'event.codeivent=jadwalevent.codeevent', 'INNER');
         $this->db->join('pemateri', 'jadwalevent.codepemateri=pemateri.codepemateri', 'INNER');

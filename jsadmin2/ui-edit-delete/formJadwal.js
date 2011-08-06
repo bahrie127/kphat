@@ -41,11 +41,13 @@ $(function() {
         buttons: {
             "Update": function() {
                 var form_data = {
-                    codetempat: $('#codeJadwal').val(),
-                    namatempat: $('#namaEvent').val(),
-                    jam: $('#waktu').val(),
-                    tanggal: $('#tanggal').val(),
-                   
+                    codejadwal: $('#codeJadwal').val(),
+                    codeevent: $('#codeevent').val(),
+                    codepemateri: $('#codepemateri').val(),
+                    codetempat: $('#codetempat').val(),
+                    waktu: $('#waktuJadwal').val(),
+                    tanggal: $('#tanggalJadwal').val(),
+                   harga: $('#hargaJadwal').val(),
                                                 
                                                
                     ajax:1
@@ -60,10 +62,10 @@ $(function() {
                     success: function(msg){
                         $('#show21').html(msg),
                         $('#codeJadwal').val(''),
-                        $('#namaEvent').val(''),
-                        $('#waktu').val(''),
-                        $('#tanggal').val(''),
                         
+                        $('#waktuJadwal').val(''),
+                        $('#tanggalJadwal').val(''),
+                        $('#hargaJadwal').val(''),
                                         
                                     
                         $( '#form_jadwal' ).dialog( "close" )
@@ -73,9 +75,9 @@ $(function() {
             },
             Cancel: function() {
                 $('#codeJadwal').val(''),
-                $('#namaEvent').val(''),
-                $('#waktu').val(''),
-                $('#tanggal').val(''),
+                
+                $('#waktuJadwal').val(''),
+                $('#tanggalJadwal').val(''),
                 
                 $( this ).dialog( "close" );
             }
@@ -94,15 +96,15 @@ $(function() {
 	
 $(".editJadwal").live("click",function(){
     var code = $(this).attr("codejadwalevent");
-    var nama = $(this).attr("namaEvent");
-    var jam = $(this).attr("jam");
+    var waktu = $(this).attr("waktu");
+    var harga=$(this).attr("hargaJadwal");
     var tanggal = $(this).attr("tanggal");
                
 
     $('#codeJadwal').val(code);
-    $('#namaEvent').val(nama);
-    $('#waktu').val(jam);
-    $('#tanggal').val(tanggal);
+    $('#hargaJadwal').val(harga);
+    $('#waktuJadwal').val(waktu);
+    $('#tanggalJadwal').val(tanggal);
         
     $( "#form_jadwal" ).dialog( "open" );
         

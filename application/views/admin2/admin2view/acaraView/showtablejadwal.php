@@ -27,7 +27,7 @@
             echo "<td>$row->jadwalevent_tanggal</td>";
             echo "<td>$row->jadwalevent_harga</td>";
             
-            echo "<td align=\"center\"><a href=\"#\" class=\"editJadwal\" codejadwalevent=\"#\" namaPemateri=\"#\" telephonePemateri=\"#\" emailPemateri=\"#\">Edit</a>";
+            echo "<td align=\"center\"><a href=\"#\" class=\"editJadwal\" codejadwalevent=\"$row->jadwalevent_codejadwalevent\" waktu=\"$row->jadwalevent_waktu\" tanggal=\"$row->jadwalevent_tanggal\" hargaJadwal=\"$row->jadwalevent_harga\">Edit</a>";
             
             echo "</td></tr>";
         }

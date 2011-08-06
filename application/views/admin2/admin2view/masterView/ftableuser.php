@@ -18,7 +18,7 @@
                     <th>Jenis Kelamin</th> 
                     
                     <th>Email</th>
-                    <th>Delete</th> 
+                    <th>Telepon</th> 
                     
                 </tr> 
             </thead> 
@@ -34,9 +34,7 @@
             echo "<td>$row->alamat</td>";
             echo "<td>$row->jeniskelamin</td>";
             echo "<td>$row->email</td>";
-            echo "<td align=\"center\"><a href=\"#\" class=\"edit\" codePemateri=\"$row->codeuser\" namaPemateri=\"$row->nama\" telephonePemateri=\"$row->alamat\" emailPemateri=\"$row->email\">Edit</a>";
-            echo "   |   <a class=\"delbuttonpemateri\" id=\"$row->codeuser\" href=\"#\" >Delete</a></td>";
-            echo "</tr>";
+            echo "<td>$row->telepon</td>";
         }
         ?>
 

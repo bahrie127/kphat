@@ -23,5 +23,11 @@ class Model_jadwal_event extends CI_Model {
 		}
         }
         
+        function update_data($id,$data)
+	{
+		$this->db->where('codejadwalevent', $id);
+		$update = $this->db->update('jadwalevent', $data);
+		return $update;
+	}
 }
 ?>
