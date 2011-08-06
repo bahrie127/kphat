@@ -10,7 +10,7 @@ body{
 
 button{
 	display:block;
-	clear:both;
+	clear:none;
 	float:left;
 	color: #fff;
 	border: 1px solid transparent;

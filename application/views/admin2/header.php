@@ -8,16 +8,18 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-        <title>Adminica | The Professional Admin Theme</title>		
+        <title>ADMIN MANAJEMEN XCODE</title>		
 
         <!-- Create an icon and splash screen for iPhone and iPad -->
-
+          <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.ico" >
+      
         <link rel="apple-touch-icon" href="<?php echo base_url(); ?>imgadmin2/iOS_icon.png">
         <link rel="apple-touch-startup-image" href="<?php echo base_url(); ?>imgadmin2/iOS_startup.png"> 
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>cssadmin2/all.css" media="screen">
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>cssadmin2/theme/switcher3.css" media="screen" />
+        <link href="<?php echo base_url(); ?>cssadmin2/formEditDel.css" rel="stylesheet" type="text/css" />
 
         <!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/ie6.css" media="screen" /><![endif]-->
 
@@ -62,36 +64,9 @@
         <!-- This file configures the various jQuery plugins for Adminica. Contains links to help pages for each plugin. -->
         <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/adminica/adminica_ui.js"></script>
         <!-- To calling form edit dan Delete -->
-        <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formMateri.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formTempat.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formEvent.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formJadwal.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formTagihan.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formBatal.js"></script>
+          
 
-
-        <style>
-            #form_pemateri table tr label { display:block;font-size: 14px }
-            #form_pemateri table tr td input{font-size: 18px;width: 300px;background-color: #E7EDEF;border: 1px solid #B5B8BB; border-radius: 2px 2px 2px 2px;
-            }       #form_pemateri table tr input.text { margin-bottom:12px; width:100%; padding: 4em;background:  #000; }
-            #form_pemateri table h1 { font-size: 1.2em; margin: .6em 0; }
-            #form_pemateri table a{text-decoration:none;}
-            #form_pemateri table th,#form_pemateri table td{padding: 5px;text-align: left}
-
-            #form_tempat table tr label { display:block;font-size: 14px }
-            #form_tempat table tr td input{font-size: 18px;width: 300px;background-color: #E7EDEF;border: 1px solid #B5B8BB; border-radius: 2px 2px 2px 2px;
-            }       #form_tempat table tr input.text { margin-bottom:12px; width:100%; padding: 4em;background:  #000; }
-            #form_tempat table h1 { font-size: 1.2em; margin: .6em 0; }
-            #form_tempat table a{text-decoration:none;}
-            #form_tempat table th,#form_tempat table td{padding: 5px;text-align: left}
-
-            #form_jadwal table tr label { display:block;font-size: 14px }
-            #form_jadwal table tr td input{font-size: 18px;width: 300px;background-color: #E7EDEF;border: 1px solid #B5B8BB; border-radius: 2px 2px 2px 2px;
-            }       #form_jadwal table tr input.text { margin-bottom:12px; width:100%; padding: 4em;background:  #000; }
-            #form_jadwal table h1 { font-size: 1.2em; margin: .6em 0; }
-            #form_jadwal table a{text-decoration:none;}
-            #form_jadwal table th,#form_jadwal table td{padding: 5px;text-align: left}
-        </style>
+        
 
         <script>
             $(function() {

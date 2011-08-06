@@ -5,7 +5,7 @@ $(function() {
     $( "#confirm-formTagihan" ).dialog({
         autoOpen: false,
         resizable: false,
-        height:180,
+        height:140,
         modal: true,
         hide: 'Slide',
         buttons: {

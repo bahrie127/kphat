@@ -18,7 +18,7 @@
                     <th>Email</th> 
                     <th>Telephone</th>
 
-                    <th>Update</th> 
+                   
 
                 </tr> 
             </thead> 
@@ -35,9 +35,8 @@
 
                     echo "<td>$row->email</td>";
                     echo "<td>$row->telepon</td>";
-                    echo "<td align=\"center\"><a href=\"#\" class=\"edit\" codePemateri=\"$row->codeadmin\" namaPemateri=\"$row->nama\" telephonePemateri=\"$row->telepon\" emailPemateri=\"$row->email\">Edit</a>";
                    
-                    echo "</td></tr>";
+                    echo "</tr>";
                 }
                 ?>
 

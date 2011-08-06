@@ -35,29 +35,7 @@
             </div>
         </div>
     </div>
-    <div id="form_event" title="Edit event">
-        <table>
-            <?php echo form_open('event/submit'); ?>
-
-            <tr >
-                <th> <?php echo form_label('Code Event'); ?></th>
-                <td> <?php echo form_input('codeEvent', '', 'id="codeEvent"'); ?></td>
-            </tr>
-            <tr>
-                <th> <?php echo form_label('Nama Event'); ?> </th>
-                <td> <?php echo form_input('namaEvent', '', 'id="namaEvent"'); ?></td>
-            </tr>
-            <tr>
-                <th> <?php echo form_label('Informasi'); ?> </th>
-                <td><textarea id="tiny_input"></textarea></td>
-            </tr>
-            <tr>
-                <th> <?php echo form_label('Praktek'); ?> </th>
-                <td><textarea id="praktek"></textarea></td>
-            </tr>
-
-        </table>
-    </div>
+  
 </div>
 
     <div id="confirm-formEvent" title="Delete Event ?"> 
@@ -66,3 +44,4 @@
             <input type="hidden" value='' id="del_id" name="del_id">
 		Are you sure?</p> 
     </div> 
+<script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formEvent.js"></script>

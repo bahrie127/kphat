@@ -41,3 +41,4 @@
         <input type="hidden" value='' id="con_id" name="con_id">
 		Are you serious to cancel this user?</p> 
 </div>
+<script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formBatal.js"></script>

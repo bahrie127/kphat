@@ -106,3 +106,5 @@
         <input type="hidden" value='' id="del_id" name="del_id">
 		Are you sure?</p> 
 </div> 
+ <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formJadwal.js"></script>
+       
