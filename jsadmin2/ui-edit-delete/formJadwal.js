@@ -42,9 +42,9 @@ $(function() {
             "Update": function() {
                 var form_data = {
                     codejadwal: $('#codeJadwal').val(),
-                    codeevent: $('#codeevent').val(),
-                    codepemateri: $('#codepemateri').val(),
-                    codetempat: $('#codetempat').val(),
+                    codeevent: $('#codeeventedit').val(),
+                    codepemateri: $('#codepemateriedit').val(),
+                    codetempat: $('#codetempatedit').val(),
                     waktu: $('#waktuJadwal').val(),
                     tanggal: $('#tanggalJadwal').val(),
                    harga: $('#hargaJadwal').val(),

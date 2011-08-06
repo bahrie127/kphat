@@ -52,7 +52,7 @@
             <th> <?php echo form_label('Nama Event'); ?> </th>
             <td>
                 <div class="input_group">
-                    <select name="event" id="codeevent"> <?php foreach ($event as $row) : ?>
+                    <select name="event" id="codeeventedit"> <?php foreach ($event as $row) : ?>
                             <option value="<?php echo $row->codeivent; ?>">
                                 <?php echo $row->namaevent; ?></option>
                         <?php endforeach; ?>
@@ -66,7 +66,7 @@
             <th><label>Nama Pemateri</label> </th>
             <td><div class="input_group">
 
-                    <select name="pemateri" id="codepemateri"> <?php foreach ($pemateri as $row) : ?>
+                    <select name="pemateri" id="codepemateriedit"> <?php foreach ($pemateri as $row) : ?>
                             <option value="<?php echo $row->codepemateri; ?>">
                                 <?php echo $row->nama; ?></option>
                         <?php endforeach; ?>
@@ -77,7 +77,7 @@
             <th> <label>Tempat</label> </th>
             <td><div class="input_group">
 
-                    <select name="tempat" id="codetempat"> <?php foreach ($tempat as $row) : ?>
+                    <select name="tempat" id="codetempatedit"> <?php foreach ($tempat as $row) : ?>
                             <option value="<?php echo $row->codetempat; ?>">
                                 <?php echo $row->namatempat; ?></option>
                         <?php endforeach; ?>
