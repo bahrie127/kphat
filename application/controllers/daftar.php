@@ -18,14 +18,17 @@ class Daftar extends CI_Controller {
         $this->load->model('model_pendaftaran');
         $this->load->model('model_tagihan');
         $this->load->model('model_detail_tagihan');
+        $this->load->model('model_join');
         $codetagihan = random_string('alnum', 8);
         $codeuser = random_string('numeric', 8);
+        
     }
 
     public function index() {
+        $data['data']=  $this->model_join->get_jadwal_event();
         $this->load->view('header');
         $this->load->view('utama/page');
-        $this->load->view('utama/cont/daftarpeserta');
+        $this->load->view('utama/cont/daftarpeserta',$data);
         $this->load->view('footer');
     }
 

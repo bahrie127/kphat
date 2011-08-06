@@ -15,7 +15,7 @@
 
         <label>Gambar</label>
         <div class="input_group">
-            <input type="file" id="gambar"></div>
+            <input type="file" id="fileToUpload"></div>
 
 
         <br/>
@@ -74,7 +74,7 @@
         namaevent: $('#namaevent').val(),
         materi: $('#materi').val(),
         praktek: $('#praktek').val(),
-        gambar: $('#gambar').val(),
+        gambar: $('#fileToUpload').val(),
         
         ajax:1
     };
@@ -87,7 +87,7 @@
             $('#codeevent').val(''),
             $('#namaevent').val(''),
             $('#praktek').val(''),
-            $('#gambar').val(''),
+            $('#fileToUpload').val(''),
             $('#materi').val(''),
             
            // alert('data telah tersimpan');
