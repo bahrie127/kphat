@@ -58,6 +58,7 @@
 
         </table>
     </div>
+</div>
 
     <div id="confirm-formEvent" title="Delete Event ?"> 
         <p>
@@ -65,27 +66,3 @@
             <input type="hidden" value='' id="del_id" name="del_id">
 		Are you sure?</p> 
     </div> 
-    
-
-    <script type="text/javascript">
-        new TINY.editor.edit('editor',{
-            id:'tiny_input',
-            height:200,
-            cssclass:'te',
-        
-            controlclass:'tecontrol',
-            rowclass:'teheader',
-            dividerclass:'tedivider',
-            controls:['bold','italic','underline','strikethrough','|',
-                'orderedlist','unorderedlist','|','outdent','indent'],
-            footer:false,
-            fonts:['Arial','Verdana','Georgia','Trebuchet MS'],
-            xhtml:true,
-            cssfile:'style.css',
-            bodyid:'editor',
-            footerclass:'tefooter',
-            toggle:{text:'source',activetext:'wysiwyg',cssclass:'toggler'},
-            resize:{cssclass:'resize'}
-        });
-    </script>
-

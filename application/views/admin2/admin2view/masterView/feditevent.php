@@ -27,10 +27,9 @@
                         <input title="Berisi nama event" type="text" class="large">
 
                         <label>Materi</label> 
-                        <textarea id="materi"></textarea>	
+                        <textarea id="tiny_input"></textarea>	
 
-                        <label>Praktek</label> 
-                        <textarea id="praktek"></textarea>
+                        
 
                         <label>Gambar</label>
                         <div class="input_group">
@@ -47,28 +46,7 @@
 </div>
 <script type="text/javascript">
     new TINY.editor.edit('editor',{
-        id:'materi',
-        height:200,
-        cssclass:'te',
-        
-        controlclass:'tecontrol',
-        rowclass:'teheader',
-        dividerclass:'tedivider',
-        controls:['bold','italic','underline','strikethrough','|',
-            'orderedlist','unorderedlist','|','outdent','indent'],
-        footer:false,
-        fonts:['Arial','Verdana','Georgia','Trebuchet MS'],
-        xhtml:true,
-        cssfile:'style.css',
-        bodyid:'editor',
-        footerclass:'tefooter',
-        toggle:{text:'source',activetext:'wysiwyg',cssclass:'toggler'},
-        resize:{cssclass:'resize'}
-    });
-</script>
-<script type="text/javascript">
-    new TINY.editor.edit('editor',{
-        id:'praktek',
+        id:'tiny_input',
         height:200,
         cssclass:'te',
         
