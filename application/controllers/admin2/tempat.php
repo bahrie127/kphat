@@ -12,19 +12,23 @@
  */
 class Tempat extends CI_Controller {
 
-    //put your code here
+//put your code here
     public function __construct() {
         parent::__construct();
-        $this->load->model('model_tempat');
+        if (!$this->ion_auth->logged_in()) {
+            redirect('/login');
+        } else {
+            $this->load->model('model_tempat');
+        }
     }
 
     function index() {
-        if($this->model_tempat->get_all()==FALSE){
-            $data['data']=array();
-        }else{
-        $data['data']=  $this->model_tempat->get_all();
+        if ($this->model_tempat->get_all() == FALSE) {
+            $data['data'] = array();
+        } else {
+            $data['data'] = $this->model_tempat->get_all();
         }
-        
+
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/ftempat', $data);
         $this->load->view('admin2/footer');
@@ -49,7 +53,7 @@ class Tempat extends CI_Controller {
     }
 
     function update() {
-        
+
         $data = array(
             'namatempat' => $this->input->post('namatempat'),
             'alamat' => $this->input->post('alamat'),
@@ -59,9 +63,7 @@ class Tempat extends CI_Controller {
         $id = $this->input->post('codetempat');
         $this->model_tempat->update_data($id, $data);
         $data['data'] = $this->model_tempat->get_all();
-         $this->load->view('admin2/admin2view/masterView/showtabletempat',$data);
-        
-        
+        $this->load->view('admin2/admin2view/masterView/showtabletempat', $data);
     }
 
     function submit() {
@@ -87,14 +89,13 @@ class Tempat extends CI_Controller {
             }
         }
     }
-    
-    function delete(){
-        $id=$this->input->post('id');
+
+    function delete() {
+        $id = $this->input->post('id');
         $this->model_tempat->delete_data($id);
         $data['data'] = $this->model_tempat->get_all();
-        
-        $this->load->view('admin2/admin2view/masterView/showtabletempat',$data);
-          
+
+        $this->load->view('admin2/admin2view/masterView/showtabletempat', $data);
     }
 
 }

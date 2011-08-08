@@ -29,5 +29,21 @@ class Login extends CI_Controller
         $this->load->view('admin2/flogin');
         $this->load->view('admin2/footer');
     }
+    
+    function do_login(){
+        	$identity = $this->input->post('username');;
+		$password = $this->input->post('password');
+		$remember = TRUE; // remember the user
+		if(!$this->ion_auth->login($identity, $password, $remember)){
+                    redirect('/login');
+                }else{
+                    redirect('/admin2/dashboar');
+                }
+    }
+    
+    function logout(){
+        $this->ion_auth->logout();
+	redirect('/login');
+    }
 }
 

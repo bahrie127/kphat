@@ -22,7 +22,7 @@
             <h3><a class="text_shadow" href="#">Fendithuk</a></h3>
             <ul>
                 <li><a href="#" class="edit" codeAdmin="1" namaAdmin="2" emailAdmin="3" telephoneAdmin="4" username="5" password="6">settings</a><span class="divider">|</span></li>
-                <li><a href="login.php">logout</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/login/logout">logout</a></li>
             </ul>
         </div>
     </div><!-- #user_box -->

@@ -12,19 +12,23 @@
  */
 class Event extends CI_Controller {
 
-    //put your code here
+//put your code here
     public function __construct() {
         parent::__construct();
-        $this->load->model('model_event');
+        if (!$this->ion_auth->logged_in()) {
+            redirect('/login');
+        } else {
+            $this->load->model('model_event');
+        }
     }
 
     function index() {
-        if($this->model_event->get_all()==FALSE){
-            $data['data']=array();
-        }else{
-        $data['data'] = $this->model_event->get_all();
+        if ($this->model_event->get_all() == FALSE) {
+            $data['data'] = array();
+        } else {
+            $data['data'] = $this->model_event->get_all();
         }
-        
+
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/fevent', $data);
         $this->load->view('admin2/footer');
@@ -59,7 +63,7 @@ class Event extends CI_Controller {
             'praktek' => $this->input->post('praktek')
         );
         $this->model_event->add($data);
-        // $this->index();
+// $this->index();
     }
 
     function update() {
