@@ -23,7 +23,12 @@ class jadwal extends CI_Controller {
     }
 
     function index() {
+         if($this->model_event->get_all()==FALSE){
+            $data['data']=array();
+        }else{
         $data['event'] = $this->model_event->get_all();
+        }
+        
         $data['tempat'] = $this->model_tempat->get_all();
         $data['pemateri'] = $this->model_pemateri->get_all();
         $data['data'] = $this->model_join->get_jadwal_event_admin();

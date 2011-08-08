@@ -19,7 +19,12 @@ class Tempat extends CI_Controller {
     }
 
     function index() {
-        $data['data'] = $this->model_tempat->get_all();
+        if($this->model_tempat->get_all()==FALSE){
+            $data['data']=array();
+        }else{
+        $data['data']=  $this->model_tempat->get_all();
+        }
+        
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/ftempat', $data);
         $this->load->view('admin2/footer');

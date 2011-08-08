@@ -19,7 +19,12 @@ class Event extends CI_Controller {
     }
 
     function index() {
+        if($this->model_event->get_all()==FALSE){
+            $data['data']=array();
+        }else{
         $data['data'] = $this->model_event->get_all();
+        }
+        
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/fevent', $data);
         $this->load->view('admin2/footer');

@@ -20,7 +20,12 @@ class Tagihan extends CI_Controller{
     }
     
     function index(){
+         if($this->model_join->get_tagih_admin()==FALSE){
+            $data['data']=array();
+        }else{
         $data['data']=  $this->model_join->get_tagih_admin();
+        }
+        
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/ftagihan',$data);
         $this->load->view('admin2/footer');

@@ -19,7 +19,12 @@ class Pemateri extends CI_Controller {
     }
 
     function index() {
+        if($this->model_pemateri->get_all()==FALSE){
+            $data['data']=array();
+        }else{
         $data['data']=  $this->model_pemateri->get_all();
+        }
+        
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/fpemateri',$data);
         $this->load->view('admin2/footer');
