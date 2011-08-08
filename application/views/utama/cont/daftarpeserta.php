@@ -207,11 +207,9 @@
                                 <th><label for="name">Event yang Diikuti&nbsp;</label></th>
                                 <td>
                                     <?php foreach ($data as $row): ?>
-                                    <!----- Terjadi perulangan Menurut jumlah event bulan ini ---->
-                                    <input type="checkbox" name="event[]" id="event" value="<?php echo $row->jadwalevent_codejadwalevent; ?>" />&nbsp;<?php echo $row->event_namaevent; ?><br/>
-<!--                                    <input type="checkbox" name="event[]" id="event" value="event2" />&nbsp;Event 2<br/>
-                                    <input type="checkbox" name="event[]" id="event" value="event3" />&nbsp;Event 3<br/>
-                                    <input type="checkbox" name="event[]" id="event" value="event4" />&nbsp;Event 4<br/>-->
+                                    
+                                    <input type="checkbox" name="event[]" id="event" value="<?php echo $row->jadwalevent_codejadwalevent; ?>" <?php if($row->jadwalevent_codejadwalevent==$cek): echo "checked='yes'"; else: echo ""; endif; ?> />&nbsp;<?php echo $row->event_namaevent; ?><br/>
+                              
                                     <?php endforeach; ?>
                                 </td>
                                 

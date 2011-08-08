@@ -26,6 +26,7 @@ class Daftar extends CI_Controller {
 
     public function index() {
         $data['data']=  $this->model_join->get_jadwal_event();
+        $data['cek']="";
         $this->load->view('header');
         $this->load->view('utama/page');
         $this->load->view('utama/cont/daftarpeserta',$data);

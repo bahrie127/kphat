@@ -14,19 +14,21 @@
                                 <th>Tanggal Daftar</th>
                                 <th>Nama</th>
                                 <th>Alamat</th>
-                                <th>Telephone</th>
+                                <th>Email</th>
                                 <th>Event</th>
                                 <th>Status</th>
                             </tr>
-                            
+                                <?php foreach ($data as $row): ?>
                             <tr>
-                                <td>12-11-2011</td>
-                                <td>Prastyo Fendriyanto</td>
-                                <td>Semarang</td>
-                                <td>085641292647</td>
-                                <td>Pra web hacking</td>
-                                <td>Lunas</td>
+                            
+                                <td><?php echo $row->pendaftaran_tanggal; ?></td>
+                                <td><?php echo $row->user_nama; ?></td>
+                                <td><?php echo $row->user_alamat;?></td>
+                                <td><?php echo $row->user_email;?></td>
+                                <td><?php echo $row->event_namaevent; ?></td>
+                                <td><?php echo $row->tagihan_status;?></td>
                             </tr>
+                            <?php endforeach; ?>
                         </table>
                             
 

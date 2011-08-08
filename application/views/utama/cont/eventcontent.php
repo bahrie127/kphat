@@ -23,7 +23,7 @@
                                 <div class="elements">
                                     <h3><?php echo $row->event_namaevent ; ?></h3>
                                     <h4>Code</h4>
-                                    <p><?php echo $row->jadwalevent_codejadwalevent ?></p>
+                                    <p><?php echo $row->jadwalevent_codejadwalevent; ?></p>
 
                                     <h4>Waktu</h4>
                                     <p><?php echo $row->jadwalevent_waktu;?></p>
@@ -61,8 +61,8 @@
                                 <div class="one_quarter white">
                                     <div class="elements">
                                         <p class="daftars">
-                                            <a href="<?php echo base_url(); ?>index.php/page/getByMenu/Daftar" class="daftar">DAFTAR</a>
-                                            <a href="https://spreadsheets.google.com/spreadsheet/pub?key=0Al8z6LNqcjcfdDQ1VW91bVhVbVNOeUludmh0UlVFQUE&output=html" class="daftar" target="_blank">PESERTA</a>				
+                                            <a href="<?php echo base_url(); ?>index.php/page/daftar/<?php echo $row->jadwalevent_codejadwalevent; ?>" class="daftar">DAFTAR</a>
+                                            <a href="<?php echo base_url(); ?>index.php/page/peserta/<?php echo $row->jadwalevent_codejadwalevent; ?>" class="daftar" >PESERTA</a>				
                                         </p> </div>
                                 </div>
                             </div>

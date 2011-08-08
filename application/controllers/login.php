@@ -17,13 +17,17 @@ class Login extends CI_Controller
 
         $data = array();
         $data['auth'] = $this->ion_auth;
-        $this->template->set_theme('ewidt');
-        $this->template->set_layout('default')
-                ->set_partial('mainnav', 'menu/mainnav')
-                ->set_partial('secnav', 'menu/secnav', $data)
-                ->set_partial('slidewrap', 'menu/slidewrap')
-                ->title('Home', 'halaman utama')
-                ->build('home/home');
+//        $this->template->set_theme('ewidt');
+//        $this->template->set_layout('default')
+//                ->set_partial('mainnav', 'menu/mainnav')
+//                ->set_partial('secnav', 'menu/secnav', $data)
+//                ->set_partial('slidewrap', 'menu/slidewrap')
+//                ->title('Home', 'halaman utama')
+//                ->build('home/home');
+        
+        $this->load->view('admin2/header');
+        $this->load->view('admin2/flogin');
+        $this->load->view('admin2/footer');
     }
 }
 
