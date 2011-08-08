@@ -8,6 +8,7 @@ class Daftar extends CI_Controller {
     var $codetagihan;
     var $codeuser;
     var $date;
+    var $totalTagihan;
 
     function __construct() {
         parent::__construct();
@@ -19,17 +20,17 @@ class Daftar extends CI_Controller {
         $this->load->model('model_tagihan');
         $this->load->model('model_detail_tagihan');
         $this->load->model('model_join');
+        $this->load->model('model_jadwal_event');
         $codetagihan = random_string('alnum', 8);
         $codeuser = random_string('numeric', 8);
-        
     }
 
     public function index() {
-        $data['data']=  $this->model_join->get_jadwal_event();
-        $data['cek']="";
+        $data['data'] = $this->model_join->get_jadwal_event();
+        $data['cek'] = "";
         $this->load->view('header');
         $this->load->view('utama/page');
-        $this->load->view('utama/cont/daftarpeserta',$data);
+        $this->load->view('utama/cont/daftarpeserta', $data);
         $this->load->view('footer');
     }
 
@@ -39,6 +40,12 @@ class Daftar extends CI_Controller {
         $datestring = "%Y-%m-%d";
         $time = time();
         $date = mdate($datestring, $time);
+        $tahunlahir=$this->input->post('tahun');
+        $bulanlahir=$this->input->post('bulan');
+        $tanggallahir= $this->input->post('tanggal');
+        $lahir=(string)$tahunlahir+"-"+(string)$bulanlahir;//+"-"+(string)$tanggallahir;
+        echo $lahir;
+        exit;
         $dataUser = array(
             'codeuser' => $this->codeuser,
             'nama' => $this->input->post('name'),
@@ -47,21 +54,15 @@ class Daftar extends CI_Controller {
             'telepon' => $this->input->post('telp'),
             'email' => $this->input->post('email'),
             'tempatlahir' => $this->input->post('tempatlahir'),
-            'tanggallahir' => $this->input->post('tanggal') + "-" + $this->input->post('bulan') + "-" + $this->input->post('tahun'),
+            'tanggallahir' => $tanggallahir,
             'pekerjaan' => $this->input->post('pekerjaan'),
             'instansi' => $this->input->post('instansi')
         );
         $this->model_user->add($dataUser);
-        $dataTagihan = array(
-            'codepembayaran' => $this->codetagihan,
-            'codeuser' => $this->codeuser,
-            'status' => "belum",
-            'jumlahharga' => "5000000"
-        );
 
-
-
+        
         foreach ($this->input->post('event') as $row) {
+            $this->hitungHarga($row);
             $dataPendaftaran = array(
                 'codeuser' => $this->codeuser,
                 'codejadwalevent' => $row,
@@ -69,6 +70,13 @@ class Daftar extends CI_Controller {
             );
             $this->model_pendaftaran->add($dataPendaftaran);
         }
+
+        $dataTagihan = array(
+            'codepembayaran' => $this->codetagihan,
+            'codeuser' => $this->codeuser,
+            'status' => "belum",
+            'jumlahharga' => $this->totalTagihan
+        );
 
 
         $this->model_tagihan->add($dataTagihan);
@@ -80,11 +88,22 @@ class Daftar extends CI_Controller {
             $this->model_detail_tagihan->add($dataDetailTagihan);
         }
         // 
-        $this->index();
+        $this->konfirmasi();
     }
 
-    function hitungHarga() {
+    function hitungHarga($code) {
+        $dataHarga = $this->model_jadwal_event->get_harga($code);
         
+        $this->totalTagihan += end($dataHarga);
+    }
+    
+    function konfirmasi(){
+        $data['data'] = $this->totalTagihan;
+        $data['cek'] = "";
+        $this->load->view('header');
+        $this->load->view('utama/page');
+        $this->load->view('utama/cont/confirmPendaftaran', $data);
+        $this->load->view('footer');
     }
 
 }
