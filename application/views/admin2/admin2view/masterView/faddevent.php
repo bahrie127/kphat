@@ -1,5 +1,6 @@
 <div class="toggle_container">
     <div class="block">
+        
        <label>Kode Event</label> 
         <input id="codeevent" title="Berisi kode event" type="text" class="medium required" autofocus> 
 
@@ -13,13 +14,14 @@
 
         <label>Gambar</label>
         <div class="input_group">
-            <input type="file" id="fileToUpload"></div>
+            <input type="file" id="upload"</div>
 
 
         <br/>
         <button class="button_colour round_all" id="kirim"><img height="24" width="24" alt="Bended Arrow Right" src="<?php echo base_url(); ?>imgadmin2/icons/small/white/Bended%20Arrow%20Right.png"><span>Submit</span></button>
        
     </div>
+</div>
 </div>
 <script type="text/javascript">
     new TINY.editor.edit('editor',{
@@ -52,7 +54,7 @@
         namaevent: $('#namaevent').val(),
         materi: $('#materi').val(),
         praktek: $('#praktek').val(),
-        gambar: $('#fileToUpload').val(),
+        upload: $('#upload').val(),
         
         ajax:1
     };
@@ -65,7 +67,7 @@
             $('#codeevent').val(''),
             $('#namaevent').val(''),
             $('#praktek').val(''),
-            $('#fileToUpload').val(''),
+            $('#upload').val(''),
             $('#materi').val(''),
             
            // alert('data telah tersimpan');

@@ -41,28 +41,29 @@ class Event extends CI_Controller {
     }
 
     function add() {
-
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = '1000';
-        $config['max_width'] = '1024';
-        $config['max_height'] = '768';
-        $this->load->library('upload', $config);
-        $this->upload->display_errors('', '');
-        if (!$this->upload->do_upload("gambar")) {
-            $error = $this->upload->display_errors();
-        } else {
-            $msg = "File berhasil diupload";
-        }
+        $this->model_event->do_upload();
+//        $config['upload_path'] = './uploads/';
+//        $config['allowed_types'] = 'gif|jpg|png';
+//        $config['max_size'] = '1000';
+//        $config['max_width'] = '1024';
+//        $config['max_height'] = '768';
+//        $this->load->library('upload', $config);
+//        $this->upload->display_errors('', '');
+//        if (!$this->upload->do_upload("gambar")) {
+//            $error = $this->upload->display_errors();
+//        } else {
+//            $msg = "File berhasil diupload";
+//        }
 
         $data = array(
             'codeivent' => $this->input->post('codeevent'),
             'namaevent' => $this->input->post('namaevent'),
-            'gambar' => $this->input->post('gambar'),
+            'upload' => $this->input->post('upload'),
             'materi' => $this->input->post('materi'),
             'praktek' => $this->input->post('praktek')
         );
         $this->model_event->add($data);
+
 // $this->index();
     }
 

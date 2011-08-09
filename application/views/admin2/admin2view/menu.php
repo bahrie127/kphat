@@ -21,7 +21,7 @@
             <h2>Administrator</h2>
             <h3><a class="text_shadow" href="#">Fendithuk</a></h3>
             <ul>
-                <li><a href="#" class="edit" codeAdmin="1" namaAdmin="2" emailAdmin="3" telephoneAdmin="4" username="5" password="6">settings</a><span class="divider">|</span></li>
+                <li><a href="<?php echo base_url(); ?>index.php/admin2/setting" codeAdmin="1" namaAdmin="2" emailAdmin="3" telephoneAdmin="4" username="5" password="6">settings</a><span class="divider">|</span></li>
                 <li><a href="<?php echo base_url(); ?>index.php/login/logout">logout</a></li>
             </ul>
         </div>
@@ -58,41 +58,3 @@
     </ul>
 
 </div>
-
-<div id="form_setting" title="Edit Profil">
-    <table>
-
-
-        <tr >
-            <th> <?php echo form_label('Code Admin'); ?></th>
-            <td> <?php echo form_input('codeAdmin', '', 'id="codeAdmin" readonly="readonly"'); ?></td>
-        </tr>
-        <tr>
-            <th> <?php echo form_label('Nama Admin'); ?> </th>
-            <td> <?php echo form_input('namaAdmin', '', 'id="namaAdmin"'); ?>               
-            </td>
-
-        </tr>
-        
-        <tr>
-            <th><label>Email</label> </th>
-            <td><?php echo form_input('emailAdmin', '', 'id="emailAdmin"'); ?></td>
-        </tr>
-        <tr>
-            <th> <label>Telephone</label> </th>
-            <td><?php echo form_input('telephoneAdmin', '', 'id="telephoneAdmin"'); ?>
-            </td>
-        </tr>
-        <tr>
-            <th> <?php echo form_label('Username'); ?> </th>
-            <td> <?php echo form_input('username', '', 'id="username"'); ?></td>
-        </tr>
-        <tr>
-            <th> <?php echo form_label('Password'); ?> </th>
-            <td> <input type="password" id="password" name="password" /></td>
-        </tr>
-        
-    </table>
-</div>
- <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formSetting.js"></script>
- 
