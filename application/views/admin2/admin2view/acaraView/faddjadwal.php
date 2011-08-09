@@ -1,8 +1,9 @@
 <div class="toggle_container">
     <div class="block">
+        <form>
 <!--        <form id="name" action="<?php echo base_url(); ?>index.php/admin2/tempat/add" method="post">-->
         <label>Kode Jadwal</label> 
-        <input id="codejadwal" name="code" title="Berisi kode jadwal" type="text" class="medium required" autofocus> 
+        <input id="codejadwal" name="code" title="Berisi kode jadwal" type="text" class="medium required LV_valid_field" autofocus> 
 
         <label>Nama Event</label> 
         <div class="input_group">
@@ -33,18 +34,36 @@
             </select>
         </div>
         <label>Tanggal</label> 
-        <input id="tanggal" name="tanggal" type="text" class="medium datepicker">
+        <input id="tanggal" name="tanggal" type="text" class="medium datepicker LV_valid_field">
 
         <label>Jam</label> 
-        <input id="waktu" name="jam" title="Jam mulai acara" type="text" class="medium">
+        <input id="waktu" name="waktu" title="Jam mulai acara" type="text" class="medium LV_valid_field">
         
         <label>Harga</label> 
-        <input id="harga" name="harga" title="Harga event" type="text" class="medium">
+        <input id="harga" name="harga" title="Harga event" type="text" class="medium LV_valid_field">
 
         <button class="button_colour round_all" id="kirim"><img height="24" width="24" alt="Bended Arrow Right" src="<?php echo base_url(); ?>imgadmin2/icons/small/white/Bended%20Arrow%20Right.png"><span>Submit</span></button>
         </form>
     </div>
 </div>
+
+<script type="text/javascript"> 
+    var co = new LiveValidation('codejadwal');
+    co.add( Validate.Presence );
+      
+    var tgl = new LiveValidation('tanggal');
+    tgl.add(Validate.Presence);
+    
+    var wk = new LiveValidation('waktu');
+    wk.add( Validate.Presence );
+      
+    var harga = new LiveValidation('harga');
+    harga.add(Validate.Presence);
+    
+    
+    
+   
+</script>
 <script type="text/javascript">
     $('#kirim').click(function(){
         //alert('jalan');

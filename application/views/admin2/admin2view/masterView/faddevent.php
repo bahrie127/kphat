@@ -4,12 +4,12 @@
         <?php echo  form_open_multipart(base_url().'index.php/admin2/event/add');  ?> 
             
         <label>Kode Event</label> 
-        <input name="codeevent" title="Berisi kode event" type="text" class="medium required" autofocus> 
+        <input id="codeevent" name="codeevent" title="Berisi kode event" type="text" class="medium LV_valid_field" autofocus> 
 
 
 
         <label>Nama Event</label> 
-        <input name="namaevent" title="Berisi nama event" type="text" class="large">
+        <input id="namaevent" name="namaevent" title="Berisi nama event" type="text" class="large LV_valid_field">
 
         <label>Materi</label> 
         <textarea name="materi"></textarea>
@@ -24,7 +24,7 @@
             
 
 
-            <input type="file" name="gambar"></div>
+            <input id="gambar" type="file" name="gambar"></div>
 
         <br/>
 <!--        <button class="button_colour round_all" ><img height="24" width="24" alt="Bended Arrow Right" src="<?php echo base_url(); ?>imgadmin2/icons/small/white/Bended%20Arrow%20Right.png"><span>Submit</span></button>-->
@@ -40,3 +40,18 @@
 		theme : "advanced"
 	});
   </script>
+<script type="text/javascript"> 
+    
+
+    var co = new LiveValidation('codeevent');
+    co.add( Validate.Presence );
+    
+    
+    
+    var nm = new LiveValidation('namaevent');
+    nm.add(Validate.Presence);
+    
+    
+    
+   
+</script>
