@@ -9,8 +9,12 @@ class Event extends CI_Controller {
     }
 
     function index() {
+        if ($this->model_join->get_jadwal_event() == FALSE) {
+            $data['data'] = array();
+        } else {
+            $data['data'] = $this->model_join->get_jadwal_event();
+        }
         
-        $data['data'] = $this->model_join->get_jadwal_event();
         
         $this->load->view('header');
         $this->load->view('utama/page');
