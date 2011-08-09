@@ -38,10 +38,10 @@ class Model_event extends CI_Model {
     }
 
     function get_data_by_id($id) {
-        $this->db->where('codeevent', $id);
+        $this->db->where('codeivent', $id);
         $query = $this->db->get('event');
         if ($query->num_rows() > 0) {
-            return $query->row_array();
+            return $query->result();
         } else {
             return FALSE;
         }

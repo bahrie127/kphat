@@ -16,6 +16,7 @@
         <?
         $i = 0;
         foreach ($data as $row) {
+            $linkpeta=substr($row->linkpeta, 0, 15);
             $i++;
             echo "<tr class=\"record\">";
             echo "<td>$i</td>";
@@ -23,7 +24,7 @@
             echo "<td>$row->namatempat</td>";
             echo "<td>$row->alamat</td>";
             echo "<td>$row->telepon</td>";
-            echo "<td>$row->linkpeta</td>";
+            echo "<td>$linkpeta</td>";
             echo "<td align=\"center\"><a href=\"#\" class=\"editTempat\" codeTempat=\"$row->codetempat\" namaTempat=\"$row->namatempat\" alamat=\"$row->alamat\" linkPeta=\"$row->linkpeta\" telephone=\"$row->telepon\">Edit</a>";
             echo "   |   <a class=\"delbuttontempat\" id=\"$row->codetempat\" href=\"#\" >Delete</a></td>";
             echo "</tr>";

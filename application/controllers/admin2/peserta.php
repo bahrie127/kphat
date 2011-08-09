@@ -19,7 +19,12 @@ class peserta extends CI_Controller {
     }
 
     function index() {
-        $data['data'] = $this->model_join->get_jadwal_event();
+        if ($this->model_join->get_all_peserta() == FALSE) {
+            $data['data'] = array();
+        } else {
+            $data['data'] = $this->model_join->get_all_peserta();
+        }
+        
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/fpeserta',$data);
         $this->load->view('admin2/footer');

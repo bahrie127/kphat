@@ -34,9 +34,16 @@ class Event extends CI_Controller {
         $this->load->view('admin2/footer');
     }
 
-    function edit() {
+    function edit($id="") {
+        if ($this->model_event->get_data_by_id($id) == FALSE) {
+            $data['data'] = array();
+        } else {
+            $data['data'] = $this->model_event->get_data_by_id($id);
+        }
+
+
         $this->load->view('admin2/header');
-        $this->load->view('admin2/admin2view/masterView/feditevent');
+        $this->load->view('admin2/admin2view/masterView/feditevent', $data);
         $this->load->view('admin2/footer');
     }
 
@@ -54,34 +61,47 @@ class Event extends CI_Controller {
         $data = $this->upload->do_upload('gambar');
         $file = $this->upload->data();
         $uploadedFiles = $file['file_name'];
-        
+
         $data = array(
             'codeivent' => $this->input->post('codeevent'),
             'namaevent' => $this->input->post('namaevent'),
-
             'gambar' => $uploadedFiles,
-
-            
             'materi' => $this->input->post('materi'),
             'praktek' => $this->input->post('praktek')
         );
         $this->model_event->add($data);
 
         $this->index();
-
     }
 
     function update() {
 
+        $config['upload_path'] = './uploads';
+        $config['allowed_types'] = 'jpg|jpeg|gif|png';
+        $config['max_size'] = '4000';
+        $config['max_width'] = '2000';
+        $config['max_height'] = '2000';
+        $config['remove_spaces'] = TRUE;
+
+        $this->load->library('upload', $config);
+        $data = $this->upload->do_upload('gambar');
+        $file = $this->upload->data();
+        $uploadedFiles = $file['file_name'];
+        if($uploadedFiles==""){
+            $uploadedFiles=$this->input->post('gambar2');
+        }
+
         $data = array(
+            'codeivent' => $id=$this->input->post('codeevent'),
             'namaevent' => $this->input->post('namaevent'),
+            'gambar' => $uploadedFiles,
             'materi' => $this->input->post('materi'),
             'praktek' => $this->input->post('praktek')
         );
-        $id = $this->input->post('codeevent');
-        $this->model_event->update_data($id, $data);
+        $this->model_event->update_data($id,$data);
+
         $data['data'] = $this->model_event->get_all();
-        $this->load->view('admin2/admin2view/masterView/showtableevent', $data);
+        redirect('/admin2/event');
     }
 
 }

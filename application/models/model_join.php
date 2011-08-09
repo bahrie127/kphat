@@ -28,7 +28,7 @@ class Model_join extends CI_Model {
         $this->db->join('jadwalevent', 'pemateri.codepemateri=jadwalevent.codepemateri', 'INNER');
         $this->db->join('event', 'jadwalevent.codeevent=event.codeivent', 'INNER');
         $this->db->join('tempat', 'jadwalevent.codetempat=tempat.codetempat', 'INNER');
-        $this->db->order_by('jadwalevent_tanggal','asc');
+        $this->db->order_by('jadwalevent_tanggal', 'asc');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -45,7 +45,7 @@ class Model_join extends CI_Model {
         $this->db->join('jadwalevent', 'event.codeivent=jadwalevent.codeevent', 'INNER');
         $this->db->join('pemateri', 'jadwalevent.codepemateri=pemateri.codepemateri', 'INNER');
         $this->db->join('tempat', 'jadwalevent.codetempat=tempat.codetempat');
-        $this->db->order_by('jadwalevent_tanggal','desc');
+        $this->db->order_by('jadwalevent_tanggal', 'desc');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -82,15 +82,15 @@ class Model_join extends CI_Model {
         }
     }
 
-    function get_peserta($id){
+    function get_peserta($id) {
         $this->db->select('user.nama as user_nama, user.alamat as user_alamat,user.email as user_email, tagihan.status as tagihan_status, event.namaevent as event_namaevent,pendaftaran.tanggal as pendaftaran_tanggal');
         $this->db->from('user');
-        $this->db->join('tagihan','tagihan.codeuser=user.codeuser','INNER');
-        $this->db->join('detailtagihan','tagihan.codepembayaran=detailtagihan.codepembayaran','INNER');
-        $this->db->join('jadwalevent','detailtagihan.codejadwalevent=jadwalevent.codejadwalevent','INNER');
-        $this->db->join('event','jadwalevent.codeevent=event.codeivent','INNER');
-        $this->db->join('pendaftaran','jadwalevent.codejadwalevent=pendaftaran.codejadwalevent AND user.codeuser=pendaftaran.codeuser','INNER');
-        $this->db->where('jadwalevent.codejadwalevent',$id);
+        $this->db->join('tagihan', 'tagihan.codeuser=user.codeuser', 'INNER');
+        $this->db->join('detailtagihan', 'tagihan.codepembayaran=detailtagihan.codepembayaran', 'INNER');
+        $this->db->join('jadwalevent', 'detailtagihan.codejadwalevent=jadwalevent.codejadwalevent', 'INNER');
+        $this->db->join('event', 'jadwalevent.codeevent=event.codeivent', 'INNER');
+        $this->db->join('pendaftaran', 'jadwalevent.codejadwalevent=pendaftaran.codejadwalevent AND user.codeuser=pendaftaran.codeuser', 'INNER');
+        $this->db->where('jadwalevent.codejadwalevent', $id);
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -98,6 +98,24 @@ class Model_join extends CI_Model {
             return FALSE;
         }
     }
+
+    function get_all_peserta() {
+        $this->db->select('user.nama as user_nama, user.alamat as user_alamat,user.email as user_email, tagihan.status as tagihan_status, event.namaevent as event_namaevent,pendaftaran.tanggal as pendaftaran_tanggal, jadwalevent.codejadwalevent as jadwalevent_codejadwalevent');
+        $this->db->from('user');
+        $this->db->join('tagihan', 'tagihan.codeuser=user.codeuser', 'INNER');
+        $this->db->join('detailtagihan', 'tagihan.codepembayaran=detailtagihan.codepembayaran', 'INNER');
+        $this->db->join('jadwalevent', 'detailtagihan.codejadwalevent=jadwalevent.codejadwalevent', 'INNER');
+        $this->db->join('event', 'jadwalevent.codeevent=event.codeivent', 'INNER');
+        $this->db->join('pendaftaran', 'jadwalevent.codejadwalevent=pendaftaran.codejadwalevent AND user.codeuser=pendaftaran.codeuser', 'INNER');
+        //$this->db->where('jadwalevent.codejadwalevent', $id);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
 }
 
 ?>

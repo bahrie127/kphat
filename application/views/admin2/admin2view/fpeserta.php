@@ -5,7 +5,7 @@
     <div class="main_container container_16 clearfix">
         <div id="nav_top" class="clearfix round_top">
             <ul class="clearfix">
-                <li class="current"><a href=""><img src="<?php echo base_url(); ?>imgadmin2/icons/small/grey/Create Write.png"/>Pendaftaran</a></li>
+                <li class="current"><a href=""><img src="<?php echo base_url(); ?>imgadmin2/icons/small/grey/Create Write.png"/>Peserta</a></li>
             </ul>
 
         </div><!-- #nav_top -->

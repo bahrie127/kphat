@@ -2,6 +2,7 @@
     <thead> 
         <tr> 
             <th>No</th> 
+            <th>Code</th> 
             <th>Tanggal Daftar</th> 
             <th>Nama</th>
             <th>Alamat</th>
@@ -17,6 +18,7 @@
         <?php $i=0;foreach ($data as $row): $i++;?>
             <tr>
                 <td><?php echo $i?></td>
+                <td><?php echo $row->jadwalevent_codejadwalevent; ?></td>
                 <td><?php echo $row->pendaftaran_tanggal; ?></td>
                 <td><?php echo $row->user_nama; ?></td>
                 <td><?php echo $row->user_alamat; ?></td>

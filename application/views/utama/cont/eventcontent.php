@@ -36,6 +36,7 @@
                             </div>
                             <div class="one_quarter white">
                                 <div class="elements">
+                                    <h3>Materi</h3>
                                     <?php echo $row->event_materi; ?>
                                 </div>
                             </div>
@@ -43,6 +44,7 @@
                             <div class="one_quarter white">
                                 <!--------------------- Khusus Materi Event ----------------->
                                 <div class="elements">
+                                    <h3>Praktek</h3>
 
                                     <?php echo $row->event_praktek; ?>
 

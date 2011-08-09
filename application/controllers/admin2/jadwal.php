@@ -28,14 +28,81 @@ class jadwal extends CI_Controller {
 
     function index() {
         if ($this->model_event->get_all() == FALSE) {
-            $data['data'] = array();
+            $data['event'] = array();
+
+            if ($this->model_tempat->get_all() == FALSE) {
+
+                $data['tempat'] = array();
+
+                if ($this->model_pemateri->get_all() == FALSE) {
+
+                    $data['pemateri'] = array();
+                    if ($this->model_join->get_jadwal_event_admin() == FALSE) {
+                        $data['data'] = array();
+                    } else {
+                        $data['data'] = $this->model_join->get_jadwal_event_admin();
+                    }
+                } else {
+                    $data['pemateri'] = $this->model_pemateri->get_all();
+                }
+            } else {
+                $data['tempat'] = $this->model_tempat->get_all();
+                if ($this->model_pemateri->get_all() == FALSE) {
+
+                    $data['pemateri'] = array();
+                    if ($this->model_join->get_jadwal_event_admin() == FALSE) {
+                        $data['data'] = array();
+                    } else {
+                        $data['data'] = $this->model_join->get_jadwal_event_admin();
+                    }
+                } else {
+                    $data['pemateri'] = $this->model_pemateri->get_all();
+                    if ($this->model_join->get_jadwal_event_admin() == FALSE) {
+                        $data['data'] = array();
+                    } else {
+                        $data['data'] = $this->model_join->get_jadwal_event_admin();
+                    }
+                    $data['data'] = $this->model_join->get_jadwal_event_admin();
+                }
+                $data['pemateri'] = $this->model_pemateri->get_all();
+            }
         } else {
             $data['event'] = $this->model_event->get_all();
-        }
+            if ($this->model_tempat->get_all() == FALSE) {
 
-        $data['tempat'] = $this->model_tempat->get_all();
-        $data['pemateri'] = $this->model_pemateri->get_all();
-        $data['data'] = $this->model_join->get_jadwal_event_admin();
+                $data['tempat'] = array();
+
+                if ($this->model_pemateri->get_all() == FALSE) {
+
+                    $data['pemateri'] = array();
+                    if ($this->model_join->get_jadwal_event_admin() == FALSE) {
+                        $data['data'] = array();
+                    } else {
+                        $data['data'] = $this->model_join->get_jadwal_event_admin();
+                    }
+                } else {
+                    $data['pemateri'] = $this->model_pemateri->get_all();
+                }
+            } else {
+                $data['tempat'] = $this->model_tempat->get_all();
+                if ($this->model_pemateri->get_all() == FALSE) {
+
+                    $data['pemateri'] = array();
+                    if ($this->model_join->get_jadwal_event_admin() == FALSE) {
+                        $data['data'] = array();
+                    } else {
+                        $data['data'] = $this->model_join->get_jadwal_event_admin();
+                    }
+                } else {
+                    $data['pemateri'] = $this->model_pemateri->get_all();
+                    if ($this->model_join->get_jadwal_event_admin() == FALSE) {
+                        $data['data'] = array();
+                    } else {
+                        $data['data'] = $this->model_join->get_jadwal_event_admin();
+                    }
+                }
+            }
+        }
 
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/fjadwal', $data);

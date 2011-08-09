@@ -19,49 +19,41 @@
             <a href="#" class="toggle">&nbsp;</a>
             <div class="toggle_container">
                 <div class="block">
-                    <form id="name" action="<?php echo base_url(); ?>index.php/admin2/dashboar" method="post">
-                        <label>Kode Event</label> 
-                        <input title="Berisi kode event" type="text" class="medium required" autofocus> 
+                    <?php foreach ($data as $row): ?>
+                    <?php echo form_open_multipart(base_url() . 'index.php/admin2/event/update'); ?> 
 
-                        <label>Nama Event</label> 
-                        <input title="Berisi nama event" type="text" class="large">
+                    <label>Kode Event</label> 
+                    <input name="codeevent" value="<?php echo $row->codeivent; ?>"title="Berisi kode event" type="text" class="medium required" autofocus> 
+                    
+                    <label>Nama Event</label> 
+                    <input name="namaevent" value="<?php echo $row->namaevent; ?>" title="Berisi nama event" type="text" class="large">
 
-                        <label>Materi</label> 
-                        <textarea id="tiny_input"></textarea>	
+                    <label>Materi</label> 
+                    <textarea name="materi"><?php echo $row->materi; ?></textarea>
+                    <br/>
+                    <label>Praktek</label> 
+                    <textarea name="praktek"><?php echo $row->praktek; ?></textarea>
 
-                        
+                    <label>Gambar</label>
+                    <div class="input_group">
+                        <input type="file" value="<?php echo $row->gambar; ?>" name="gambar"></div>
+                    <input type="hidden" name="gambar2" value="<?php echo $row->gambar; ?>"/>
+                    <br/>
 
-                        <label>Gambar</label>
-                        <div class="input_group">
-                            <input type="file"></div>
-                
-                <br/>
-                <button class="button_colour round_all"><img height="24" width="24" alt="Bended Arrow Right" src="<?php echo base_url(); ?>imgadmin2/icons/small/white/Bended%20Arrow%20Right.png"><span>Submit</span></button>
-                </form>
+                    <input type="submit" value="Update">
+                    <?php endforeach;?>
+                    </form>
+                    
+                </div>
             </div>
-        </div>
 
+        </div>
     </div>
 </div>
-</div>
+<script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
-    new TINY.editor.edit('editor',{
-        id:'tiny_input',
-        height:200,
-        cssclass:'te',
-        
-        controlclass:'tecontrol',
-        rowclass:'teheader',
-        dividerclass:'tedivider',
-        controls:['bold','italic','underline','strikethrough','|',
-            'orderedlist','unorderedlist','|','outdent','indent'],
-        footer:false,
-        fonts:['Arial','Verdana','Georgia','Trebuchet MS'],
-        xhtml:true,
-        cssfile:'style.css',
-        bodyid:'editor',
-        footerclass:'tefooter',
-        toggle:{text:'source',activetext:'wysiwyg',cssclass:'toggler'},
-        resize:{cssclass:'resize'}
+    tinyMCE.init({
+        mode : "textareas",
+        theme : "advanced"
     });
 </script>

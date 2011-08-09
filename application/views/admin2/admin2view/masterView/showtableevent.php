@@ -1,29 +1,31 @@
 <table class="display datatable" > 
-            <thead> 
-               <tr> 
-                    <th>No</th> 
-                    <th>Code Event</th> 
-                    <th>Nama Event</th> 
-                    <th>Materi</th>
-                    <th>Praktek</th>
-                    
-                    <th>Update | Delete</th> 
+    <thead> 
+        <tr> 
+            <th>No</th> 
+            <th>Code Event</th> 
+            <th>Nama Event</th> 
+            <th>Gambar</th>
+           
 
-                </tr> 
-            </thead> 
+            <th>Update | Delete</th> 
+
+        </tr> 
+    </thead> 
     <tbody> 
         <?
         $i = 0;
+
         foreach ($data as $row) {
+            
             $i++;
             echo "<tr class=\"record\">";
             echo "<td>$i</td>";
             echo "<td>$row->codeivent</td>";
             echo "<td>$row->namaevent</td>";
-            echo "<td>$row->materi</td>";
-            echo "<td>$row->praktek</td>";
+            echo "<td>$row->gambar</td>";
             
-           echo "<td align=\"center\"><a href=\"event/edit\">Edit</a>";
+
+            echo "<td align=\"center\"><a href=\"event/edit/$row->codeivent\">Edit</a>";
             echo "   |   <a class=\"delbuttonevent\" id=\"$row->codeivent\" href=\"#\" >Delete</a></td>";
             echo "</tr>";
         }
