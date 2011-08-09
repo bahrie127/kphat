@@ -1,17 +1,17 @@
 <div class="toggle_container">
     <div class="block">
-<!--        <form id="name" action="<?php echo base_url(); ?>index.php/admin2/pemateri/add" method="post">-->
+        <form>
             <label>Kode Pemateri</label> 
-            <input id="codepemateri" name="code" title="Berisi kode pemateri" type="text" class="medium required code" autofocus> 
+            <input id="codepemateri" name="code" title="Berisi kode pemateri" type="text" class="medium LV_valid_field" autofocus> 
 
             <label>Nama</label> 
-            <input id="namap" name="namap" title="Berisi nama" type="text" class="large required namap">
+            <input id="namap" name="namap" title="Berisi nama" type="text" class="large LV_valid_field">
 
             <label>Telephone</label> 
-            <input id="telep" name="telep" title="Berisi no. Telephone" type="text" class="large required">
+            <input id="telep" name="telep" title="Berisi no. Telephone" type="text" class="large LV_valid_field">
 
             <label>Email</label> 
-            <input id="realemail" name="mail" title="Berisi Email" type="text" class="large LV_valid_field">
+            <input id="mail" name="mail" title="Berisi Email" type="text" class="large LV_valid_field">
 
             <button class="button_colour round_all" id="kirim" ><img height="24" width="24" alt="Bended Arrow Right" src="<?php echo base_url(); ?>imgadmin2/icons/small/white/Bended%20Arrow%20Right.png"><span>Submit</span></button>
         </form>
@@ -31,10 +31,8 @@
         ajax:1
     };
     
-    if($('#codemateri').val('')){
-        
-    }
-    $.ajax({
+    
+      $.ajax({
         url : "<?php echo site_url('admin2/pemateri/add') ?>",
         type : 'POST',
         data : form_data,
@@ -48,7 +46,26 @@
            // alert('data telah tersimpan');
             window.location='';
         }
-    });
-    return false;
+    });  return false;
+   
+    
+    
 });
+</script>
+
+<script type="text/javascript"> 
+    
+    var mail = new LiveValidation('mail');
+    mail.add( Validate.Email );
+    
+    var nama = new LiveValidation('namap');
+    nama.add( Validate.Presence );
+
+    var code = new LiveValidation('codepemateri');
+    code.add( Validate.Presence );
+    
+    var telp = new LiveValidation('telep');
+    telp.add( Validate.Presence );
+    
+
 </script>
