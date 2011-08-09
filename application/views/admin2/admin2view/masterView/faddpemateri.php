@@ -2,21 +2,22 @@
     <div class="block">
 <!--        <form id="name" action="<?php echo base_url(); ?>index.php/admin2/pemateri/add" method="post">-->
             <label>Kode Pemateri</label> 
-            <input id="codepemateri" name="code" title="Berisi kode pemateri" type="text" class="medium required" autofocus> 
+            <input id="codepemateri" name="code" title="Berisi kode pemateri" type="text" class="medium required code" autofocus> 
 
             <label>Nama</label> 
-            <input id="namap" name="namap" title="Berisi nama" type="text" class="large">
+            <input id="namap" name="namap" title="Berisi nama" type="text" class="large required namap">
 
             <label>Telephone</label> 
-            <input id="telep" name="telep" title="Berisi no. Telephone" type="text" class="large">
+            <input id="telep" name="telep" title="Berisi no. Telephone" type="text" class="large required">
 
             <label>Email</label> 
-            <input id="mail" name="mail" title="Berisi Email" type="text" class="large">
+            <input id="realemail" name="mail" title="Berisi Email" type="text" class="large LV_valid_field">
 
             <button class="button_colour round_all" id="kirim" ><img height="24" width="24" alt="Bended Arrow Right" src="<?php echo base_url(); ?>imgadmin2/icons/small/white/Bended%20Arrow%20Right.png"><span>Submit</span></button>
         </form>
     </div>
 </div>
+
 
   <script type="text/javascript">
     $('#kirim').click(function(){
@@ -29,6 +30,10 @@
         
         ajax:1
     };
+    
+    if($('#codemateri').val('')){
+        
+    }
     $.ajax({
         url : "<?php echo site_url('admin2/pemateri/add') ?>",
         type : 'POST',
