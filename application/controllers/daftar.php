@@ -43,9 +43,9 @@ class Daftar extends CI_Controller {
         $tahunlahir=$this->input->post('tahun');
         $bulanlahir=$this->input->post('bulan');
         $tanggallahir= $this->input->post('tanggal');
-        $lahir=$tahunlahir+"-"+$bulanlahir+"-"+$tanggallahir;
-        echo $lahir;
-        exit;
+        $lahir="$tahunlahir-$bulanlahir-$tanggallahir";
+        
+       
         $dataUser = array(
             'codeuser' => $this->codeuser,
             'nama' => $this->input->post('name'),
@@ -54,7 +54,7 @@ class Daftar extends CI_Controller {
             'telepon' => $this->input->post('telp'),
             'email' => $this->input->post('email'),
             'tempatlahir' => $this->input->post('tempatlahir'),
-            'tanggallahir' => $tanggallahir,
+            'tanggallahir' => $lahir,
             'pekerjaan' => $this->input->post('pekerjaan'),
             'instansi' => $this->input->post('instansi')
         );

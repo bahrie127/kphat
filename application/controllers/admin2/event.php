@@ -42,6 +42,7 @@ class Event extends CI_Controller {
 
     function add() {
 
+
         $config['upload_path'] = './uploads';
         $config['allowed_types'] = 'jpg|jpeg|gif|png';
         $config['max_size'] = '4000';
@@ -57,12 +58,17 @@ class Event extends CI_Controller {
         $data = array(
             'codeivent' => $this->input->post('codeevent'),
             'namaevent' => $this->input->post('namaevent'),
+
             'gambar' => $uploadedFiles,
+
+            
             'materi' => $this->input->post('materi'),
             'praktek' => $this->input->post('praktek')
         );
         $this->model_event->add($data);
+
         $this->index();
+
     }
 
     function update() {

@@ -14,7 +14,7 @@
          <div class="flat_area grid_16">
             <h2><strong>New Feature: </strong>Graphs and Charts</h2>
         </div>	
-        <div class="box grid_10">
+        <div class="box grid_16">
             <h2 class="box_head grad_colour round_top">Bar Graph</h2>
             <a href="#" class="grabber">&nbsp;</a>
             <a href="#" class="toggle">&nbsp;</a>

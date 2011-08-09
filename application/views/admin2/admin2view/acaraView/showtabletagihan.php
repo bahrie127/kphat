@@ -1,3 +1,4 @@
+
 <table class="display datatable" > 
             <thead> 
                <tr> 
@@ -16,7 +17,7 @@
         $i = 0;
         foreach ($data as $row) {
             $i++;
-            echo "<tr class=\"record\">";
+            echo "<tr>";
             echo "<td>$i</td>";
             echo "<td>$row->tagihan_codepembayaran</td>";
             echo "<td>$row->user_nama</td>";
@@ -31,7 +32,6 @@
 
     </tbody> 
 </table>
-
 <script text="javascript">
     $(document).ready(function() {
         // DataTables Config (more info can be found at http://www.datatables.net/)
