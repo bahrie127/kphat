@@ -16,7 +16,7 @@ class Event extends CI_Controller {
     public function __construct() {
         parent::__construct();
         if (!$this->ion_auth->logged_in()) {
-            redirect('/login');
+            redirect('/login', 'refresh');
         } else {
             $this->load->model('model_event');
         }
@@ -42,28 +42,27 @@ class Event extends CI_Controller {
 
     function add() {
 
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = '1000';
-        $config['max_width'] = '1024';
-        $config['max_height'] = '768';
-        $this->load->library('upload', $config);
-        $this->upload->display_errors('', '');
-        if (!$this->upload->do_upload("gambar")) {
-            $error = $this->upload->display_errors();
-        } else {
-            $msg = "File berhasil diupload";
-        }
+        $config['upload_path'] = './uploads';
+        $config['allowed_types'] = 'jpg|jpeg|gif|png';
+        $config['max_size'] = '4000';
+        $config['max_width'] = '2000';
+        $config['max_height'] = '2000';
+        $config['remove_spaces'] = TRUE;
 
+        $this->load->library('upload', $config);
+        $data = $this->upload->do_upload('gambar');
+        $file = $this->upload->data();
+        $uploadedFiles = $file['file_name'];
+        
         $data = array(
             'codeivent' => $this->input->post('codeevent'),
             'namaevent' => $this->input->post('namaevent'),
-            'gambar' => $this->input->post('gambar'),
+            'gambar' => $uploadedFiles,
             'materi' => $this->input->post('materi'),
             'praktek' => $this->input->post('praktek')
         );
         $this->model_event->add($data);
-// $this->index();
+        $this->index();
     }
 
     function update() {

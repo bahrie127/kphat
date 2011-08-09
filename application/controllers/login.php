@@ -43,7 +43,8 @@ class Login extends CI_Controller
     
     function logout(){
         $this->ion_auth->logout();
-	redirect('/login');
+        $this->session->sess_destroy();
+	redirect('/login', 'refresh');
     }
 }
 

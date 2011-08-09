@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>cssadmin2/all.css" media="screen">
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>cssadmin2/theme/switcher3.css" media="screen" />
+        
         <link href="<?php echo base_url(); ?>cssadmin2/formEditDel.css" rel="stylesheet" type="text/css" />
 
         <!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/ie6.css" media="screen" /><![endif]-->
@@ -64,6 +65,7 @@
         <!-- This file configures the various jQuery plugins for Adminica. Contains links to help pages for each plugin. -->
         <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/adminica/adminica_ui.js"></script>
         <!-- To calling form edit dan Delete -->
+
           
 
         
