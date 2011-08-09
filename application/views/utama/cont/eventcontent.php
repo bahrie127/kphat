@@ -18,7 +18,7 @@
                         <section class="main" id="packet" >
                             <!--------------------- Gambar, Code, Waktu, Pemateri Event ----------------->
                             <div class="one_quarter white">
-                                <img src="<?php echo base_url()+"images/"+$row->event_gambar; ?>" />
+                                <img src="<?php echo base_url();?>uploads/<?php echo $row->event_gambar; ?>" />
                                 <h2><?php echo $row->jadwalevent_tanggal; ?></h2>
                                 <div class="elements">
                                     <h3><?php echo $row->event_namaevent ; ?></h3>
