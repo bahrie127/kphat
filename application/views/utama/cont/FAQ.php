@@ -43,7 +43,7 @@
                     <div class="clear"></div>
                 </div>
                 <div class="elements">
-                    <p class="big"><a href="<?php echo base_url(); ?>index.php/page/getByMenu/Event">Pilih jenis training yang ingin diikuti</a></p>
+                    <p class="big"><a href="<?php echo base_url(); ?>index.php/event">Pilih jenis training yang ingin diikuti</a></p>
                     <p class="big">Booking tempat dan daftar training</p>
                     <p class="big"><a href="#bayar">Bayar training via transfer atau datang ke T'Lab</a></p>
                     <p class="big">Datang ke training pada hari H</p>
@@ -97,14 +97,13 @@
                     <ul>
                         <?php foreach ($data as $row): ?>
                         
-                        <li><?php echo $row->event_namaevent; ?></li>
+                        <li><a href="<?php echo base_url();?>index.php/event#<?php echo $row->event_namaevent ; ?>"><?php echo $row->event_namaevent ?></a></li>
                         
                         <?php endforeach; ?>
                         
                     </ul>
                 </div>
             </div>
-
 
 
         </aside>

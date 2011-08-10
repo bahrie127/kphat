@@ -42,6 +42,12 @@ class Page extends CI_Controller {
         } else {
             $data['data'] = $this->model_join->get_peserta($id);
         }
+        
+        if ($this->model_join->get_jadwal_event() == FALSE) {
+            $data['event'] = array();
+        } else {
+            $data['event'] = $this->model_join->get_jadwal_event();
+        }
         $this->load->view('header');
         $this->load->view('utama/page');
         $this->load->view('utama/cont/lihat', $data);

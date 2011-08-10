@@ -23,10 +23,10 @@ class pendaftaran extends CI_Controller {
     }
 
     function index() {
-        if ($this->model_join->get_pendaftar_admin() == FALSE) {
+        if ($this->model_join->get_all_peserta() == FALSE) {
             $data['data'] = array();
         } else {
-            $data['data'] = $this->model_join->get_pendaftar_admin();
+            $data['data'] = $this->model_join->get_all_peserta();
         }
 
         $this->load->view('admin2/header');

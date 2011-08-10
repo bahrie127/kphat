@@ -25,7 +25,7 @@
 
             echo "<td>-</td>";
 
-            echo "<td align=\"center\"><a href=\"#\" class=\"conbuttontagihan\" idtagihan=\"$row->tagihan_codepembayaran\">Batal</a>";
+            echo "<td align=\"center\"><a href=\"#\" class=\"conbuttonbatal\" idtagihan=\"$row->tagihan_codepembayaran\">Batal</a>";
 
             echo "</td></tr>";
         }

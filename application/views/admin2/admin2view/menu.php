@@ -50,8 +50,7 @@
                 <li><a href="<?php echo base_url(); ?>index.php/admin2/pendaftaran">Pendaftaran</a></li>
                 <li><a href="<?php echo base_url(); ?>index.php/admin2/tagihan">Tagihan</a></li>
                 <li><a href="<?php echo base_url(); ?>index.php/admin2/pembatalan">Pembatalan</a></li>
-                <li><a href="<?php echo base_url(); ?>index.php/admin2/peserta">Peserta</a></li>
-
+            
             </ul>
         </li>
 

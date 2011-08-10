@@ -8,10 +8,13 @@
                         <h2>peserta</h2>
                         <br class="clear"/>
                         <br class="clear"/>
-                        
+                        <?php foreach ($data as $row): ?>
+                        <?php echo $row->event_namaevent;?></h3>
+                        <?php endforeach; ?>
+                        <br/>
                         <table>
                             <tr>
-                                <th>Tanggal Daftar</th>
+                                <th>Tgl Daftar</th>
                                 <th>Nama</th>
                                 <th>Alamat</th>
                                 <th>Email</th>
@@ -38,20 +41,19 @@
         </div>
         <aside>
 
-            <div class="tweet block">
+           <div class="tweet block">
                 <h2><div>coming soon</div></h2>
                 <div class="post">
                     <h3><a href="#">EVENT</a></h3>
                     <ul>
-                        <li>Perulangan Event1</li>
-                        <li>Perulangan Event2</li>
-                        <li>Perulangan Event3</li>
-                        <li>Perulangan Event4</li>
-                        <li>Perulangan Event5</li>
+                        <?php foreach ($event as $row): ?>
+                        
+                        <li><a href="<?php echo base_url();?>index.php/event#<?php echo $row->event_namaevent ; ?>"><?php echo $row->event_namaevent ?></a></li>
+                        
+                        <?php endforeach; ?>
                         
                     </ul>
                 </div>
-                
             </div>
            
 

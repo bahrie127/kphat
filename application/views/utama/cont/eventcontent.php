@@ -8,7 +8,7 @@
 
         <div id="posts">
             <?php foreach ($data as $row): ?>
-                <article>
+                <article id="<?php echo $row->event_namaevent ; ?>">
                     <!--------------------- Judul Event ----------------->
                     <div class="title">
                         <h1><a href=""><?php echo $row->event_namaevent; ?></a></h1>
@@ -106,7 +106,7 @@
             </div>
             <div class="tweet block">
                 <h2><div>Pembayaran</div></h2>
-                <div class="post">
+                <div class="post"><br/>
                     <p>Silahkan membayar uang pendaftaran sejumlah:<br/> 
 					Biaya Pendaftaran + 2 digit nomor identitas</p>
                     <p>Contoh<br/> 

@@ -35,15 +35,14 @@
                 <div class="post">
                     <h3><a href="#">EVENT</a></h3>
                     <ul>
-                         <?php foreach ($data as $row): ?>
+                        <?php foreach ($data as $row): ?>
                         
-                        <li><?php echo $row->event_namaevent; ?></li>
+                        <li><a href="<?php echo base_url();?>index.php/event#<?php echo $row->event_namaevent ; ?>"><?php echo $row->event_namaevent ?></a></li>
                         
                         <?php endforeach; ?>
                         
                     </ul>
                 </div>
-                
             </div>
            
 
