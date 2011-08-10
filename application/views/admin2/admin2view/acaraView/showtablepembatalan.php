@@ -25,7 +25,7 @@
 
             echo "<td>-</td>";
 
-            echo "<td align=\"center\"><a href=\"#\" class=\"editBatal\" >Batal</a>";
+            echo "<td align=\"center\"><a href=\"pembatalan/batal\">Pembatalan</a>";
 
             echo "</td></tr>";
         }

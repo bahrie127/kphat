@@ -35,20 +35,3 @@
         </div>
     </div>
 </div>
-
-<div id="form_batal" title="Form Pembatalan">
-    <table>
-        <?php echo form_open('pemateri/submit'); ?>
-
-        <tr >
-            <th> <?php echo form_label('Code User'); ?></th>
-            <td> <?php echo form_input('codeUser', '', 'id="codeUser" readonly="readonly"'); ?></td>
-        </tr>
-        <tr>
-            <th> <?php echo form_label('Event yang diikuti'); ?> </th>
-            <td> <?php echo form_checkbox('namaTempat', '', 'id="namaEvent"'); ?></td>
-        </tr>
-       
-    </table>
-</div>
- <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formBatal.js"></script>

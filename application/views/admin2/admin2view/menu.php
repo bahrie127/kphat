@@ -42,6 +42,8 @@
                 <li><a href="<?php echo base_url(); ?>index.php/admin2/event">Event</a></li>
                 <li><a href="<?php echo base_url(); ?>index.php/admin2/user">User</a></li>
                 <li><a href="<?php echo base_url(); ?>index.php/admin2/admin">Admin</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/admin2/page">Page</a></li>
+            
             </ul>
         </li>
         <li><a href="#" class="top_level"><img src="<?php echo base_url(); ?>imgadmin2/icons/small/grey/Documents.png"/>Acara</a>
@@ -50,7 +52,7 @@
                 <li><a href="<?php echo base_url(); ?>index.php/admin2/pendaftaran">Pendaftaran</a></li>
                 <li><a href="<?php echo base_url(); ?>index.php/admin2/tagihan">Tagihan</a></li>
                 <li><a href="<?php echo base_url(); ?>index.php/admin2/pembatalan">Pembatalan</a></li>
-            
+                
             </ul>
         </li>
 
