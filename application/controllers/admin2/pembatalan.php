@@ -39,6 +39,9 @@ class pembatalan extends CI_Controller {
         $this->load->view('admin2/footer');
     }
 
+    function add(){
+        
+    }
 }
 
 ?>
