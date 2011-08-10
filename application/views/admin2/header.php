@@ -11,15 +11,15 @@
         <title>ADMIN MANAJEMEN XCODE</title>		
 
         <!-- Create an icon and splash screen for iPhone and iPad -->
-          <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.ico" >
-      
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.ico" >
+
         <link rel="apple-touch-icon" href="<?php echo base_url(); ?>imgadmin2/iOS_icon.png">
         <link rel="apple-touch-startup-image" href="<?php echo base_url(); ?>imgadmin2/iOS_startup.png"> 
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>cssadmin2/all.css" media="screen">
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>cssadmin2/theme/switcher3.css" media="screen" />
-        
+
         <link href="<?php echo base_url(); ?>cssadmin2/formEditDel.css" rel="stylesheet" type="text/css" />
 
         <!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/ie6.css" media="screen" /><![endif]-->
@@ -65,8 +65,8 @@
         <!-- This file configures the various jQuery plugins for Adminica. Contains links to help pages for each plugin. -->
         <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/adminica/adminica_ui.js"></script>
         <!-- To calling form edit dan Delete -->
-        
-          
+
+
 
         <style>
             #form_pemateri table tr label { display:block;font-size: 14px }
@@ -89,8 +89,8 @@
             #form_jadwal table h1 { font-size: 1.2em; margin: .6em 0; }
             #form_jadwal table a{text-decoration:none;}
             #form_jadwal table th,#form_jadwal table td{padding: 5px;text-align: left}
-        
-             #form_batal table tr label { display:block;font-size: 14px }
+
+            #form_batal table tr label { display:block;font-size: 14px }
             #form_batal table tr td input{font-size: 18px;width: 300px;background-color: #E7EDEF;border: 1px solid #B5B8BB; border-radius: 2px 2px 2px 2px;
             }       #form_batal table tr input.text { margin-bottom:12px; width:100%; padding: 4em;background:  #000; }
             #form_batal table h1 { font-size: 1.2em; margin: .6em 0; }

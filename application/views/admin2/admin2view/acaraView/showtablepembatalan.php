@@ -25,6 +25,7 @@
 
             echo "<td>-</td>";
 
+
             echo "<td align=\"center\"><a href=\"#\" class=\"editBatal\" codepembayaran=\"$row->tagihan_codepembayaran\" >Batal</a>";
 
             echo "</td></tr>";

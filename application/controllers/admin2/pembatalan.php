@@ -32,6 +32,12 @@ class pembatalan extends CI_Controller {
         $this->load->view('admin2/admin2view/fpembatalan',$data);
         $this->load->view('admin2/footer');
     }
+    
+    function batal(){
+        $this->load->view('admin2/header');
+        $this->load->view('admin2/admin2view/acaraView/feditpembatalan');
+        $this->load->view('admin2/footer');
+    }
 
     function add(){
         
