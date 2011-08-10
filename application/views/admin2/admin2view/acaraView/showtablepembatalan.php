@@ -3,27 +3,33 @@
 
         <tr> 
             <th>No</th> 
-            <th>Code Peserta</th> 
+            <th>Code</th> 
             <th>Nama Peserta</th> 
-            <th>Event Yang Diikuti</th>
-            <th>Tanggal</th> 
-            <th>Status</th>
+<!--            <th>Event Yang Diikuti</th>-->
+
+            <th>Total Dikembalikan</th>
             <th>Pembatalan</th> 
 
         </tr> 
     </thead> 
     <tbody> 
-        <tr>
-            <td>No</td> 
-            <td>Code Peserta</td> 
-            <td>Nama Peserta</td> 
-            <td>Event Yang Diikuti</td>
-            <td>Tanggal</td> 
-            <td>Status</td>
-            <td align="center"><?php
-echo "<a href=\"#\" class=\"conbuttonbatal\" idtagihan=\"\">Batal</a>";
-?></td> 
-        </tr>
+        <?
+        $i = 0;
+        foreach ($data as $row) {
+            $i++;
+            echo "<tr>";
+            echo "<td>$i</td>";
+            echo "<td>$row->tagihan_codepembayaran</td>";
+            echo "<td>$row->user_nama</td>";
+
+
+            echo "<td>-</td>";
+
+            echo "<td align=\"center\"><a href=\"#\" class=\"conbuttontagihan\" idtagihan=\"$row->tagihan_codepembayaran\">Batal</a>";
+
+            echo "</td></tr>";
+        }
+            ?>
     </tbody> 
 </table>
 <script text="javascript">

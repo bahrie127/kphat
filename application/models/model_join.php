@@ -4,6 +4,7 @@ class Model_join extends CI_Model {
 
     function __construct() {
         parent::__construct();
+        $this->load->helper('date');
     }
 
     function get_data_by_no_sertifikat($no) {
@@ -19,21 +20,47 @@ class Model_join extends CI_Model {
     }
 
     function get_jadwal_event() {
-        $this->db->select('jadwalevent.codejadwalevent as jadwalevent_codejadwalevent, pemateri.nama as pemateri_nama, tempat.namatempat as tempat_namatempat');
 
-        $this->db->select(',tempat.alamat as tempat_alamat, tempat.telepon as tempat_telepon, event.gambar as event_gambar, event.materi as event_materi, event.praktek as event_praktek');
-        $this->db->select(',event.namaevent as event_namaevent, jadwalevent.waktu as jadwalevent_waktu,jadwalevent.harga as jadwalevent_harga');
-        $this->db->select(',jadwalevent.tanggal as jadwalevent_tanggal');
-        $this->db->from('pemateri');
-        $this->db->join('jadwalevent', 'pemateri.codepemateri=jadwalevent.codepemateri', 'INNER');
-        $this->db->join('event', 'jadwalevent.codeevent=event.codeivent', 'INNER');
-        $this->db->join('tempat', 'jadwalevent.codetempat=tempat.codetempat', 'INNER');
-        $this->db->order_by('jadwalevent_tanggal', 'asc');
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            return $query->result();
+        $datestring = "%Y-%m-%d";
+        $time = time();
+        $date = mdate($datestring, $time);
+
+        if ($this->db->get('jadwalevent')->num_rows() >= 4) {
+            $this->db->select('jadwalevent.codejadwalevent as jadwalevent_codejadwalevent, pemateri.nama as pemateri_nama, tempat.namatempat as tempat_namatempat');
+
+            $this->db->select(',tempat.alamat as tempat_alamat, tempat.telepon as tempat_telepon, event.gambar as event_gambar, event.materi as event_materi, event.praktek as event_praktek');
+            $this->db->select(',event.namaevent as event_namaevent, jadwalevent.waktu as jadwalevent_waktu,jadwalevent.harga as jadwalevent_harga');
+            $this->db->select(',jadwalevent.tanggal as jadwalevent_tanggal');
+            $this->db->from('pemateri');
+            $this->db->join('jadwalevent', 'pemateri.codepemateri=jadwalevent.codepemateri', 'INNER');
+            $this->db->join('event', 'jadwalevent.codeevent=event.codeivent', 'INNER');
+            $this->db->join('tempat', 'jadwalevent.codetempat=tempat.codetempat', 'INNER');
+            $this->db->order_by('jadwalevent_tanggal', 'asc');
+            $this->db->where('jadwalevent_tanggal >', $date);
+            $query = $this->db->get();
+            if ($query->num_rows() > 0) {
+                return $query->result();
+            } else {
+                return FALSE;
+            }
         } else {
-            return FALSE;
+            $this->db->select('jadwalevent.codejadwalevent as jadwalevent_codejadwalevent, pemateri.nama as pemateri_nama, tempat.namatempat as tempat_namatempat');
+
+            $this->db->select(',tempat.alamat as tempat_alamat, tempat.telepon as tempat_telepon, event.gambar as event_gambar, event.materi as event_materi, event.praktek as event_praktek');
+            $this->db->select(',event.namaevent as event_namaevent, jadwalevent.waktu as jadwalevent_waktu,jadwalevent.harga as jadwalevent_harga');
+            $this->db->select(',jadwalevent.tanggal as jadwalevent_tanggal');
+            $this->db->from('pemateri');
+            $this->db->join('jadwalevent', 'pemateri.codepemateri=jadwalevent.codepemateri', 'INNER');
+            $this->db->join('event', 'jadwalevent.codeevent=event.codeivent', 'INNER');
+            $this->db->join('tempat', 'jadwalevent.codetempat=tempat.codetempat', 'INNER');
+           $this->db->order_by('jadwalevent_tanggal', 'desc');
+            //$this->db->limit(1,4,'desc');
+            $query = $this->db->get();
+            if ($query->num_rows() > 0) {
+                return $query->result();
+            } else {
+                return FALSE;
+            }
         }
     }
 
