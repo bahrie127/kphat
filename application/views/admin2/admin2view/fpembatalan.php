@@ -42,10 +42,10 @@
 
         <tr >
             <th> <?php echo form_label('Code User'); ?></th>
-            <td> <?php echo form_input('codeUser', '', 'id="codeUser" readonly="readonly"'); ?></td>
+            <td> <?php echo form_input('codeUser', '', 'id="codepembayaran" readonly="readonly"'); ?></td>
         </tr>
         <tr>
-            <th> <?php echo form_label('Event yang diikuti'); ?> </th>
+            <th> <?php echo form_label('Event yang dibatalkan'); ?> </th>
             <td> <?php echo form_checkbox('namaTempat', '', 'id="namaEvent"'); ?></td>
         </tr>
        

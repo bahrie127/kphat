@@ -143,6 +143,21 @@ class Model_join extends CI_Model {
         }
     }
 
+    function get_nama_event($id){
+        $this->db->select('tagihan.codepembayaran as tagihan_codepembayaran, event.namaevent as event_namaevent, jadwalevent.codejadwalevent as jadwalevent_codejadwalevent');
+        $this->db->from('jadwalevent');
+        $this->db->join('detailtagihan','jadwalevent.codejadwalevent=detailtagihan.codejadwalevent','INNER');
+        $this->db->join('tagihan','detailtagihan.codepembayaran=tagihan.codepembayaran','INNER');
+        $this->db->join('event','jadwalevent.codeevent=event.codeivent','INNER');
+        $this->db->where('tagihan.codepembayaran',$id);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+        
+    }
 }
 
 ?>

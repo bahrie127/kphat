@@ -85,13 +85,13 @@ $(function() {
 });
 	
 $(".editBatal").live("click",function(){
-    var code = $(this).attr("codeEvent");
-    var nama = $(this).attr("namaEvent");
+    var code = $(this).attr("codepembayaran");
+    //var nama = $(this).attr("namaEvent");
     
                
 
-    $('#codeEvent').val(code);
-    $('#namaEvent').val(nama);
+    $('#codepembayaran').val(code);
+    //$('#namaEvent').val(nama);
     
         
     $( "#form_batal" ).dialog( "open" );
