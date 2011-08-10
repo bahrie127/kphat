@@ -99,8 +99,10 @@ class Model_join extends CI_Model {
     function get_tagih_admin() {
         $this->db->select('tagihan.codepembayaran as tagihan_codepembayaran,tagihan.jumlahharga as tagihan_jumlahharga');
         $this->db->select(',tagihan.tanggal as tagihan_tanggal,tagihan.status as tagihan_status,user.nama as user_nama');
+        $this->db->select(',batalpembayaran.jumlah as batalpembayaran_jumlah');
         $this->db->from('user');
         $this->db->join('tagihan', 'user.codeuser=tagihan.codeuser', 'INNER');
+        $this->db->join('batalpembayaran','tagih.codepembayaran=batalpembayaran.codepembayaran','INNER');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -109,6 +111,21 @@ class Model_join extends CI_Model {
         }
     }
 
+    function get_batal_admin() {
+        $this->db->select('tagihan.codepembayaran as tagihan_codepembayaran,');
+        $this->db->select(',user.nama as user_nama');
+        $this->db->select(',batalpembayaran.jumlah as batalpembayaran_jumlah');
+        $this->db->from('user');
+        $this->db->join('tagihan', 'user.codeuser=tagihan.codeuser', 'INNER');
+        $this->db->join('batalpembayaran','tagihan.codepembayaran=batalpembayaran.codepembayaran','INNER');
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+    
     function get_peserta($id) {
         $this->db->select('user.nama as user_nama, user.alamat as user_alamat,user.email as user_email, tagihan.status as tagihan_status, event.namaevent as event_namaevent,pendaftaran.tanggal as pendaftaran_tanggal');
         $this->db->from('user');

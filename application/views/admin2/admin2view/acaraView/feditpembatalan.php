@@ -20,10 +20,10 @@
             <div class="toggle_container">
                 <div class="block">
                    
-                    <?php echo form_open(base_url() . 'index.php/admin2/event/update'); ?> 
+                    <?php echo form_open(base_url() . 'index.php/admin2/pembatalan/add'); ?> 
                     <?php foreach ($data as $row): ?>
                     <label>Kode User</label> 
-                    <input name="codeevent" value="<?php echo $row->tagihan_codepembayaran; ?>"title="Berisi kode event" type="text" readonly="readonly" class="medium required" autofocus> 
+                    <input name="codepembayaran" value="<?php echo $row->tagihan_codepembayaran; ?>"title="Berisi kode event" type="text" readonly="readonly" class="medium required" autofocus> 
                     
                     <label>Nama</label> 
                     <input name="nama" value="<?php echo $row->user_nama; ?>"type="text" readonly="readonly" class="medium required" autofocus> 
@@ -32,7 +32,7 @@
                     <label>Event yang dibatalkan</label> 
                     
                     <?php foreach ($cek as $c): ?>
-                    <input name="<?php echo $c->jadwalevent_codejadwalevent;?>"  title="Berisi nama event" type="checkbox" class="large"><?php echo $c->event_namaevent; ?></input>
+                    <input name="cek[]" value="<?php echo $c->jadwalevent_codejadwalevent;?>"  title="Berisi nama event" type="checkbox" class="large"><?php echo $c->event_namaevent; ?></input>
                     <?php endforeach; ?>
                            <br/> <br/>
 

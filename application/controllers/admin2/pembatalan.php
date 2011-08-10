@@ -12,38 +12,76 @@
  */
 class pembatalan extends CI_Controller {
 
+    var $totalKembali;
+    var $idpembatalan;
+
     //put your code here
     public function __construct() {
         parent::__construct();
         if (!$this->ion_auth->logged_in()) {
             redirect('/login', 'refresh');
         } else {
-             $this->load->model('model_join');
+            $this->load->model('model_join');
+            $this->load->helper('string');
+            $this->load->helper('date');
+            $this->load->model('model_detail_pembatalan');
+            $this->load->model('model_pembatalan');
+            $this->load->model('model_jadwal_event');
         }
     }
 
     function index() {
-         if ($this->model_join->get_tagih_admin() == FALSE) {
+        if ($this->model_join->get_batal_admin() == FALSE) {
             $data['data'] = array();
         } else {
-            $data['data'] = $this->model_join->get_tagih_admin();
+            $data['data'] = $this->model_join->get_batal_admin();
         }
         $this->load->view('admin2/header');
-        $this->load->view('admin2/admin2view/fpembatalan',$data);
-        $this->load->view('admin2/footer');
-    }
-    
-    function batal($id){
-        $data['data']=$this->model_join->get_nama_event($id);
-        $data['cek']=$this->model_join->get_detail_tagih($id);
-        $this->load->view('admin2/header');
-        $this->load->view('admin2/admin2view/acaraView/feditpembatalan',$data);
+        $this->load->view('admin2/admin2view/fpembatalan', $data);
         $this->load->view('admin2/footer');
     }
 
-    function add(){
-        
+    function batal($id) {
+        $data['data'] = $this->model_join->get_nama_event($id);
+        $data['cek'] = $this->model_join->get_detail_tagih($id);
+        $this->load->view('admin2/header');
+        $this->load->view('admin2/admin2view/acaraView/feditpembatalan', $data);
+        $this->load->view('admin2/footer');
     }
+
+    function add() {
+        $this->idpembatalan = random_string('alnum', 8);
+        $datestring = "%Y-%m-%d";
+        $time = time();
+        $date = mdate($datestring, $time);
+        foreach ($this->input->post('cek') as $row) {
+            $this->hitungHarga($row);
+        }
+        $databatal = array(
+            'codebatalpembayaran' => $this->idpembatalan,
+            'codepembayaran' => $this->input->post('codepembayaran'),
+            'tanggal' => $date,
+            'jumlah' => $this->totalKembali
+        );
+        $this->model_pembatalan->add($databatal);
+        foreach ($this->input->post('cek') as $row) {
+            $this->hitungHarga($row);
+            $datadetailbatal = array(
+                'codejadwalevent' => $row,
+                'codebatalpembayaran' => $this->idpembatalan
+            );
+            $this->model_detail_pembatalan->add($datadetailbatal);
+        }
+
+        $this->index();
+    }
+
+    function hitungHarga($code) {
+        $dataHarga = $this->model_jadwal_event->get_harga($code);
+
+        $this->totalKembali += end($dataHarga);
+    }
+
 }
 
 ?>
