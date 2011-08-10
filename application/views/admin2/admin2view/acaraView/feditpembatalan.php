@@ -21,17 +21,19 @@
                 <div class="block">
                    
                     <?php echo form_open(base_url() . 'index.php/admin2/event/update'); ?> 
-
+                    <?php foreach ($data as $row): ?>
                     <label>Kode User</label> 
-                    <input name="codeevent" value=""title="Berisi kode event" type="text" class="medium required" autofocus> 
+                    <input name="codeevent" value="<?php echo $row->tagihan_codepembayaran; ?>"title="Berisi kode event" type="text" readonly="readonly" class="medium required" autofocus> 
                     
                     <label>Nama</label> 
-                    <input name="nama" value=""type="text" class="medium required" autofocus> 
+                    <input name="nama" value="<?php echo $row->user_nama; ?>"type="text" readonly="readonly" class="medium required" autofocus> 
+                    <?php endforeach; ?>
                     
+                    <label>Event yang dibatalkan</label> 
                     
-                    <label>Event yang diikuti</label> 
-                    <input name="namaevent" value="" title="Berisi nama event" type="checkbox" class="large">fdfdf</input>
-
+                    <?php foreach ($cek as $c): ?>
+                    <input name="<?php echo $c->jadwalevent_codejadwalevent;?>"  title="Berisi nama event" type="checkbox" class="large"><?php echo $c->event_namaevent; ?></input>
+                    <?php endforeach; ?>
                            <br/> <br/>
 
                     <input type="submit" value="Update">

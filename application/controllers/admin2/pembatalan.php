@@ -33,9 +33,11 @@ class pembatalan extends CI_Controller {
         $this->load->view('admin2/footer');
     }
     
-    function batal(){
+    function batal($id){
+        $data['data']=$this->model_join->get_nama_event($id);
+        $data['cek']=$this->model_join->get_detail_tagih($id);
         $this->load->view('admin2/header');
-        $this->load->view('admin2/admin2view/acaraView/feditpembatalan');
+        $this->load->view('admin2/admin2view/acaraView/feditpembatalan',$data);
         $this->load->view('admin2/footer');
     }
 
