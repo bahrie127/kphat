@@ -6,12 +6,12 @@ class Model_sertifikat extends CI_Model {
         parent::__construct();
         }
 
-          function add(){
+          function add($data){
             $insert=$this->db->insert('sertifikat',$data);
             return $insert;
         }
         
-         function update_data($id)
+         function update_data($id,$data)
 	{
 		$this->db->where('codesertifikat', $id);
 		$update = $this->db->update('sertifikat', $data);
@@ -65,7 +65,7 @@ class Model_sertifikat extends CI_Model {
 	}
 
         function get_data_by_no_sertifikat($no){
-            $this->db->select('sertifikat.nosertifikat, user.nama, user.alamat, user.jeniskelamin, user.email,user.tempatlahir, user.tanggallahir');
+            $this->db->select('sertifikat.nosertifikat as sertifikat_nosertifikat, user.nama as user_nama, user.alamat as user_alamat, user.jeniskelamin as user_jeniskelamin, user.email as user_email,user.tempatlahir as user_tempatlahir, user.tanggallahir as user_tanggallahir');
 		$this->db->from('user');
 		$this->db->join('sertifikat', 'user.codeuser=sertifikat.codeuser', 'INNER');
                 $query = $this->db->get();
