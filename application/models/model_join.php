@@ -35,8 +35,8 @@ class Model_join extends CI_Model {
             $this->db->join('jadwalevent', 'pemateri.codepemateri=jadwalevent.codepemateri', 'INNER');
             $this->db->join('event', 'jadwalevent.codeevent=event.codeivent', 'INNER');
             $this->db->join('tempat', 'jadwalevent.codetempat=tempat.codetempat', 'INNER');
-            $this->db->order_by('jadwalevent_tanggal', 'asc');
-            $this->db->where('jadwalevent_tanggal >', $date);
+            $this->db->order_by('jadwalevent.tanggal', 'asc');
+            $this->db->where('jadwalevent.tanggal >', $date);
             $query = $this->db->get();
             if ($query->num_rows() > 0) {
                 return $query->result();

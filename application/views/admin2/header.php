@@ -89,6 +89,14 @@
             #form_jadwal table h1 { font-size: 1.2em; margin: .6em 0; }
             #form_jadwal table a{text-decoration:none;}
             #form_jadwal table th,#form_jadwal table td{padding: 5px;text-align: left}
+        
+             #form_batal table tr label { display:block;font-size: 14px }
+            #form_batal table tr td input{font-size: 18px;width: 300px;background-color: #E7EDEF;border: 1px solid #B5B8BB; border-radius: 2px 2px 2px 2px;
+            }       #form_batal table tr input.text { margin-bottom:12px; width:100%; padding: 4em;background:  #000; }
+            #form_batal table h1 { font-size: 1.2em; margin: .6em 0; }
+            #form_batal table a{text-decoration:none;}
+            #form_batal table th,#form_batal table td{padding: 5px;text-align: left}
+
         </style>
 
 
