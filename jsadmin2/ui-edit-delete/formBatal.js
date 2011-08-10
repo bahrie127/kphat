@@ -9,14 +9,14 @@ $(function() {
         modal: true,
         hide: 'Slide',
         buttons: {
-            "Confirm": function() {
-                var con_id = {
-                    id : $('#con_id').val()
+            "Delete": function() {
+                var del_id = {
+                    id : $('#del_id').val()
                 };
                 $.ajax({
                     type: "POST",
-                    url : "tempat/update",
-                    data: con_id,
+                    url : "tempat/delete",
+                    data: del_id,
                     success: function(msg){
                             $('#show21').html(msg);       
                         $('#confirm-formBatal' ).dialog( "close" );
@@ -30,17 +30,81 @@ $(function() {
         }
     });
 		
-      
+    $( "#form_batal" ).dialog({
+        autoOpen: false,
+                    
+        width: 475,
+        modal: true,
+                    
+        hide: 'Slide',
+                   
+        buttons: {
+            "Dibatalkan": function() {
+                var form_data = {
+                    codetempat: $('#codeEvent').val(),
+                    namatempat: $('#namaEvent').val(),
+                    
+                                                
+                                               
+                    ajax:1
+                };
+				  
+                                      
+
+                $.ajax({
+                    url : "tempat/update",
+                    type : 'POST',
+                    data : form_data,
+                    success: function(msg){
+                        $('#show21').html(msg),
+                        $('#codeTempat').val(''),
+                        
+                                        
+                                    
+                        $( '#form_batal' ).dialog( "close" )
+                    }
+                });
+				
+            },
+            Cancel: function() {
+                $('#codeEvent').val(''),
+                $('#namaEvent').val(''),
+                
+                $( this ).dialog( "close" );
+            }
+        },
+        close: function() {
+            $('#codeEvent').val(''),
+            $('#namaEvent').val('')
+           
+                                
+        }
+    });
+
+                
 });
 	
-
-$(".conbuttonbatal").live("click",function(){
-    var element = $(this);
-    var con_id = element.attr("id");
+$(".editBatal").live("click",function(){
+    var code = $(this).attr("codeEvent");
+    var nama = $(this).attr("namaEvent");
     
-    $('#del_id').val(con_id);
+               
+
+    $('#codeEvent').val(code);
+    $('#namaEvent').val(nama);
+    
+        
+    $( "#form_batal" ).dialog( "open" );
+        
+    return false;
+});
+	
+$(".delbuttonbatal").live("click",function(){
+    var element = $(this);
+    var del_id = element.attr("id");
+    var info = 'id=' + del_id;
+    $('#del_id').val(del_id);
     $( "#confirm-formBatal" ).dialog( "open" );
     	
     return false;
 });
-   
