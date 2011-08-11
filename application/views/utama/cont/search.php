@@ -9,7 +9,7 @@
                         <br class="clear"/>
                         <br class="clear"/>
                         
-                        <form action="" method="post" id="">
+                        <form action="<?php echo base_url()?>index.php/search/cari" method="post" id="">
 
                             <p>
                                 <label for="name">Cari </label>

@@ -8,7 +8,7 @@ class Model_join extends CI_Model {
     }
 
     function get_data_by_no_sertifikat($no) {
-        $this->db->select('sertifikat.nosertifikat, user.nama, user.alamat, user.jeniskelamin, user.email,user.tempatlahir, user.tanggallahir');
+        $this->db->select('sertifikat.nosertifikat as sertifikat_nosertifikat, user.nama as user_nama, user.alamat as user alamat, user.jeniskelamin as user_jeniskelamin, user.email as user_email,user.tempatlahir as user_tempatlahir, user.tanggallahir as user_tanggallahir');
         $this->db->from('user');
         $this->db->join('sertifikat', 'user.codeuser=sertifikat.codeuser', 'INNER');
         $query = $this->db->get();
