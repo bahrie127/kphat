@@ -20,7 +20,7 @@
             <div class="toggle_container">
                 <div class="block">
                    
-                    <?php echo form_open(base_url() . 'index.php/admin2/pembatalan/add'); ?> 
+         <?php echo form_open(base_url() . 'index.php/admin2/pembatalan/add'); ?> 
                     <?php foreach ($data as $row): ?>
                     <label>Kode User</label> 
                     <input name="codepembayaran" value="<?php echo $row->tagihan_codepembayaran; ?>"title="Berisi kode event" type="text" readonly="readonly" class="medium required" autofocus> 
@@ -34,6 +34,7 @@
                     <?php foreach ($cek as $c): ?>
                     <input name="cek[]" value="<?php echo $c->jadwalevent_codejadwalevent;?>"  title="Berisi nama event" type="checkbox" class="large"><?php echo $c->event_namaevent; ?></input>
                     <?php endforeach; ?>
+
                            <br/> <br/>
 
                     <input type="submit" value="Update">
