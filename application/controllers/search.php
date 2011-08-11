@@ -22,5 +22,11 @@ class Search extends CI_Controller {
         $this->load->view('utama/cont/search',$data);
         $this->load->view('footer');
     }
+    
+    function cari(){
+        $id=$this->input->post('cari');
+        $data['sertifikat']=$this->model_join->get_data_by_no_sertifikat($id);
+        
+    }
 
 }
