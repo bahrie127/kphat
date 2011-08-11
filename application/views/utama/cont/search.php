@@ -13,14 +13,16 @@
 
                             <p>
                                 <label for="name">Cari </label>
-                                <input type="text" name="cari" id="" value="cari"/>
+                                <input type="text" name="cari" id="no_sertifikat" value="cari" onkeyup="noSertifikat(no_sertifikat.value)"/>
                                 <input type="submit" name="submit"  class="btn3" value="Search" />
                                 
                             </p>
+                            <br/>
+                            <br/>
+                            <div id="pencarian"></div>
                             
                            
-                            <div class="clear"></div>
-
+                         
 
                         </form>
 

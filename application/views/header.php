@@ -16,6 +16,9 @@ and open the template in the editor.
         <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.animate-colors.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-1.2.3.pack.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.validate.pack.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ajax/cariSertifikat.js"></script>
+
+
         <script type="text/javascript">
             $(document).ready(function() {
                 $("#dform").validate({
