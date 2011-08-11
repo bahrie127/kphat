@@ -19,6 +19,21 @@ class Model_join extends CI_Model {
         }
     }
 
+    function get_all_sertifikat() {
+        $this->db->select('sertifikat.codesertifikat as sertifikat_codesertifikat,sertifikat.nosertifikat as sertifikat_nosertifikat,user.nama as user_nama,user.alamat as user_alamat');
+        $this->db->select(',user.jeniskelamin as user_jeniskelamin,user.email as user_email,user.tempatlahir as user_tempatlahir,user.tanggallahir as user_tanggallahir, event.namaevent as event_namaevent,jadwalevent.codejadwalevent as jadwalevent_codejadwalevent,jadwalevent.tanggal as jadwalevent_tanggal');
+        $this->db->from('user');
+        $this->db->join('sertifikat', 'user.codeuser=sertifikat.codeuser', 'INNER');
+        $this->db->join('jadwalevent', 'sertifikat.codejadwalevent=jadwalevent.codejadwalevent', 'INNER');
+        $this->db->join('event', 'jadwalevent.codeevent=event.codeivent', 'INNER');
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
     function get_jadwal_event() {
 
         $datestring = "%Y-%m-%d";
@@ -53,7 +68,7 @@ class Model_join extends CI_Model {
             $this->db->join('jadwalevent', 'pemateri.codepemateri=jadwalevent.codepemateri', 'INNER');
             $this->db->join('event', 'jadwalevent.codeevent=event.codeivent', 'INNER');
             $this->db->join('tempat', 'jadwalevent.codetempat=tempat.codetempat', 'INNER');
-           $this->db->order_by('jadwalevent_tanggal', 'desc');
+            $this->db->order_by('jadwalevent_tanggal', 'desc');
             //$this->db->limit(1,4,'desc');
             $query = $this->db->get();
             if ($query->num_rows() > 0) {
@@ -99,7 +114,7 @@ class Model_join extends CI_Model {
     function get_tagih_admin() {
         $this->db->select('tagihan.codepembayaran as tagihan_codepembayaran,tagihan.jumlahharga as tagihan_jumlahharga');
         $this->db->select(',tagihan.tanggal as tagihan_tanggal,tagihan.status as tagihan_status,user.nama as user_nama');
-      //  $this->db->select(',batalpembayaran.jumlah as batalpembayaran_jumlah');
+        //  $this->db->select(',batalpembayaran.jumlah as batalpembayaran_jumlah');
         $this->db->from('user');
         $this->db->join('tagihan', 'user.codeuser=tagihan.codeuser', 'INNER');
         //$this->db->join('batalpembayaran','tagihan.codepembayaran=batalpembayaran.codepembayaran','INNER');
@@ -114,13 +129,13 @@ class Model_join extends CI_Model {
     function get_batal_bayar_admin() {
         $this->db->select('tagihan.codepembayaran as tagihan_codepembayaran,tagihan.jumlahharga as tagihan_jumlahharga');
         $this->db->select(',tagihan.tanggal as tagihan_tanggal,tagihan.status as tagihan_status,user.nama as user_nama');
-      //  $this->db->select(',batalpembayaran.jumlah as batalpembayaran_jumlah');
+        //  $this->db->select(',batalpembayaran.jumlah as batalpembayaran_jumlah');
         $this->db->from('user');
         $this->db->join('tagihan', 'user.codeuser=tagihan.codeuser', 'INNER');
         //$this->db->join('batalpembayaran','tagihan.codepembayaran=batalpembayaran.codepembayaran','INNER');
-        $this->db->where('tagihan.status','bayar');
-        
-        $this->db->or_where('tagihan.status','batal');
+        $this->db->where('tagihan.status', 'bayar');
+
+        $this->db->or_where('tagihan.status', 'batal');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -128,14 +143,14 @@ class Model_join extends CI_Model {
             return FALSE;
         }
     }
-    
+
     function get_batal_admin() {
         $this->db->select('tagihan.codepembayaran as tagihan_codepembayaran,');
         $this->db->select(',user.nama as user_nama');
         $this->db->select(',batalpembayaran.jumlah as batalpembayaran_jumlah');
         $this->db->from('user');
         $this->db->join('tagihan', 'user.codeuser=tagihan.codeuser', 'INNER');
-        $this->db->join('batalpembayaran','tagihan.codepembayaran=batalpembayaran.codepembayaran','INNER');
+        $this->db->join('batalpembayaran', 'tagihan.codepembayaran=batalpembayaran.codepembayaran', 'INNER');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -143,7 +158,7 @@ class Model_join extends CI_Model {
             return FALSE;
         }
     }
-    
+
     function get_peserta($id) {
         $this->db->select('user.nama as user_nama, user.alamat as user_alamat,user.email as user_email, tagihan.status as tagihan_status, event.namaevent as event_namaevent,pendaftaran.tanggal as pendaftaran_tanggal');
         $this->db->from('user');
@@ -178,28 +193,27 @@ class Model_join extends CI_Model {
         }
     }
 
-    function get_nama_event($id){
+    function get_nama_event($id) {
         $this->db->select('user.nama as user_nama,tagihan.codepembayaran as tagihan_codepembayaran');
         $this->db->from('user');
-       
-        $this->db->join('tagihan','user.codeuser=tagihan.codeuser','INNER');
-        $this->db->where('tagihan.codepembayaran',$id);
+
+        $this->db->join('tagihan', 'user.codeuser=tagihan.codeuser', 'INNER');
+        $this->db->where('tagihan.codepembayaran', $id);
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
         } else {
             return FALSE;
         }
-        
     }
-    
-    function get_detail_tagih($id){
+
+    function get_detail_tagih($id) {
         $this->db->select('event.namaevent as event_namaevent,jadwalevent.codejadwalevent as jadwalevent_codejadwalevent');
         $this->db->from('tagihan');
-        $this->db->join('detailtagihan','tagihan.codepembayaran=detailtagihan.codepembayaran','INNER');
-        $this->db->join('jadwalevent','jadwalevent.codejadwalevent=detailtagihan.codejadwalevent','INNER');
-        $this->db->join('event','jadwalevent.codeevent=event.codeivent');
-        $this->db->where('tagihan.codepembayaran',$id);
+        $this->db->join('detailtagihan', 'tagihan.codepembayaran=detailtagihan.codepembayaran', 'INNER');
+        $this->db->join('jadwalevent', 'jadwalevent.codejadwalevent=detailtagihan.codejadwalevent', 'INNER');
+        $this->db->join('event', 'jadwalevent.codeevent=event.codeivent');
+        $this->db->where('tagihan.codepembayaran', $id);
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -207,6 +221,7 @@ class Model_join extends CI_Model {
             return FALSE;
         }
     }
+
 }
 
 ?>

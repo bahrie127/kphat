@@ -13,13 +13,16 @@
     </thead> 
     <tbody> 
         <?
+         $i = 0;
+        foreach ($data as $row) {
+            $i++;
         echo "<tr class=\"record\">";
-        echo "<td>No</td>";
+        echo "<td>$i</td>";
         
-        echo "<td>No. Sertifikat</td>";
-        echo "<td>Nama </td>";
-        echo "<td>Tanggal Event</td>";
-        echo "<td>Nama Event</td>";
+        echo "<td>$row->sertifikat_nosertifikat</td>";
+        echo "<td>$row->user_nama</td>";
+        echo "<td>$row->jadwalevent_tanggal</td>";
+        echo "<td>$row->event_namaevent</td>";
 
 
 
@@ -27,6 +30,7 @@
         echo "   |   <a class=\"delbuttonsertifikat\" id=\"\" href=\"#\" >Delete</a></td>";
 
         echo "</td></tr>";
+        }
         ?>
 
     </tbody> 
