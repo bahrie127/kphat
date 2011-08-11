@@ -27,14 +27,6 @@
 
                 <div id="tabs-1" class="block no_padding">
 
-
-                        <select name="group" id="kategori"> 
-                            <?php foreach ($data as $row): ?>
-                            <option value="<?php echo $row->codegroup; ?>">
-                                    <?php echo $row->namagroup; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-
                     <div id="show21">
 
                         <?php $this->load->view('admin2/admin2view/masterView/showtablepage'); ?>
