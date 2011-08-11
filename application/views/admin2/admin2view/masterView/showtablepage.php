@@ -2,7 +2,9 @@
             <thead> 
                 <tr> 
                     <th>No</th> 
+
                     <th>judul</th> 
+
                     <th>Isi</th> 
                     <th>Kategori</th> 
                     
@@ -13,19 +15,23 @@
     <tbody> 
         <?
         $i = 0;
+
          foreach ($data as $row) {
             $i++;
             echo "<tr class=\"record\">";
             echo "<td>$i</td>";
             echo "<td>$row->judul</td>";
+
             echo "<td>isi</td>";
             echo "<td>kategori</td>";
             
             
+
             echo "<td align=\"center\"><a href=\"edit/$row->codehalaman\" >Edit</a>";
             echo " </td>";
             echo "</tr>";
          }
+
         ?>
 
     </tbody> 

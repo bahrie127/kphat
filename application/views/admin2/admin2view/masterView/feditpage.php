@@ -11,7 +11,11 @@
         </div><!-- #nav_top -->
 
         <div class="flat_area grid_16">
+<<<<<<< HEAD
+            <h2><a href="<?php echo base_url(); ?>index.php/admin2/page"> << Back TO Show table page</a></h2>
+=======
             <h2><a href="<?php echo base_url(); ?>index.php/admin2/page/"> << Back TO Show table page</a></h2>
+>>>>>>> bb7f4822cb4e8d630cef8cf43beeeac710c59d4c
         </div>
         <div class="box grid_16 round_all">
             <h2 class="box_head grad_colour">Edit Page</h2>
@@ -19,6 +23,28 @@
             <a href="#" class="toggle">&nbsp;</a>
             <div class="toggle_container">
                 <div class="block">
+<<<<<<< HEAD
+                    <?php echo form_open_multipart(base_url() . 'index.php/admin2/page'); ?> 
+
+                    <label>Kode Page</label> 
+                    <input name="codepage" value=""title="Berisi kode event" type="text" class="medium required" autofocus> 
+
+
+                    <label>Isi</label> 
+                    <textarea name="materi"></textarea>
+                    <br/>
+
+                    <label>Kategori</label> 
+                    <div class="input_group">
+
+                        <select name="kategori" id="kategori"> 
+                            <option value="">
+                                Kategorinya</option>
+
+                        </select>
+                    </div>
+
+=======
                     <?php echo form_open(base_url() . 'index.php/admin2/page/update'); ?> 
                     <?php foreach ($data as $row): ?>
                         <label>Judul Informasi</label> 
@@ -41,6 +67,7 @@
 
                         </div>
                     <?php endforeach; ?>
+>>>>>>> bb7f4822cb4e8d630cef8cf43beeeac710c59d4c
                     <input class="btnsub" type="submit" value="Submit">
                     </form>
 
