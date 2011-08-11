@@ -19,23 +19,24 @@
             <a href="#" class="toggle">&nbsp;</a>
             <div class="toggle_container">
                 <div class="block">
-                    <?php echo form_open_multipart(base_url() . 'index.php/admin2/page'); ?> 
+                    <?php echo form_open(base_url() . 'index.php/admin2/page/add'); ?> 
 
-                    <label>Kode Page</label> 
-                    <input name="codepage" value=""title="Berisi kode event" type="text" class="medium required" autofocus> 
+                    <label>Judul Informasi</label> 
+                    <input name="judul" value=""title="Berisi Judul Informasi" type="text" class="medium required" autofocus> 
 
 
                     <label>Isi</label> 
-                    <textarea name="materi"></textarea>
+                    <textarea name="isi"></textarea>
                     <br/>
 
                     <label>Kategori</label> 
                     <div class="input_group">
 
-                        <select name="kategori" id="kategori"> 
-                            <option value="">
-                                Kategorinya</option>
-
+                        <select name="group" id="kategori"> 
+                            <?php foreach ($data as $row): ?>
+                            <option value="<?php echo $row->codegroup; ?>">
+                                    <?php echo $row->namagroup; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
 

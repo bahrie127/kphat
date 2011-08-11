@@ -8,7 +8,7 @@
 
 
             <th>Total Dikembalikan</th>
-            <th>Pembatalan</th> 
+            
 
         </tr> 
     </thead> 
@@ -21,13 +21,7 @@
             echo "<td>$i</td>";
             echo "<td>$row->tagihan_codepembayaran</td>";
             echo "<td>$row->user_nama</td>";
-
-
-            echo "<td>-</td>";
-
-
-            echo "<td align=\"center\"><a href=\"pembatalan/batal\" >Batal</a>";
-
+            echo "<td>$row->batalpembayaran_jumlah</td>";
             echo "</td></tr>";
         }
             ?>

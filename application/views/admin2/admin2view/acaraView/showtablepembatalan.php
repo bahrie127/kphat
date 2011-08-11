@@ -5,9 +5,8 @@
             <th>No</th> 
             <th>Code</th> 
             <th>Nama Peserta</th> 
+            <th>Tanggal</th>
 
-
-            <th>Total Dikembalikan</th>
             <th>Pembatalan</th> 
 
         </tr> 
@@ -15,22 +14,22 @@
     <tbody> 
         <?
         $i = 0;
-        foreach ($data as $row) {
+        foreach ($cek as $row) {
             $i++;
             echo "<tr>";
             echo "<td>$i</td>";
             echo "<td>$row->tagihan_codepembayaran</td>";
             echo "<td>$row->user_nama</td>";
-
-
-            echo "<td>$row->batalpembayaran_jumlah</td>";
-
-
-            echo "<td align=\"center\"><a href=\"pembatalan/batal/$row->tagihan_codepembayaran\" >Batal</a>";
-
+            echo "<td>$row->tagihan_tanggal</td>";
+            if($row->tagihan_status=="batal"){
+            echo '<td>dibatalkan</td>';
+            }else{
+                echo "<td align=\"center\"><a href=\"pembatalan/batal/$row->tagihan_codepembayaran\" >Batal</a>";
+                
+            }
             echo "</td></tr>";
         }
-            ?>
+        ?>
     </tbody> 
 </table>
 

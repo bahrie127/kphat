@@ -7,14 +7,15 @@
     <section class="blog">
 
         <div id="posts">
+            <?php foreach ($page as $row): ?>
             <article>
                 <!--------------------- Judul Event ----------------->
                 <div class="title">
-                    <h1><a href="">What is HAT TRAINING</a></h1>
+                    <h1><a href=""><?php echo $row->judul;?></a></h1>
                     <div class="clear"></div>
                 </div>
                 <div class="elements">
-                    <p class="big">
+<!--                    <p class="big">
 				X-code Hat Training adalah Training hacking dan pengamanannya 
 				yang berbasis white hat dengan pelatihan yang lebih difokuskan pada praktek.
                     </p>
@@ -29,15 +30,17 @@
                     </p>
                     <p class="big">
 				Ethical Hacker atau hacker beretika menggunakan standard Ethical X-code. 
-                    </p>		
+                    </p>		-->
+                                <?php echo $row->isi; ?>
                     <hr/>
 
 
                 </div>
 
             </article>
-            <article>
-                <!--------------------- Judul Event ----------------->
+            <?php endforeach; ?>
+<!--            <article>
+                ------------------- Judul Event ---------------
                 <div class="title">
                     <h1><a href="">How to apply</a></h1>
                     <div class="clear"></div>
@@ -58,7 +61,7 @@
 
             </article>
             <article id="bayar">
-                <!--------------------- Judul Event ----------------->
+                ------------------- Judul Event ---------------
                 <div class="title">
                     <h1><a href="">Pembayaran</a></h1>
                     <div class="clear"></div>
@@ -83,7 +86,7 @@
 
                 </div>
 
-            </article>
+            </article>-->
 
             <div class="clear"></div>
 

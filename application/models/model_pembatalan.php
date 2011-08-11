@@ -11,5 +11,10 @@ class Model_pembatalan extends CI_Model {
             return $insert;
         }
         
+        function change_status($id,$data){
+            $this->db->where('codepembayaran',$id);
+            $update=$this->db->update('tagihan',$data);
+            return $update;
+        }
 }
 ?>

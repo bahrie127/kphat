@@ -31,10 +31,20 @@ class pembatalan extends CI_Controller {
     }
 
     function index() {
-        if ($this->model_join->get_batal_admin() == FALSE) {
-            $data['data'] = array();
+        if ($this->model_join->get_batal_bayar_admin() == FALSE) {
+            $data['cek'] = array();
+            if ($this->model_join->get_batal_admin() == FALSE) {
+                $data['data'] = array();
+            } else {
+                $data['data'] = $this->model_join->get_batal_admin();
+            }
         } else {
-            $data['data'] = $this->model_join->get_batal_admin();
+            $data['cek'] = $this->model_join->get_batal_bayar_admin();
+            if ($this->model_join->get_batal_admin() == FALSE) {
+                $data['data'] = array();
+            } else {
+                $data['data'] = $this->model_join->get_batal_admin();
+            }
         }
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/fpembatalan', $data);
@@ -73,6 +83,10 @@ class pembatalan extends CI_Controller {
             $this->model_detail_pembatalan->add($datadetailbatal);
         }
 
+        $datachange=array(
+            'status'=>'batal'
+        );
+        $this->model_pembatalan->change_status($this->input->post('codepembayaran'),$datachange);
         $this->index();
     }
 
