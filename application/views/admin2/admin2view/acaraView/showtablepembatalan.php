@@ -5,7 +5,7 @@
             <th>No</th> 
             <th>Code</th> 
             <th>Nama Peserta</th> 
-<!--            <th>Event Yang Diikuti</th>-->
+
 
             <th>Total Dikembalikan</th>
             <th>Pembatalan</th> 
@@ -33,6 +33,7 @@
             ?>
     </tbody> 
 </table>
+
 <script text="javascript">
     $(document).ready(function() {
         // DataTables Config (more info can be found at http://www.datatables.net/)

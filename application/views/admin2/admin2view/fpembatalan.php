@@ -33,5 +33,27 @@
 
             </div>
         </div>
+        
+        <div  class="box grid_16 round_all tabs ui-tabs ui-widget ui-widget-content ui-corner-all" id="show">
+            <ul id="touch_sort" class="tab_header grad_colour round_top clearfix">
+                <li><a href="#tabs-1" class="round_top">Data Cancel</a></li>
+
+            </ul>	
+            <a href="#" class="grabber">&nbsp;</a>
+            <a href="#" class="toggle">&nbsp;</a>
+            <div class="toggle_container" >
+
+                <div id="tabs-1" class="block no_padding">
+
+                    <div id="show21">
+
+                        <?php $this->load->view('admin2/admin2view/acaraView/showtablepembatalan2'); ?>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
     </div>
 </div>
