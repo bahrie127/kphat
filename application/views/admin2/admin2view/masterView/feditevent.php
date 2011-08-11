@@ -10,7 +10,7 @@
 
         </div><!-- #nav_top -->
 
-        <div class="flat_area grid_8">
+        <div class="flat_area grid_16">
             <h2><a href="<?php echo base_url(); ?>index.php/admin2/event"> << Back TO Event</a></h2>
         </div>
         <div class="box grid_16 round_all">
@@ -40,7 +40,7 @@
                     <input type="hidden" name="gambar2" value="<?php echo $row->gambar; ?>"/>
                     <br/>
 
-                    <input type="submit" value="Update">
+                    <input class="btnsub" type="submit" value="Update">
                     <?php endforeach;?>
                     </form>
                     

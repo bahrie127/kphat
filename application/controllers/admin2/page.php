@@ -27,6 +27,7 @@ class page extends CI_Controller {
     }
     
     function add(){
+
          $datestring = "%Y-%m-%d";
         $time = time();
         $date = mdate($datestring, $time);   
@@ -40,6 +41,7 @@ class page extends CI_Controller {
         $this->model_page->add($datapage);
         redirect('admin2/dashboar');
     }
+
 
 }
 
