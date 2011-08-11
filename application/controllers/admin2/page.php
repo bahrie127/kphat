@@ -20,7 +20,8 @@ class page extends CI_Controller {
     }
 
     function index() {
-        $data['data'] = $this->model_page->get_all_group();
+        $data['kategori'] = $this->model_page->get_all_group();
+        $data['data'] = $this->model_page->get_all_page();
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/fpage', $data);
         $this->load->view('admin2/footer');
@@ -42,6 +43,19 @@ class page extends CI_Controller {
         redirect('admin2/dashboar');
     }
 
+    function edit($id="") {
+        if ($this->model_page->get_page_by_id($id) == FALSE) {
+            $data['data'] = array();
+        } else {
+            $data['data'] = $this->model_page->get_page_by_id($id);
+            $data['kategori'] = $this->model_page->get_all_group();
+        }
+
+
+        $this->load->view('admin2/header');
+        $this->load->view('admin2/admin2view/masterView/feditpage', $data);
+        $this->load->view('admin2/footer');
+    }
 
 }
 

@@ -48,5 +48,18 @@ class Model_page extends CI_Model {
 			return FALSE;
 		}
         }
+        
+        function get_page_by_id($id){
+            $this->db->where('codehalaman',$id);
+            $query = $this->db->get('halaman');
+		if ($query->num_rows() > 0)
+		{
+			return $query->result();
+		}
+		else
+		{
+			return FALSE;
+		}
+        }
 }
 ?>
