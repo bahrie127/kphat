@@ -24,11 +24,11 @@
             
 
 
-            <input id="gambar" type="file" name="gambar"></div>
+            <input  id="gambar" type="file" name="gambar"></div>
 
         <br/>
 <!--        <button class="button_colour round_all" ><img height="24" width="24" alt="Bended Arrow Right" src="<?php echo base_url(); ?>imgadmin2/icons/small/white/Bended%20Arrow%20Right.png"><span>Submit</span></button>-->
-        <input type="submit" value="kirim">
+        <input class="btnsub" type="submit" src="<?php echo base_url(); ?>imgadmin2/icons/small/white/Bended%20Arrow%20Right.png" value="Kirim">
     </form>
     </div>
 </div>

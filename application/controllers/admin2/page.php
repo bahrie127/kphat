@@ -21,6 +21,18 @@ class page extends CI_Controller{
         $this->load->view('admin2/admin2view/fpage');
         $this->load->view('admin2/footer');
     }
+    
+    function add(){
+        $this->load->view('admin2/header');
+        $this->load->view('admin2/admin2view/masterView/faddpage');
+        $this->load->view('admin2/footer');
+    }
+    
+    function edit(){
+        $this->load->view('admin2/header');
+        $this->load->view('admin2/admin2view/masterView/feditpage');
+        $this->load->view('admin2/footer');
+    }
 }
 
 ?>
