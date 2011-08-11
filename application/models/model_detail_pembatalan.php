@@ -7,7 +7,7 @@ class Model_detail_pembatalan extends CI_Model {
         }
 
         function add($data){
-            $insert=$this->db->insert('detailbayarpembayaran',$data);
+            $insert=$this->db->insert('detailbatalpembayaran',$data);
             return $insert;
         }
 }

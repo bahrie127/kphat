@@ -23,10 +23,10 @@
             echo "<td>$row->user_nama</td>";
 
 
-            echo "<td>-</td>";
+            echo "<td>$row->batalpembayaran_jumlah</td>";
 
 
-            echo "<td align=\"center\"><a href=\"pembatalan/batal\" >Batal</a>";
+            echo "<td align=\"center\"><a href=\"pembatalan/batal/$row->tagihan_codepembayaran\" >Batal</a>";
 
             echo "</td></tr>";
         }
