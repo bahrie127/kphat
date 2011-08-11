@@ -1,32 +1,25 @@
 <div class="toggle_container">
     <div class="block">
-        <form>
+
+        <?php echo  form_open_multipart(base_url().'index.php/admin2/sertifikat/add');  ?> 
+
         <label>No. Serifikat</label> 
         <input id="nosertifikat" name="nosertifikat" title="Berisi NO. sertifikat" type="text" class="medium required LV_valid_field" autofocus> 
 
        
         
         <label>Nama Pemegang</label> 
-        <div class="input_group">
-            <select name="nama" id="nama"> 
-                <option value="">Fendithuk
-                        </option>
-                
-            </select>
-        </div>
+
+        <input id="nama" name="codeuser" title="Berisi codeuser" type="text" class="medium required LV_valid_field"> 
+        
 
         <label>Event yang di ikuti</label> 
-        <div class="input_group">
-
-            <select name="pemateri" id="codepemateri"> 
-                    <option value="">
-                        Pra Web Hacking
-                    </option>
-            </select>
-        </div>
+        <input id="codejadwalevent" name="codejadwalevent" title="Berisi codejadwalevent" type="text" class="medium required LV_valid_field"> 
+     
 
         
-        <button class="button_colour round_all" id="kirim"><img height="24" width="24" alt="Bended Arrow Right" src="<?php echo base_url(); ?>imgadmin2/icons/small/white/Bended%20Arrow%20Right.png"><span>Submit</span></button>
+        <input type="submit" class="btnsub" value="Submit">
+
         </form>
     </div>
 </div>
@@ -42,28 +35,26 @@
     $('#kirim').click(function(){
         //alert('jalan');
         var form_data={
-            codejadwal: $('#codejadwal').val(),
-            codeevent: $('#codeevent').val(),
-            codetempat: $('#codetempat').val(),
-            codepemateri: $('#codepemateri').val(),
-            waktu: $('#waktu').val(),
-            tanggal: $('#tanggal').val(),
-            harga: $('#harga').val(),
+
+            nosertifikat: $('#nosertifikat').val(),
+            codeuser: $('#codeuser').val(),
+            codejadwalevent: $('#codejadwalevent').val(),
+            
             ajax:1
         };
         $.ajax({
-            url : "<?php echo site_url('admin2/jadwal/add') ?>",
+            url : "<?php echo site_url('admin2/sertifikat/add') ?>",
+
             type : 'POST',
             data : form_data,
             success: function(msg){
             
-                $('#codejawal').val(''),
-                $('#codeevent').val(''),
-                $('#codetempat').val(''),
-                $('#codepemateri').val(''),
-                $('#waktu').val(''),
-                $('#tanggal').val(''),
-                $('#harga').val('')
+
+                $('#noserfitikat').val(''),
+                $('#codeuser').val(''),
+                $('#codejadwalevent').val(''),
+                
+
                 // alert('data telah tersimpan');
                 window.location='';
             }

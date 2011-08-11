@@ -1,13 +1,3 @@
-<ul id="touch_sort" class="tab_header grad_colour round_top clearfix">
-    <li><a href="#tabs-1" class="round_top">Lihat Data</a></li>
-
-
-</ul>	
-<a href="#" class="grabber">&nbsp;</a>
-<a href="#" class="toggle">&nbsp;</a>
-<div class="toggle_container">
-
-    <div id="tabs-1" class="block no_padding">
         <table class="display datatable" > 
             <thead> 
                 <tr> 
@@ -43,4 +33,4 @@
             </tbody> 
         </table>
 
-    </div>
+    

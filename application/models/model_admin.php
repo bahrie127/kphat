@@ -16,7 +16,7 @@ class Model_admin extends CI_Model {
 		return $query;
 	}
         
-        function add(){
+        function add($data){
             $insert=$this->db->insert('admin',$data);
             return $insert;
         }

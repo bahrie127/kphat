@@ -36,6 +36,19 @@ class Admin extends CI_Controller {
         $this->load->view('admin2/footer');
     }
 
+    function add(){
+        $dataadmin=array(
+          'codeadmin'=>  $this->input->post('codeadmin'),
+            'nama'=>  $this->input->post('nama'),
+            'telepon'=>  $this->input->post('telepon'),
+            'email'=>  $this->input->post('email'),
+            'username'=>  $this->input->post('username'),
+            'password'=>  $this->input->post('password')
+        );
+        $this->model_admin->add($dataadmin);
+        $this->index();
+    }
+    
 }
 
 ?>
