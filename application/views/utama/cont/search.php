@@ -12,7 +12,7 @@
                         <form action="<?php echo base_url()?>index.php/search/cari" method="post" id="">
 
                             <p>
-                                <label for="name">Cari </label>
+                                <label for="name">NO. Sertifikat</label>
                                 <input type="text" name="cari" id="no_sertifikat" value="cari" onkeyup="noSertifikat(no_sertifikat.value)"/>
                                 
                             </p>
