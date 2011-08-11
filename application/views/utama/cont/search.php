@@ -14,7 +14,6 @@
                             <p>
                                 <label for="name">Cari </label>
                                 <input type="text" name="cari" id="no_sertifikat" value="cari" onkeyup="noSertifikat(no_sertifikat.value)"/>
-                                <input type="submit" name="submit"  class="btn3" value="Search" />
                                 
                             </p>
                             <br/>
