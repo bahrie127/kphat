@@ -27,6 +27,11 @@
 
 
 
+<<<<<<< HEAD
+=======
+//        echo "<td align=\"center\"><a href=\"#\" class=\"edit\">Edit</a>";
+//        echo "   |   <a class=\"delbuttonsertifikat\" id=\"\" href=\"#\" >Delete</a></td>";
+>>>>>>> 073e60302c324fe85c1e3f52ac3a9c2dfed99ccb
 
         echo "</tr>";
 
