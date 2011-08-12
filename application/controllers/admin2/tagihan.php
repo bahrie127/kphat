@@ -21,6 +21,7 @@ class Tagihan extends CI_Controller {
             $this->load->model('model_join');
             $this->load->helper('date');
             $this->load->model('model_tagihan');
+            $this->load->library('form_validation');
         }
     }
 
@@ -37,17 +38,24 @@ class Tagihan extends CI_Controller {
     }
 
     function update() {
-        $datestring = "%Y-%m-%d";
-        $time = time();
-        $date = mdate($datestring, $time);
-        $data = array(
-            'status' => "bayar",
-            'tanggal' => $date
-        );
-        $id = $this->input->post('id');
-        $this->model_tagihan->update_data($id, $data);
-        $data['data'] = $this->model_join->get_tagih_admin();
-        $this->load->view('admin2/admin2view/acaraView/showtabletagihan', $data);
+
+        $this->form_validation->set_rules('codejadwalevent', 'Full Name', 'required|xss_clean');
+        if ($this->form_validation->run() == TRUE) {
+
+            $datestring = "%Y-%m-%d";
+            $time = time();
+            $date = mdate($datestring, $time);
+            $data = array(
+                'status' => "bayar",
+                'tanggal' => $date
+            );
+            $id = $this->input->post('id');
+            $this->model_tagihan->update_data($id, $data);
+            $data['data'] = $this->model_join->get_tagih_admin();
+            $this->load->view('admin2/admin2view/acaraView/showtabletagihan', $data);
+        } else {
+            redirect('admin2/tagihan');
+        }
     }
 
 }

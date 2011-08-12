@@ -7,7 +7,7 @@
             <th>Gambar</th>
            
 
-            <th>Update | Delete</th> 
+            <th>Update</th> 
 
         </tr> 
     </thead> 
@@ -26,8 +26,8 @@
             
 
             echo "<td align=\"center\"><a href=\"event/edit/$row->codeivent\">Edit</a>";
-            echo "   |   <a class=\"delbuttonevent\" id=\"$row->codeivent\" href=\"#\" >Delete</a></td>";
-            echo "</tr>";
+//            echo "   |   <a class=\"delbuttonevent\" id=\"$row->codeivent\" href=\"#\" >Delete</a></td>";
+            echo "</td></tr>";
         }
         ?>
 

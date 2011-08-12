@@ -24,7 +24,13 @@
             echo "<td>$row->tagihan_jumlahharga</td>";
             echo "<td>$row->tagihan_tanggal</td>";
             echo "<td>$row->tagihan_status</td>";
-            echo "<td align=\"center\"><a href=\"#\" class=\"conbuttontagihan\" idtagihan=\"$row->tagihan_codepembayaran\">Confirm</a>";
+            echo "<td align=\"center\">"; 
+            if($row->tagihan_status=="belum"){
+                echo "<a href=\"#\" class=\"conbuttontagihan\" idtagihan=\"$row->tagihan_codepembayaran\">Confirm</a>";
+            }  else{
+                echo "sudah diconfirm";
+            }
+            
             
             echo "</td></tr>";
         }

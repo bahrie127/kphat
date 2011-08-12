@@ -18,6 +18,7 @@ class jadwal extends CI_Controller {
         if (!$this->ion_auth->logged_in()) {
             redirect('/login', 'refresh');
         } else {
+            $this->load->library('form_validation');
             $this->load->model('model_tempat');
             $this->load->model('model_event');
             $this->load->model('model_pemateri');
@@ -110,6 +111,17 @@ class jadwal extends CI_Controller {
     }
 
     function add() {
+        
+        $this->form_validation->set_rules('codejadwal', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('codeevent', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('tanggal', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('waktu', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('codepemateri', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('codetempat', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('harga', 'Full Name', 'required|xss_clean');
+        
+        if($this->form_validation->run()==TRUE){
+        
         $data = array(
             'codejadwalevent' => $this->input->post('codejadwal'),
             'codeevent' => $this->input->post('codeevent'),
@@ -120,10 +132,24 @@ class jadwal extends CI_Controller {
             'harga' => $this->input->post('harga')
         );
         $this->model_jadwal_event->add($data);
+        }else{
+            redirect('admin2/jadwal');
+        }
+           
     }
 
     function update() {
 
+        
+        $this->form_validation->set_rules('codeevent', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('tanggal', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('waktu', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('codepemateri', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('codetempat', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('harga', 'Full Name', 'required|xss_clean');
+        
+        if($this->form_validation->run()==TRUE){
+        
         $data = array(
             'codeevent' => $this->input->post('codeevent'),
             'codepemateri' => $this->input->post('codepemateri'),
@@ -136,6 +162,10 @@ class jadwal extends CI_Controller {
         $this->model_jadwal_event->update_data($id, $data);
         $data['data'] = $this->model_join->get_jadwal_event_admin();
         $this->load->view('admin2/admin2view/acaraView/showtablejadwal', $data);
+        
+        }else{
+            redirect('admin2/jadwal');
+        }
     }
 
 }

@@ -16,9 +16,19 @@ class sertifikat extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+<<<<<<< HEAD
         $this->load->model('model_join');
         $this->load->model('model_sertifikat');
         $this->load->model('model_event');
+=======
+        if (!$this->ion_auth->logged_in()) {
+            redirect('/login', 'refresh');
+        } else {
+            $this->load->model('model_join');
+            $this->load->model('model_sertifikat');
+            $this->load->library('form_validation');
+        }
+>>>>>>> 07aa9cfa9412dcf1f2069b7c6583dec0063a9222
     }
 
     function index() {
@@ -40,6 +50,7 @@ class sertifikat extends CI_Controller {
     }
 
     function add() {
+<<<<<<< HEAD
         $datasertifikat = array(
             'nosertifikat' => $this->input->post('nosertifikat'),
             'codeuser' => $this->input->post('codeuser'),
@@ -51,6 +62,26 @@ class sertifikat extends CI_Controller {
 //         $data['data'] = $this->model_join->get_all_sertifikat();
 //         $this->load->view('admin2/admin2view/acaraView/showtablesertifikat',$data);
         $this->index();
+=======
+        $this->form_validation->set_rules('nosertifikat', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('codeuser', '-', 'required|xss_clean');
+        $this->form_validation->set_rules('codejadwalevent', 'Full Name', 'required|xss_clean');
+
+        if ($this->form_validation->run() == TRUE) {
+
+            $datasertifikat = array(
+                'nosertifikat' => $this->input->post('nosertifikat'),
+                'codeuser' => $this->input->post('codeuser'),
+                'codejadwalevent' => $this->input->post('codejadwalevent')
+            );
+
+            $this->model_sertifikat->add($datasertifikat);
+//      
+            redirect('admin2/sertifikat');
+        } else {
+            redirect('admin2/sertifikat');
+        }
+>>>>>>> 07aa9cfa9412dcf1f2069b7c6583dec0063a9222
     }
 
     function findNama() {

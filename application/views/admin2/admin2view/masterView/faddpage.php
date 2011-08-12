@@ -1,9 +1,9 @@
 
             <div class="toggle_container">
                 <div class="block">
-                    <?php echo form_open_multipart(base_url() . 'index.php/admin2/page'); ?> 
+                    <?php echo form_open(base_url() . 'index.php/admin2/page/add'); ?> 
 
-                    <label>Kode Page</label> 
+                    <label>Judul</label> 
                     <input name="codepage" value=""title="Berisi kode event" type="text" class="medium required" autofocus> 
 
 
@@ -13,10 +13,12 @@
 
                     <label>Kategori</label> 
                     <div class="input_group">
-
+                        
                         <select name="kategori" id="kategori"> 
-                            <option value="">
-                                Kategorinya</option>
+                            <?php foreach ($kategori as $row):?>
+                            <option value="<?php echo $row->codegroup;?>">
+                                    <?php echo $row->namagroup;?></option>
+                            <?php endforeach;?>
 
                         </select>
                     </div>
