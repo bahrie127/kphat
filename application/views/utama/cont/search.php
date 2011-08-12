@@ -13,7 +13,7 @@
 
                             <p>
                                 <label for="name">NO. Sertifikat</label>
-                                <input type="text" name="cari" id="no_sertifikat" value="cari" onkeyup="noSertifikat(no_sertifikat.value)"/>
+                                <input type="text" name="cari" id="no_sertifikat" value="" onkeyup="noSertifikat(no_sertifikat.value)"/>
                                 
                             </p>
                             <br/>

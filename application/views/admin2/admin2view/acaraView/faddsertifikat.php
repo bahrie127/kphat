@@ -1,24 +1,33 @@
 <div class="toggle_container">
     <div class="block">
+        <form id="add" name="add">
+            <label>No. Serifikat</label> 
+            <input id="nosertifikat" name="nosertifikat" title="Berisi NO. sertifikat" type="text" onclick="findName(isi.value)" class="medium required LV_valid_field" autofocus> 
 
-        <?php echo  form_open_multipart(base_url().'index.php/admin2/sertifikat/add');  ?> 
+            <label>Event yang di ikuti</label> 
+            <div class="input_group">
 
-        <label>No. Serifikat</label> 
-        <input id="nosertifikat" name="nosertifikat" title="Berisi NO. sertifikat" type="text" class="medium required LV_valid_field" autofocus> 
+                <select name="event" id="event"  onchange="showKab()">
 
-       
-        
-        <label>Nama Pemegang</label> 
+                    <?php foreach ($cari as $row) : ?>
+                        <option name="isi" id="isi" value="<?php echo $row->jadwalevent_codejadwalevent; ?>">
+                            <?php echo $row->event_namaevent; ?></option>
+                    <?php endforeach; ?>
 
-        <input id="nama" name="codeuser" title="Berisi codeuser" type="text" class="medium required LV_valid_field"> 
-        
+                </select>
+            </div>
 
-        <label>Event yang di ikuti</label> 
-        <input id="codejadwalevent" name="codejadwalevent" title="Berisi codejadwalevent" type="text" class="medium required LV_valid_field"> 
-     
 
-        
-        <input type="submit" class="btnsub" value="Submit">
+            <label>Nama Pemegang</label> 
+
+            <div class="input_group">
+                <select name="nama" id="nama">
+                </select>
+            </div>
+
+
+
+            <input type="submit" class="btnsub" value="Submit">
 
         </form>
     </div>
@@ -61,4 +70,49 @@
         });
         return false;
     });
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+
+    function showKab()
+    {
+<?php
+//membaca get all dari controller
+
+foreach ($cari as $row) {
+   
+     $content = "document.getElementById('nama').innerHTML = \"";
+    
+        $content .= "<option value='" . $row->user_nama . "'>" . $row->user_nama . "</option>";
+   
+    $content .= "\"";
+    echo $content;
+    echo "\n";
+}
+
+// membaca semua propinsi
+//$query = "SELECT * FROM propinsi";
+//$hasil = mysql_query($query);
+//
+//// membuat if untuk masing-masing pilihan propinsi beserta isi option untuk combobox kedua
+//while ($data = mysql_fetch_array($hasil)) {
+//    $idProp = $data['idProp'];
+//
+//    // membuat IF untuk masing-masing propinsi
+//    echo "if (document.demo.propinsi.value == \"" . $idProp . "\")";
+//    echo "{";
+//
+//    // membuat option kabupaten untuk masing-masing propinsi
+//    $query2 = "SELECT * FROM kab WHERE idProp = $idProp";
+//    $hasil2 = mysql_query($query2);
+//    $content = "document.getElementById('kabupaten').innerHTML = \"";
+//    while ($data2 = mysql_fetch_array($hasil2)) {
+//        $content .= "<option value='" . $data2['idKab'] . "'>" . $data2['namaKabupaten'] . "</option>";
+//    }
+//    $content .= "\"";
+//    echo $content;
+//    echo "}\n";
+//}
+?>
+     }
 </script>

@@ -10,7 +10,6 @@
  *
  * @author phepen
  */
-
 class sertifikat extends CI_Controller {
 
     //put your code here
@@ -19,6 +18,7 @@ class sertifikat extends CI_Controller {
         parent::__construct();
         $this->load->model('model_join');
         $this->load->model('model_sertifikat');
+        $this->load->model('model_event');
     }
 
     function index() {
@@ -27,24 +27,38 @@ class sertifikat extends CI_Controller {
         } else {
             $data['data'] = $this->model_join->get_all_sertifikat();
         }
+        
+        
+        if ($this->model_join->get_all_peserta() == FALSE) {
+            $data['cari'] = array();
+        } else {
+            $data['cari'] = $this->model_join->get_all_peserta();
+        }
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/fsertifikat', $data);
         $this->load->view('admin2/footer');
     }
-    
-    function add(){
-        $datasertifikat=array(
-          'nosertifikat'=>  $this->input->post('nosertifikat'),
-            'codeuser'=>  $this->input->post('codeuser'),
-            'codejadwalevent'=>  $this->input->post('codejadwalevent')
+
+    function add() {
+        $datasertifikat = array(
+            'nosertifikat' => $this->input->post('nosertifikat'),
+            'codeuser' => $this->input->post('codeuser'),
+            'codejadwalevent' => $this->input->post('codejadwalevent')
         );
         
+
         $this->model_sertifikat->add($datasertifikat);
 //         $data['data'] = $this->model_join->get_all_sertifikat();
 //         $this->load->view('admin2/admin2view/acaraView/showtablesertifikat',$data);
         $this->index();
     }
 
+    function findNama() {
+       // $id = $this->uri->segment(3); //diaktifkan jika sudah rampung semua....
+       // $data['nama'] = $this->model_join->get_data_by_no_sertifikat($id);
+
+        $this->load->view('admin2/admin2view/acaraView/findnama');
+    }
 
 }
 
