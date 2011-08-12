@@ -27,19 +27,9 @@
 
 
 
-<<<<<<< HEAD
-
-        echo "<td align=\"center\"><a href=\"#\" class=\"edit\">Edit</a>";
-        echo "   |   <a class=\"delbuttonsertifikat\" id=\"\" href=\"#\" >Delete</a></td>";
-
-        echo "</td></tr>";
-
-=======
-//        echo "<td align=\"center\"><a href=\"#\" class=\"edit\">Edit</a>";
-//        echo "   |   <a class=\"delbuttonsertifikat\" id=\"\" href=\"#\" >Delete</a></td>";
 
         echo "</tr>";
->>>>>>> 07aa9cfa9412dcf1f2069b7c6583dec0063a9222
+
         }
 
         ?>

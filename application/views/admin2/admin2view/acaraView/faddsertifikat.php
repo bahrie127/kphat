@@ -7,10 +7,10 @@
             <label>Event yang di ikuti</label> 
             <div class="input_group">
 
-                <select name="event" id="event"  onchange="showKab()">
+                <select name="event" id="event"  onchange="findName()">
 
                     <?php foreach ($cari as $row) : ?>
-                        <option name="isi" id="isi" value="<?php echo $row->jadwalevent_codejadwalevent; ?>">
+                        <option name="event" id="event" value="18733257">
                             <?php echo $row->event_namaevent; ?></option>
                     <?php endforeach; ?>
 
@@ -22,6 +22,8 @@
 
             <div class="input_group">
                 <select name="nama" id="nama">
+                    <option>Pilih Nama</option>
+                    
                 </select>
             </div>
 
