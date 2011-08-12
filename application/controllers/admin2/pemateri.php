@@ -19,6 +19,7 @@ class Pemateri extends CI_Controller {
             redirect('/login', 'refresh');
         } else {
             $this->load->model('model_pemateri');
+            $this->load->library('form_validation');
         }
     }
 
@@ -41,35 +42,61 @@ class Pemateri extends CI_Controller {
     }
 
     function add() {
-        $data = array(
-            'codepemateri' => $this->input->post('code'),
-            'nama' => $this->input->post('nama'),
-            'telepon' => $this->input->post('telepon'),
-            'email' => $this->input->post('email')
-        );
-        $this->model_pemateri->add($data);
-        //$this->index();
+
+        $this->form_validation->set_rules('code', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('nama', '-', 'required|xss_clean');
+        $this->form_validation->set_rules('telepon', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('email', '-', 'required|xss_clean|valid_email');
+
+        if ($this->form_validation->run() == TRUE) {
+
+            $data = array(
+                'codepemateri' => $this->input->post('code'),
+                'nama' => $this->input->post('nama'),
+                'telepon' => $this->input->post('telepon'),
+                'email' => $this->input->post('email')
+            );
+            $this->model_pemateri->add($data);
+            //$this->index();
+        } else {
+            redirect('admin2/pemateri');
+        }
     }
 
     function update() {
 
-        $data = array(
-            'nama' => $this->input->post('nama'),
-            'telepon' => $this->input->post('telephone'),
-            'email' => $this->input->post('email')
-        );
-        $id = $this->input->post('codepemateri');
-        $this->model_pemateri->update_data($id, $data);
-        $data['data'] = $this->model_pemateri->get_all();
-        $this->load->view('admin2/admin2view/masterView/showtablepemateri', $data);
+        $this->form_validation->set_rules('code', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('nama', '-', 'required|xss_clean');
+        $this->form_validation->set_rules('telepon', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('email', '-', 'required|xss_clean|valid_email');
+
+        if ($this->form_validation->run() == TRUE) {
+
+            $data = array(
+                'nama' => $this->input->post('nama'),
+                'telepon' => $this->input->post('telephone'),
+                'email' => $this->input->post('email')
+            );
+            $id = $this->input->post('codepemateri');
+            $this->model_pemateri->update_data($id, $data);
+            $data['data'] = $this->model_pemateri->get_all();
+            $this->load->view('admin2/admin2view/masterView/showtablepemateri', $data);
+        } else {
+            redirect('admin2/pemateri');
+        }
     }
 
     function delete() {
-        $id = $this->input->post('id');
-        $this->model_pemateri->delete_data($id);
-        $data['data'] = $this->model_pemateri->get_all();
+        $this->form_validation->set_rules('id', 'Full Name', 'required|xss_clean');
+        if ($this->form_validation->run() == TRUE) {
+            $id = $this->input->post('id');
+            $this->model_pemateri->delete_data($id);
+            $data['data'] = $this->model_pemateri->get_all();
 
-        $this->load->view('admin2/admin2view/masterView/showtablepemateri', $data);
+            $this->load->view('admin2/admin2view/masterView/showtablepemateri', $data);
+        } else {
+            redirect('admin2/pemateri');
+        }
     }
 
 }

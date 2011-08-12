@@ -15,7 +15,11 @@ class peserta extends CI_Controller {
     //put your code here
     public function __construct() {
         parent::__construct();
-        $this->load->model('model_join');
+        if (!$this->ion_auth->logged_in()) {
+            redirect('/login', 'refresh');
+        } else {
+            $this->load->model('model_join');
+        }
     }
 
     function index() {
@@ -24,9 +28,9 @@ class peserta extends CI_Controller {
         } else {
             $data['data'] = $this->model_join->get_all_peserta();
         }
-        
+
         $this->load->view('admin2/header');
-        $this->load->view('admin2/admin2view/fpeserta',$data);
+        $this->load->view('admin2/admin2view/fpeserta', $data);
         $this->load->view('admin2/footer');
     }
 

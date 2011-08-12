@@ -27,7 +27,7 @@
             
             
 
-            echo "<td align=\"center\"><a href=\"edit/$row->codehalaman\" >Edit</a>";
+            echo "<td align=\"center\"><a href=\"page/edit/$row->codehalaman\" >Edit</a>";
             echo " </td>";
             echo "</tr>";
          }

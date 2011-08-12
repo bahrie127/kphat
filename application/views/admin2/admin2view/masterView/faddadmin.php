@@ -1,8 +1,8 @@
 <div class="toggle_container">
     <div class="block">
         <?php echo form_open_multipart(base_url() . 'index.php/admin2/admin/add'); ?> 
-        <label>Kode Admin</label> 
-        <input name="codeadmin" title="Berisi kode admin" type="text" class="medium required" autofocus> 
+<!--        <label>Kode Admin</label> 
+        <input name="codeadmin" title="Berisi kode admin" type="text" class="medium required" autofocus> -->
 
         <label>Nama</label> 
         <input name="nama" title="Berisi nama" type="text" class="large">

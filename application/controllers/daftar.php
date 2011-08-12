@@ -15,6 +15,7 @@ class Daftar extends CI_Controller {
         $this->load->helper('string');
 
         $this->load->helper('date');
+        $this->load->library('form_validation');
         $this->load->model('model_user');
         $this->load->model('model_pendaftaran');
         $this->load->model('model_tagihan');
@@ -35,69 +36,85 @@ class Daftar extends CI_Controller {
     }
 
     function add() {
-        $this->codeuser = random_string('numeric', 8);
-        $this->codetagihan = random_string('alnum', 8);
-        $datestring = "%Y-%m-%d";
-        $time = time();
-        $date = mdate($datestring, $time);
-        $tahunlahir=$this->input->post('tahun');
-        $bulanlahir=$this->input->post('bulan');
-        $tanggallahir= $this->input->post('tanggal');
-        $lahir="$tahunlahir-$bulanlahir-$tanggallahir";
-        
-       
-        $dataUser = array(
-            'codeuser' => $this->codeuser,
-            'nama' => $this->input->post('name'),
-            'alamat' => $this->input->post('alamat'),
-            'jeniskelamin' => $this->input->post('ck'),
-            'telepon' => $this->input->post('telp'),
-            'email' => $this->input->post('email'),
-            'tempatlahir' => $this->input->post('tempatlahir'),
-            'tanggallahir' => $lahir,
-            'pekerjaan' => $this->input->post('pekerjaan'),
-            'instansi' => $this->input->post('instansi')
-        );
-        $this->model_user->add($dataUser);
 
-        
-        foreach ($this->input->post('event') as $row) {
-            $this->hitungHarga($row);
-            $dataPendaftaran = array(
+        $this->form_validation->set_rules('name', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|xss_clean');
+        $this->form_validation->set_rules('ck', 'Jenis Kelamin', 'required|xss_clean');
+        $this->form_validation->set_rules('telp', 'Telepon', 'required|xss_clean|max_length[14]');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('tempatlahir', 'Tempat Lahir', 'required|xss_clean');
+        $this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required|xss_clean');
+        $this->form_validation->set_rules('instansi', 'Instansi', 'required|xss_clean');
+
+        if ($this->form_validation->run() == TRUE) {
+
+            $this->codeuser = random_string('numeric', 8);
+            $this->codetagihan = random_string('alnum', 8);
+            $datestring = "%Y-%m-%d";
+            $time = time();
+            $date = mdate($datestring, $time);
+            $tahunlahir = $this->input->post('tahun');
+            $bulanlahir = $this->input->post('bulan');
+            $tanggallahir = $this->input->post('tanggal');
+            $lahir = "$tahunlahir-$bulanlahir-$tanggallahir";
+
+
+            $dataUser = array(
                 'codeuser' => $this->codeuser,
-                'codejadwalevent' => $row,
-                'tanggal' => $date
+                'nama' => $this->input->post('name'),
+                'alamat' => $this->input->post('alamat'),
+                'jeniskelamin' => $this->input->post('ck'),
+                'telepon' => $this->input->post('telp'),
+                'email' => $this->input->post('email'),
+                'tempatlahir' => $this->input->post('tempatlahir'),
+                'tanggallahir' => $lahir,
+                'pekerjaan' => $this->input->post('pekerjaan'),
+                'instansi' => $this->input->post('instansi')
             );
-            $this->model_pendaftaran->add($dataPendaftaran);
-        }
-
-        $dataTagihan = array(
-            'codepembayaran' => $this->codetagihan,
-            'codeuser' => $this->codeuser,
-            'status' => "belum",
-            'jumlahharga' => $this->totalTagihan
-        );
+            $this->model_user->add($dataUser);
 
 
-        $this->model_tagihan->add($dataTagihan);
-        foreach ($this->input->post('event') as $row) {
-            $dataDetailTagihan = array(
+            foreach ($this->input->post('event') as $row) {
+                $this->hitungHarga($row);
+                $dataPendaftaran = array(
+                    'codeuser' => $this->codeuser,
+                    'codejadwalevent' => $row,
+                    'tanggal' => $date
+                );
+                $this->model_pendaftaran->add($dataPendaftaran);
+            }
+
+            $dataTagihan = array(
                 'codepembayaran' => $this->codetagihan,
-                'codejadwalevent' => $row
+                'codeuser' => $this->codeuser,
+                'status' => "belum",
+                'jumlahharga' => $this->totalTagihan
             );
-            $this->model_detail_tagihan->add($dataDetailTagihan);
+
+
+            $this->model_tagihan->add($dataTagihan);
+            foreach ($this->input->post('event') as $row) {
+                $dataDetailTagihan = array(
+                    'codepembayaran' => $this->codetagihan,
+                    'codejadwalevent' => $row
+                );
+                $this->model_detail_tagihan->add($dataDetailTagihan);
+            }
+            // 
+            $this->konfirmasi();
+        } else {
+            redirect('daftar');
         }
-        // 
-        $this->konfirmasi();
+//       
     }
 
     function hitungHarga($code) {
         $dataHarga = $this->model_jadwal_event->get_harga($code);
-        
+
         $this->totalTagihan += end($dataHarga);
     }
-    
-    function konfirmasi(){
+
+    function konfirmasi() {
         $data['data'] = $this->totalTagihan;
         $data['cek'] = "";
         $this->load->view('header');

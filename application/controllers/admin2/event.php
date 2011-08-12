@@ -19,6 +19,7 @@ class Event extends CI_Controller {
             redirect('/login', 'refresh');
         } else {
             $this->load->model('model_event');
+            $this->load->library('form_validation');
         }
     }
 
@@ -37,71 +38,92 @@ class Event extends CI_Controller {
     function edit($id="") {
         if ($this->model_event->get_data_by_id($id) == FALSE) {
             $data['data'] = array();
+            redirect('admin2/event');
         } else {
             $data['data'] = $this->model_event->get_data_by_id($id);
-        }
-
-
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/masterView/feditevent', $data);
         $this->load->view('admin2/footer');
+        }
     }
 
     function add() {
 
+        $this->form_validation->set_rules('codeevent', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('namaevent', 'Full Name', 'required|xss_clean');
+        // $this->form_validation->set_rules('gambar', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('materi', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('praktek', 'Full Name', 'required|xss_clean');
 
-        $config['upload_path'] = './uploads';
-        $config['allowed_types'] = 'jpg|jpeg|gif|png';
-        $config['max_size'] = '4000';
-        $config['max_width'] = '2000';
-        $config['max_height'] = '2000';
-        $config['remove_spaces'] = TRUE;
+        if ($this->form_validation->run() == TRUE) {
 
-        $this->load->library('upload', $config);
-        $data = $this->upload->do_upload('gambar');
-        $file = $this->upload->data();
-        $uploadedFiles = $file['file_name'];
+            $config['upload_path'] = './uploads';
+            $config['allowed_types'] = 'jpg|jpeg|gif|png|JPG';
+            $config['max_size'] = '4000';
+            $config['max_width'] = '2000';
+            $config['max_height'] = '2000';
+            $config['remove_spaces'] = TRUE;
 
-        $data = array(
-            'codeivent' => $this->input->post('codeevent'),
-            'namaevent' => $this->input->post('namaevent'),
-            'gambar' => $uploadedFiles,
-            'materi' => $this->input->post('materi'),
-            'praktek' => $this->input->post('praktek')
-        );
-        $this->model_event->add($data);
+            $this->load->library('upload', $config);
+            $data = $this->upload->do_upload('gambar');
+            $file = $this->upload->data();
+            $uploadedFiles = $file['file_name'];
 
-        $this->index();
+            $data = array(
+                'codeivent' => $this->input->post('codeevent'),
+                'namaevent' => $this->input->post('namaevent'),
+                'gambar' => $uploadedFiles,
+                'materi' => $this->input->post('materi'),
+                'praktek' => $this->input->post('praktek')
+            );
+            $this->model_event->add($data);
+
+            //$this->index();
+            redirect('admin2/event');
+        } else {
+            redirect('admin2/event');
+        }
     }
 
     function update() {
 
-        $config['upload_path'] = './uploads';
-        $config['allowed_types'] = 'jpg|jpeg|gif|png';
-        $config['max_size'] = '4000';
-        $config['max_width'] = '2000';
-        $config['max_height'] = '2000';
-        $config['remove_spaces'] = TRUE;
+        $this->form_validation->set_rules('codeevent', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('namaevent', 'Full Name', 'required|xss_clean');
+        // $this->form_validation->set_rules('gambar', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('materi', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('praktek', 'Full Name', 'required|xss_clean');
 
-        $this->load->library('upload', $config);
-        $data = $this->upload->do_upload('gambar');
-        $file = $this->upload->data();
-        $uploadedFiles = $file['file_name'];
-        if($uploadedFiles==""){
-            $uploadedFiles=$this->input->post('gambar2');
+        if ($this->form_validation->run() == TRUE) {
+
+
+            $config['upload_path'] = './uploads';
+            $config['allowed_types'] = 'jpg|jpeg|gif|png';
+            $config['max_size'] = '4000';
+            $config['max_width'] = '2000';
+            $config['max_height'] = '2000';
+            $config['remove_spaces'] = TRUE;
+
+            $this->load->library('upload', $config);
+            $data = $this->upload->do_upload('gambar');
+            $file = $this->upload->data();
+            $uploadedFiles = $file['file_name'];
+            if ($uploadedFiles == "") {
+                $uploadedFiles = $this->input->post('gambar2');
+            }
+
+            $data = array(
+                'codeivent' => $id = $this->input->post('codeevent'),
+                'namaevent' => $this->input->post('namaevent'),
+                'gambar' => $uploadedFiles,
+                'materi' => $this->input->post('materi'),
+                'praktek' => $this->input->post('praktek')
+            );
+            $this->model_event->update_data($id, $data);
+
+            redirect('/admin2/event');
+        } else {
+            redirect('/admin2/event');
         }
-
-        $data = array(
-            'codeivent' => $id=$this->input->post('codeevent'),
-            'namaevent' => $this->input->post('namaevent'),
-            'gambar' => $uploadedFiles,
-            'materi' => $this->input->post('materi'),
-            'praktek' => $this->input->post('praktek')
-        );
-        $this->model_event->update_data($id,$data);
-
-        $data['data'] = $this->model_event->get_all();
-        redirect('/admin2/event');
     }
 
 }

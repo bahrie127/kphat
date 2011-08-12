@@ -14,7 +14,7 @@
                                 
                                     <th><label for="email">Email</label></th>
                                     <td><input type="text" name="email" id="email" class="required email" /></td>
-                                
+                                    <?php echo form_error('email', ' <div class="boxinfo error">', '</div>'); ?>
 
                                 
                                 </tr>
@@ -22,32 +22,32 @@
                                 
                                 <th> <label for="name">Nama Lengkap</label></th>
                                 <td> <input type="text" name="name" id="name" class="required" /></td>
-                                
+                                <?php echo form_error('name', ' <div class="boxinfo error">', '</div>'); ?>
                                 </tr>
                                 <tr>
                                 
                                 <th><label for="name">Alamat</label></th>
                                 <td> <input type="text" name="alamat" id="alamat" class="required" /></td>
-                                
+                                <?php echo form_error('alamat', ' <div class="boxinfo error">', '</div>'); ?>
                                 </tr>
                                 <tr>
                                 
                                 <th><label for="name">Jenis Kelamin</label></th>
                                 <td><input type="radio" name="ck" id="ck" value="laki-laki" class="check" onclick="chek(this.form.ck)"/>&nbsp;Laki-laki
                                     <input type="radio" name="ck" id="ck" value="perempuan" onclick="chek(this.form.ck)"/>&nbsp;Perempuan</td>
-                                
+                                <?php echo form_error('ck', ' <div class="boxinfo error">', '</div>'); ?>
                                 </tr>
                                 <tr>
                                
                                 <th><label for="name">Telepon</label></th>
                                 <td> <input type="text" name="telp" id="telp" class="required" /></td>
-                                
+                                <?php echo form_error('telp', ' <div class="boxinfo error">', '</div>'); ?>
                                 </tr>
                                 <tr>
                                 
                                 <th><label for="name">Tempat Lahir</label></th>
                                 <td> <input type="text" name="tempatlahir" id="tempathahir" class="required" /></td>
-                                
+                                <?php echo form_error('tempatlahir', ' <div class="boxinfo error">', '</div>'); ?>
                                 </tr>
                                 <tr>
                                 
@@ -194,13 +194,13 @@
                                 
                                 <th><label for="name">Pekerjaan</label></th>
                                 <td> <input type="text" name="pekerjaan" id="pekerjaan" class="required" /></td>
-                                
+                                <?php echo form_error('pekerjaan', ' <div class="boxinfo error">', '</div>'); ?>
                                 </tr>
                                 <tr>
                                 
                                 <th><label for="name">Instansi</label></th>
                                 <td> <input type="text" name="instansi" id="instansi" class="required" /></td>
-                                
+                                <?php echo form_error('instansi', ' <div class="boxinfo error">', '</div>'); ?>
                                 </tr>
                                 <tr>
                                 
