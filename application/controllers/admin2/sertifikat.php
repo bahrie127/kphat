@@ -24,10 +24,7 @@ class sertifikat extends CI_Controller {
             $this->load->model('model_sertifikat');
             $this->load->library('form_validation');
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> 073e60302c324fe85c1e3f52ac3a9c2dfed99ccb
     }
 
     function index() {
@@ -50,11 +47,7 @@ class sertifikat extends CI_Controller {
 
     function add() {
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 073e60302c324fe85c1e3f52ac3a9c2dfed99ccb
         $this->form_validation->set_rules('nosertifikat', 'Full Name', 'required|xss_clean');
         $this->form_validation->set_rules('codeuser', '-', 'required|xss_clean');
         $this->form_validation->set_rules('codejadwalevent', 'Full Name', 'required|xss_clean');
@@ -73,20 +66,13 @@ class sertifikat extends CI_Controller {
         } else {
             redirect('admin2/sertifikat');
         }
-<<<<<<< HEAD
 
     }
 
     function findNama() {
-        $id = $this->uri->segment(3); //diaktifkan jika sudah rampung semua....
-        $data['nama'] = $this->model_join->get_data_by_no_sertifikat($id);
-=======
-    }
+         $id = $this->uri->segment(3); //diaktifkan jika sudah rampung semua....
+         $data['nama'] = $this->model_join->get_data_by_no_sertifikat($id);
 
-    function findNama() {
-        // $id = $this->uri->segment(3); //diaktifkan jika sudah rampung semua....
-        // $data['nama'] = $this->model_join->get_data_by_no_sertifikat($id);
->>>>>>> 073e60302c324fe85c1e3f52ac3a9c2dfed99ccb
 
         $this->load->view('admin2/admin2view/acaraView/findnama',$data);
     }
