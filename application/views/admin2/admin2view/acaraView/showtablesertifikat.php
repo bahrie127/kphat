@@ -7,7 +7,7 @@
             <th>Nama</th>
             <th>Tanggal Event</th> 
             <th>Nama Event</th> 
-            <th>Edit | Delete</th> 
+<!--            <th>Edit | Delete</th> -->
 
         </tr> 
     </thead> 
@@ -26,10 +26,10 @@
 
 
 
-        echo "<td align=\"center\"><a href=\"#\" class=\"edit\">Edit</a>";
-        echo "   |   <a class=\"delbuttonsertifikat\" id=\"\" href=\"#\" >Delete</a></td>";
+//        echo "<td align=\"center\"><a href=\"#\" class=\"edit\">Edit</a>";
+//        echo "   |   <a class=\"delbuttonsertifikat\" id=\"\" href=\"#\" >Delete</a></td>";
 
-        echo "</td></tr>";
+        echo "</tr>";
         }
         ?>
 
