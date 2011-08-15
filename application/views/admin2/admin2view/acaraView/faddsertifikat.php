@@ -1,16 +1,16 @@
 <div class="toggle_container">
     <div class="block">
-        <form id="add" name="add">
+        <form id="ad" name="add" method="post">
             <label>No. Serifikat</label> 
             <input id="nosertifikat" name="nosertifikat" title="Berisi NO. sertifikat" type="text" onclick="findName(isi.value)" class="medium required LV_valid_field" autofocus> 
 
             <label>Event yang di ikuti</label> 
             <div class="input_group">
 
-                <select name="event" id="event"  onchange="findName()">
+                <select name="event" id="event"  onchange="findName(event.value)">
 
                     <?php foreach ($cari as $row) : ?>
-                        <option name="event" id="event" value="18733257">
+                        <option selected value="<?php echo $row->event_namaevent; ?>">
                             <?php echo $row->event_namaevent; ?></option>
                     <?php endforeach; ?>
 
@@ -29,7 +29,7 @@
 
 
 
-            <input type="submit" class="btnsub" value="Submit">
+            <input type="submit" class="btnsub" value="Submit" onclick="findName(event.value)">
 
         </form>
     </div>

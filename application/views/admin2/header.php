@@ -65,9 +65,8 @@
         <!-- This file configures the various jQuery plugins for Adminica. Contains links to help pages for each plugin. -->
         <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/adminica/adminica_ui.js"></script>
         <!-- To calling form edit dan Delete -->
-         <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ajax/cariNama.js"></script>
-       
-
+        <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ajax/cariNama.js"></script>
+        
 
         <style>
             #form_pemateri table tr label { display:block;font-size: 14px }

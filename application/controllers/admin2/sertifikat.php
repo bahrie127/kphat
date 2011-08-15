@@ -66,9 +66,8 @@ class sertifikat extends CI_Controller {
 
     function findNama() {
         $id = $this->uri->segment(3); //diaktifkan jika sudah rampung semua....
-        $data['nama'] = $this->model_join->get_data_by_no_sertifikat($id);
-
-
+        
+        $data['nama'] = $this->model_join->get_peserta_by_event($id);
         $this->load->view('admin2/admin2view/acaraView/findnama', $data);
     }
 
