@@ -2,6 +2,6 @@
 
 
 <?php foreach ($nama as $row): ?>
-    <option><?php echo $row->user_nama; ?></option>
+<option value="<?php echo $row->user_codeuser;?>"><?php echo $row->user_nama; ?></option>
 <?php endforeach; ?>
 

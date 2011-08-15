@@ -1,13 +1,13 @@
 <div class="toggle_container">
     <div class="block">
-        <form id="ad" name="add" method="post">
+         <form id="name" action="<?php echo base_url(); ?>index.php/admin2/sertifikat/add" method="post">
             <label>No. Serifikat</label> 
             <input id="nosertifikat" name="nosertifikat" title="Berisi NO. sertifikat" type="text" onclick="findName(isi.value)" class="medium required LV_valid_field" autofocus> 
 
             <label>Event yang di ikuti</label> 
             <div class="input_group">
 
-                <select name="event" id="event"  >
+                <select name="codejadwalevent" id="event"  >
 
                     <?php foreach ($cari as $row) : ?>
 
@@ -24,7 +24,7 @@
 
 
             <div class="input_group">
-                <select name="nama" id="combonama">
+                <select name="codeuser" id="combonama">
                     
                         <?php $this->load->view('admin2/admin2view/acaraView/combo_nama'); ?>
                    

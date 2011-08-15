@@ -228,7 +228,7 @@ class Model_join extends CI_Model {
     }
 
     function get_peserta_by_event($code){
-        $this->db->select('event.namaevent as event_namaevent,jadwalevent.codejadwalevent as jadwalevent_codejadwalevent, user.nama as user_nama');
+        $this->db->select('event.namaevent as event_namaevent,jadwalevent.codejadwalevent as jadwalevent_codejadwalevent, user.nama as user_nama,user.codeuser as user_codeuser');
         $this->db->from('user');
         $this->db->join('pendaftaran', 'pendaftaran.codeuser=user.codeuser', 'INNER');
         $this->db->join('jadwalevent', 'pendaftaran.codejadwalevent=jadwalevent.codejadwalevent', 'INNER');
