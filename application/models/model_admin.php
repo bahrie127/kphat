@@ -38,7 +38,7 @@ class Model_admin extends CI_Model {
 		}
 	}
         
-        function update_data($id)
+        function update_data($id,$data)
 	{
 		$this->db->where('codeadmin', $id);
 		$update = $this->db->update('admin', $data);
@@ -69,7 +69,7 @@ class Model_admin extends CI_Model {
 		$query = $this->db->get('admin');
 		if ($query->num_rows() > 0)
 		{
-			return $query->row_array();
+			return $query->result();
 		}
 		else
 		{

@@ -18,16 +18,14 @@ class pembatalan extends CI_Controller {
     //put your code here
     public function __construct() {
         parent::__construct();
-        if (!$this->ion_auth->logged_in()) {
-            redirect('/login', 'refresh');
-        } else {
-            $this->load->model('model_join');
-            $this->load->helper('string');
-            $this->load->helper('date');
-            $this->load->model('model_detail_pembatalan');
-            $this->load->model('model_pembatalan');
-            $this->load->model('model_jadwal_event');
-        }
+        $this->load->library('auth');
+        $this->auth->check_user_authentification();
+        $this->load->model('model_join');
+        $this->load->helper('string');
+        $this->load->helper('date');
+        $this->load->model('model_detail_pembatalan');
+        $this->load->model('model_pembatalan');
+        $this->load->model('model_jadwal_event');
     }
 
     function index() {
@@ -83,10 +81,10 @@ class pembatalan extends CI_Controller {
             $this->model_detail_pembatalan->add($datadetailbatal);
         }
 
-        $datachange=array(
-            'status'=>'batal'
+        $datachange = array(
+            'status' => 'batal'
         );
-        $this->model_pembatalan->change_status($this->input->post('codepembayaran'),$datachange);
+        $this->model_pembatalan->change_status($this->input->post('codepembayaran'), $datachange);
         $this->index();
     }
 

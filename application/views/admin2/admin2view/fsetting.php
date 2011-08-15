@@ -20,31 +20,35 @@
             <a href="#" class="toggle">&nbsp;</a>
             <div class="toggle_container">					
                 <div class="block">
+                    <?php echo form_open(base_url() . 'index.php/admin2/admin/edit'); ?> 
+                    <?php foreach ($data as $row): ?>
+                        <label>Kode Admin</label> 
+                        <input name="codeadmin" value="<?php echo $row->codeadmin; ?>" readonly="readonly" title="Berisi kode admin" type="text" class="medium required" autofocus> 
 
-                    <label>Kode Admin</label> 
-                    <input id="codeadmin" title="Berisi kode admin" type="text" class="medium required" autofocus> 
+                        <label>Nama</label> 
+                        <input name="nama" value="<?php echo $row->nama; ?>" title="Berisi nama" type="text" class="large">
 
-                    <label>Nama</label> 
-                    <input id="nama" title="Berisi nama" type="text" class="large">
+                        <label>Email</label> 
+                        <input name="email" value="<?php echo $row->email; ?>" title="Berisi email" type="text" class="large">
 
-                    <label>Email</label> 
-                    <input id="email" title="Berisi email" type="text" class="large">
+                        <label>No Telpon</label> 
+                        <input name="telepon" value="<?php echo $row->telepon; ?>" title="Berisi Telepon" type="text" class="large">
 
-                    <label>alamat</label> 
-                    <input id="password" title="Berisi alamat" type="text" class="large">
+                        <label>username</label> 
+                        <input name="username" value="<?php echo $row->username; ?>" title="Berisi username" type="text" class="large">
 
-                    <label>username</label> 
-                    <input id="username" title="Berisi username" type="text" class="large">
+                        <label>password</label> 
+                        <input name="password" value="" title="Berisi password" type="password" class="large">
+                    <?php endforeach; ?>
 
-                    <label>password</label> 
-                    <input id="password" title="Berisi password" type="password" class="large">
+                    <br/> <br/>
+
+                    <input class="btnsub" type="submit" value="Update">
+
+                    </form>
 
 
 
-                    
-
-                    <br/>
-                    <button class="button_colour round_all" id="kirim"><img height="24" width="24" alt="Bended Arrow Right" src="<?php echo base_url(); ?>imgadmin2/icons/small/white/Bended%20Arrow%20Right.png"><span>Submit</span></button>
 
                 </div>
             </div>

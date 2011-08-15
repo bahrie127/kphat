@@ -15,11 +15,9 @@ class peserta extends CI_Controller {
     //put your code here
     public function __construct() {
         parent::__construct();
-        if (!$this->ion_auth->logged_in()) {
-            redirect('/login', 'refresh');
-        } else {
-            $this->load->model('model_join');
-        }
+        $this->load->library('auth');
+        $this->auth->check_user_authentification();
+        $this->load->model('model_join');
     }
 
     function index() {

@@ -15,12 +15,10 @@ class Tempat extends CI_Controller {
 //put your code here
     public function __construct() {
         parent::__construct();
-        if (!$this->ion_auth->logged_in()) {
-            redirect('/login', 'refresh');
-        } else {
-            $this->load->model('model_tempat');
-            $this->load->library('form_validation');
-        }
+        $this->load->library('auth');
+        $this->auth->check_user_authentification();
+        $this->load->model('model_tempat');
+        $this->load->library('form_validation');
     }
 
     function index() {
@@ -113,12 +111,12 @@ class Tempat extends CI_Controller {
     function delete() {
         $this->form_validation->set_rules('id', 'Full Name', 'required|xss_clean');
         if ($this->form_validation->run() == TRUE) {
-        $id = $this->input->post('id');
-        $this->model_tempat->delete_data($id);
-        $data['data'] = $this->model_tempat->get_all();
+            $id = $this->input->post('id');
+            $this->model_tempat->delete_data($id);
+            $data['data'] = $this->model_tempat->get_all();
 
-        $this->load->view('admin2/admin2view/masterView/showtabletempat', $data);
-        }else{
+            $this->load->view('admin2/admin2view/masterView/showtabletempat', $data);
+        } else {
             redirect('admin2/tempat');
         }
     }

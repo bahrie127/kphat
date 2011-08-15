@@ -15,12 +15,11 @@ class Event extends CI_Controller {
 //put your code here
     public function __construct() {
         parent::__construct();
-        if (!$this->ion_auth->logged_in()) {
-            redirect('/login', 'refresh');
-        } else {
-            $this->load->model('model_event');
-            $this->load->library('form_validation');
-        }
+        $this->load->library('auth');
+        $this->auth->check_user_authentification();
+
+        $this->load->model('model_event');
+        $this->load->library('form_validation');
     }
 
     function index() {
@@ -41,9 +40,9 @@ class Event extends CI_Controller {
             redirect('admin2/event');
         } else {
             $data['data'] = $this->model_event->get_data_by_id($id);
-        $this->load->view('admin2/header');
-        $this->load->view('admin2/admin2view/masterView/feditevent', $data);
-        $this->load->view('admin2/footer');
+            $this->load->view('admin2/header');
+            $this->load->view('admin2/admin2view/masterView/feditevent', $data);
+            $this->load->view('admin2/footer');
         }
     }
 

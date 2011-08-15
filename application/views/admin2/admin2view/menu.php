@@ -19,9 +19,9 @@
         <img src="<?php echo base_url(); ?>images/logo-hat.png" width="55" alt="Profile Pic" />
         <div class="user_links">
             <h2>Administrator</h2>
-            <h3><a class="text_shadow" href="#">Fendithuk</a></h3>
+            <h3><a class="text_shadow" href="#"><?php echo $this->session->userdata('SESS_NAME');?></a></h3>
             <ul>
-                <li><a href="<?php echo base_url(); ?>index.php/admin2/setting" codeAdmin="1" namaAdmin="2" emailAdmin="3" telephoneAdmin="4" username="5" password="6">settings</a><span class="divider">|</span></li>
+                <li><a href="<?php echo base_url(); ?>index.php/admin2/setting/update/<?php echo $this->session->userdata('SESS_ADMIN_CODE');?>" codeAdmin="1" namaAdmin="2" emailAdmin="3" telephoneAdmin="4" username="5" password="6">settings</a><span class="divider">|</span></li>
                 <li><a href="<?php echo base_url(); ?>index.php/login/logout">logout</a></li>
             </ul>
         </div>
