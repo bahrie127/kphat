@@ -26,16 +26,18 @@ class sertifikat extends CI_Controller {
     function index() {
         if ($this->model_join->get_all_sertifikat() == FALSE) {
             $data['data'] = array();
+            
         } else {
             $data['data'] = $this->model_join->get_all_sertifikat();
         }
 
 
-        if ($this->model_join->get_all_peserta() == FALSE) {
+        if ($this->model_join->get_jadwal_event_admin() == FALSE) {
             $data['cari'] = array();
         } else {
-            $data['cari'] = $this->model_join->get_all_peserta();
+            $data['cari'] = $this->model_join->get_jadwal_event_admin();
         }
+        $data['nama']=array();
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/fsertifikat', $data);
         $this->load->view('admin2/footer');
@@ -65,10 +67,14 @@ class sertifikat extends CI_Controller {
     }
 
     function findNama() {
-        $id = $this->uri->segment(3); //diaktifkan jika sudah rampung semua....
         
+        $id = $this->input->post('codeevent'); //diaktifkan jika sudah rampung semua....
+        if($this->model_join->get_peserta_by_event($id)==TRUE){
         $data['nama'] = $this->model_join->get_peserta_by_event($id);
-        $this->load->view('admin2/admin2view/acaraView/findnama', $data);
+        }else{
+            $data['nama']=array();
+        }
+        $this->load->view('admin2/admin2view/acaraView/combo_nama', $data);
     }
 
 }

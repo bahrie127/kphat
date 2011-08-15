@@ -43,7 +43,7 @@ $(function() {
                 var form_data = {
                     codetempat: $('#codeTempat').val(),
                     namatempat: $('#namaTempat').val(),
-                    alamat: $('#alamat').val(),
+                    alamat: $('#alamatTempat').val(),
                     telephone: $('#telephone').val(),
                     linkpeta: $('#linkPeta').val(),
                                                 
@@ -96,14 +96,14 @@ $(function() {
 $(".editTempat").live("click",function(){
     var code = $(this).attr("codeTempat");
     var nama = $(this).attr("namaTempat");
-    var alamat = $(this).attr("alamat");
+    var alamat = $(this).attr("alamatTempat");
     var telephone = $(this).attr("telephone");
     var linkpeta = $(this).attr("linkPeta");
                
 
     $('#codeTempat').val(code);
     $('#namaTempat').val(nama);
-    $('#alamat').val(alamat);
+    $('#alamatTempat').val(alamat);
     $('#telephone').val(telephone);
     $('#linkPeta').val(linkpeta);
         

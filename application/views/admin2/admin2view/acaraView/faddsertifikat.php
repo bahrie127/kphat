@@ -7,10 +7,10 @@
             <label>Event yang di ikuti</label> 
             <div class="input_group">
 
-                <select name="event" id="event"  onchange="findName(event.value)">
+                <select name="event" id="event"  >
 
                     <?php foreach ($cari as $row) : ?>
-                        <option selected value="<?php echo $row->event_namaevent; ?>">
+                        <option selected value="<?php echo $row->jadwalevent_codejadwalevent; ?>">
                             <?php echo $row->event_namaevent; ?></option>
                     <?php endforeach; ?>
 
@@ -20,25 +20,24 @@
 
             <label>Nama Pemegang</label> 
 
+
             <div class="input_group">
-                <select name="nama" id="nama">
-                    <option>Pilih Nama</option>
+                <select name="nama" id="combonama">
                     
+                        <?php $this->load->view('admin2/admin2view/acaraView/combo_nama'); ?>
+                   
                 </select>
             </div>
 
 
 
-            <input type="submit" class="btnsub" value="Submit" onclick="findName(event.value)">
+            <input type="submit" class="btnsub" value="Submit" >
 
         </form>
     </div>
 </div>
 
-<script type="text/javascript"> 
-    var co = new LiveValidation('nosertifikat');
-    co.add( Validate.Presence );
-      
+
     
    
 </script>
@@ -74,25 +73,29 @@
     });
 </script>
 
-<script language="JavaScript" type="text/JavaScript">
 
-    function showKab()
-    {
-<?php
-//membaca get all dari controller
+<script type="text/javascript">
+    $('#event').change(function(){
+       
+        var form_data={
 
-foreach ($cari as $row) {
-   
-     $content = "document.getElementById('nama').innerHTML = \"";
-    
-        $content .= "<option value='" . $row->user_nama . "'>" . $row->user_nama . "</option>";
-   
-    $content .= "\"";
-    echo $content;
-    //echo "\n";
-}
+            codeevent: $('#event').val(),
+            
+            
+            ajax:1
+        };
+        $.ajax({
+            url : "<?php echo site_url('admin2/sertifikat/findNama') ?>",
 
-
-?>
-     }
+            type : 'POST',
+            data : form_data,
+            success: function(msg){
+             
+                $('#combonama').html(msg)
+              
+            }
+        });
+        return false;
+    });
 </script>
+

@@ -53,7 +53,7 @@
             </tr>
             <tr>
                 <th> <?php echo form_label('alamat'); ?> </th>
-                <td> <?php echo form_input('alamat', '', 'id="alamat"'); ?></td>
+                <td> <?php echo form_input('alamat', '', 'id="alamatTempat"'); ?></td>
             </tr>
             <tr>
                 <th> <?php echo form_label('Telephone'); ?> </th>

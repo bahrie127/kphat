@@ -25,7 +25,7 @@
             echo "<td>$row->alamat</td>";
             echo "<td>$row->telepon</td>";
             echo "<td>$linkpeta</td>";
-            echo "<td align=\"center\"><a href=\"#\" class=\"editTempat\" codeTempat=\"$row->codetempat\" namaTempat=\"$row->namatempat\" alamat=\"$row->alamat\" linkPeta=\"$row->linkpeta\" telephone=\"$row->telepon\">Edit</a>";
+            echo "<td align=\"center\"><a href=\"#\" class=\"editTempat\" codeTempat=\"$row->codetempat\" namaTempat=\"$row->namatempat\" alamatTempat=\"$row->alamat\" linkPeta=\"$row->linkpeta\" telephone=\"$row->telepon\">Edit</a>";
             echo "   |   <a class=\"delbuttontempat\" id=\"$row->codetempat\" href=\"#\" >Delete</a></td>";
             echo "</tr>";
         }
