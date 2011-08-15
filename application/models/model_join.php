@@ -8,14 +8,19 @@ class Model_join extends CI_Model {
     }
 
     function get_data_by_no_sertifikat($no) {
-        $this->db->select('sertifikat.nosertifikat as sertifikat_nosertifikat, user.nama as user_nama, user.alamat as useralamat, user.jeniskelamin as user_jeniskelamin, user.email as user_email,user.tempatlahir as user_tempatlahir, user.tanggallahir as user_tanggallahir');
+        $this->db->select('sertifikat.codesertifikat as sertifikat_codesertifikat,sertifikat.nosertifikat as sertifikat_nosertifikat,user.nama as user_nama,user.alamat as user_alamat');
+        $this->db->select(',user.jeniskelamin as user_jeniskelamin,user.email as user_email,user.tempatlahir as user_tempatlahir,user.tanggallahir as user_tanggallahir, event.namaevent as event_namaevent,jadwalevent.codejadwalevent as jadwalevent_codejadwalevent,jadwalevent.tanggal as jadwalevent_tanggal');
         $this->db->from('user');
         $this->db->join('sertifikat', 'user.codeuser=sertifikat.codeuser', 'INNER');
+        $this->db->join('jadwalevent', 'sertifikat.codejadwalevent=jadwalevent.codejadwalevent', 'INNER');
+        $this->db->join('event', 'jadwalevent.codeevent=event.codeivent', 'INNER');
+
+        $this->db->like('sertifikat.nosertifikat', $no);
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result();
         } else {
-            return FALSE;
+            return null;
         }
     }
 

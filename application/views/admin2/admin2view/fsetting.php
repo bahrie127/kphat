@@ -20,6 +20,7 @@
             <a href="#" class="toggle">&nbsp;</a>
             <div class="toggle_container">					
                 <div class="block">
+
                     <?php echo form_open(base_url() . 'index.php/admin2/admin/edit'); ?> 
                     <?php foreach ($data as $row): ?>
                         <label>Kode Admin</label> 
@@ -47,11 +48,34 @@
 
                     </form>
 
-
-
-
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript"> 
+    
+
+    var co = new LiveValidation('codeadmin');
+    co.add( Validate.Presence );
+    
+    var nm = new LiveValidation('nama');
+    nm.add( Validate.Presence );
+    
+    
+    var mail= new LiveValidation('email');
+    mail.add(Validate.Email);
+    
+    var tele = new LiveValidation('alamat');
+    tele.add(Validate.Presence);
+    
+    var username = new LiveValidation('username');
+    username.add(Validate.Presence);
+    
+    var ps = new LiveValidation('password');
+    ps.add(Validate.Presence);
+    
+    
+    
+   
+</script>
