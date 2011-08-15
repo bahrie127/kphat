@@ -11,6 +11,8 @@
 
                     <?php foreach ($cari as $row) : ?>
 
+                        <option selected value="<?php echo $row->jadwalevent_codejadwalevent; ?>">
+
                             <?php echo $row->event_namaevent; ?></option>
                     <?php endforeach; ?>
 
