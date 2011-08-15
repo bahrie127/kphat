@@ -26,7 +26,7 @@ function noSertifikat(key){
 		if ( xmlhttp.readyState == 4 && xmlhttp.status == 200 ) {
 			obj.innerHTML = xmlhttp.responseText;
 		} else {
-			obj.innerHTML = "<div align ='center'><img src=\"waiting.gif\" alt='Loading' /></div>";
+			obj.innerHTML = "<div align ='center'><img src=\"<?php echo base_url() ?>images/waiting.gif\" alt='Loading' /></div>";
 		}
 	}
 	xmlhttp.send(null);

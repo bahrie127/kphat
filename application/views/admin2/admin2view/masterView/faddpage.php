@@ -4,7 +4,7 @@
                     <?php echo form_open(base_url() . 'index.php/admin2/page/add'); ?> 
 
                     <label>Judul</label> 
-                    <input name="codepage" value=""title="Berisi kode event" type="text" class="medium required" autofocus> 
+                    <input name="codepage" id="codepage"value=""title="Berisi kode event" type="text" class="medium LV_valid_field" autofocus> 
 
 
                     <label>Isi</label> 
@@ -36,4 +36,13 @@
         mode : "textareas",
         theme : "advanced"
     });
+</script>
+
+<script type="text/javascript"> 
+    
+
+    var co = new LiveValidation('codepage');
+    co.add( Validate.Presence );
+    
+   
 </script>
