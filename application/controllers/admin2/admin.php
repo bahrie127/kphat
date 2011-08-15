@@ -78,7 +78,7 @@ class Admin extends CI_Controller {
                 'telepon' => $this->input->post('telepon'),
                 'email' => $this->input->post('email'),
                 'username' => $this->input->post('username'),
-                'password' => $this->input->post('password')
+                'password' => md5($this->input->post('password'))
             );
             $this->model_admin->add($dataadmin);
             //$this->index();
