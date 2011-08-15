@@ -10,7 +10,7 @@
                 <select name="event" id="event"  onchange="findName(event.value)">
 
                     <?php foreach ($cari as $row) : ?>
-                        <option selected value="<?php echo $row->event_namaevent; ?>">
+                        <option selected value="HK29082011">
                             <?php echo $row->event_namaevent; ?></option>
                     <?php endforeach; ?>
 
