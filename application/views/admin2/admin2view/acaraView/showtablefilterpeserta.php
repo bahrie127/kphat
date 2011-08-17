@@ -20,13 +20,13 @@
             <tr>
                 <td><?php echo $i?></td>
                 <td><?php echo $row->jadwalevent_codejadwalevent; ?></td>
-                <td>-</td>
+                <td><?php echo $row->pendaftaran_tanggal; ?></td>
                 <td><?php echo $row->user_nama; ?></td>
                 <td><?php echo $row->user_alamat; ?></td>
                 <td><?php echo $row->user_email; ?></td>
                 <td><?php echo $row->user_telepon; ?></td>
-                <td>-</td>
-                <td>-</td>
+                <td><?php echo $row->event_namaevent; ?></td>
+                <td><?php echo $row->tagihan_status; ?></td>
             </tr>
         <?php endforeach; ?>
     </tbody> 

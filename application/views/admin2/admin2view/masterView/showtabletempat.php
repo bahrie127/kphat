@@ -8,7 +8,7 @@
             <th>Alamat</th>
             <th>Telephone</th> 
             <th>Link Peta</th> 
-            <th>Update | Delete</th> 
+            <th>Update</th> 
 
         </tr> 
     </thead> 
@@ -26,8 +26,8 @@
             echo "<td>$row->telepon</td>";
             echo "<td>$linkpeta</td>";
             echo "<td align=\"center\"><a href=\"#\" class=\"editTempat\" codeTempat=\"$row->codetempat\" namaTempat=\"$row->namatempat\" alamatTempat=\"$row->alamat\" linkPeta=\"$row->linkpeta\" telephone=\"$row->telepon\">Edit</a>";
-            echo "   |   <a class=\"delbuttontempat\" id=\"$row->codetempat\" href=\"#\" >Delete</a></td>";
-            echo "</tr>";
+            
+            echo "</td></tr>";
         }
         ?>
 

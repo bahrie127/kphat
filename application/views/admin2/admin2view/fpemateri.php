@@ -40,12 +40,12 @@
 
     <div id="form_pemateri" title="Edit Data">
         <table>
-            <?php echo form_open('pemateri/submit'); ?>
+           <input type="hidden" value='' id="codePemateri" name="codePemateri">
 
-            <tr >
+<!--            <tr >
                 <th> <?php echo form_label('Code Pemateri'); ?></th>
                 <td> <?php echo form_input('codePemateri', '', 'id="codePemateri" readonly="readonly"'); ?></td>
-            </tr>
+            </tr>-->
             <tr>
                 <th> <?php echo form_label('Nama Pemateri'); ?> </th>
                 <td> <?php echo form_input('namaPemateri', '', 'id="namaPemateri"'); ?></td>

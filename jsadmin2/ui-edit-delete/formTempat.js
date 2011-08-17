@@ -44,16 +44,12 @@ $(function() {
                     codetempat: $('#codeTempat').val(),
                     namatempat: $('#namaTempat').val(),
                     alamat: $('#alamatTempat').val(),
-                    telephone: $('#telephone').val(),
+                    telepon: $('#telephone').val(),
                     linkpeta: $('#linkPeta').val(),
-                                                
-                                               
+                                             
                     ajax:1
                 };
-				  
-                                      
-
-                $.ajax({
+		 $.ajax({
                     url : "tempat/update",
                     type : 'POST',
                     data : form_data,
@@ -64,8 +60,6 @@ $(function() {
                         $('#alamat').val(''),
                         $('#telephone').val(''),
                         $('#linkPeta').val(''),
-                                        
-                                    
                         $( '#form_tempat' ).dialog( "close" )
                     }
                 });

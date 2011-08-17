@@ -41,12 +41,11 @@
 </div>
     <div id="form_tempat" title="Edit Tempat">
         <table>
-            <?php echo form_open('pemateri/submit'); ?>
-
-            <tr >
+             <input type="hidden" value='' id="codeTempat" name="codeTempat"> 
+<!--            <tr >
                 <th> <?php echo form_label('Code Tempat'); ?></th>
                 <td> <?php echo form_input('codeTempat', '', 'id="codeTempat" readonly="readonly"'); ?></td>
-            </tr>
+            </tr>-->
             <tr>
                 <th> <?php echo form_label('Nama Tempat'); ?> </th>
                 <td> <?php echo form_input('namaTempat', '', 'id="namaTempat"'); ?></td>

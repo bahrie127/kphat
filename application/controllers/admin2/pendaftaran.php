@@ -39,8 +39,8 @@ class pendaftaran extends CI_Controller {
 
     function get_by_event() {
         $kategori = $this->input->post('kategori');
-        if ($this->model_join->get_peserta_by_event($kategori) == TRUE) {
-            $data['kategori'] = $this->model_join->get_peserta_by_event($kategori);
+        if ($this->model_join->get_peserta_by_code_jadwal($kategori) == TRUE) {
+            $data['kategori'] = $this->model_join->get_peserta_by_code_jadwal($kategori);
         } else {
             $data['kategori'] = array();
         }

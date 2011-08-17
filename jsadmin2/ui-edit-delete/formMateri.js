@@ -12,7 +12,7 @@ $(function() {
             "Delete": function() {
                 var del_id = {
                     id : $("#del_id").val()
-                    };
+                };
                 $.ajax({
                     type: "POST",
                     url : "pemateri/delete",
@@ -40,23 +40,20 @@ $(function() {
                    
         buttons: {
             "Update": function() {
+               
                 var form_data = {
                     codepemateri: $('#codePemateri').val(),
                     nama: $('#namaPemateri').val(),
                     email: $('#emailPemateri').val(),
-                    telephone: $('#telephonePemateri').val(),
-                                                
-                                               
+                    telepon: $('#telephonePemateri').val(),
                     ajax:1
                 };
-				  
-                                      
-
                 $.ajax({
                     url : "pemateri/update",
                     type : 'POST',
                     data : form_data,
                     success: function(msg){
+                    
                         $('#show21').html(msg),
                         $('#codePemateri').val(''),
                         $('#namaPemateri').val(''),

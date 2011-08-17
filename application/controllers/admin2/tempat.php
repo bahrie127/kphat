@@ -63,18 +63,19 @@ class Tempat extends CI_Controller {
 
     function update() {
 
-        $this->form_validation->set_rules('nama', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('namatempat', 'Full Name', 'required|xss_clean');
         $this->form_validation->set_rules('alamat', 'Full Name', 'required|xss_clean');
         $this->form_validation->set_rules('telepon', 'Full Name', 'required|xss_clean');
-        $this->form_validation->set_rules('peta', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('linkpeta', 'Full Name', 'required|xss_clean');
         if ($this->form_validation->run() == TRUE) {
 
             $data = array(
                 'namatempat' => $this->input->post('namatempat'),
                 'alamat' => $this->input->post('alamat'),
-                'telepon' => $this->input->post('telephone'),
+                'telepon' => $this->input->post('telepon'),
                 'linkpeta' => $this->input->post('linkpeta')
             );
+           
             $id = $this->input->post('codetempat');
             $this->model_tempat->update_data($id, $data);
             $data['data'] = $this->model_tempat->get_all();

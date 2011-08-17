@@ -94,8 +94,6 @@ class Event extends CI_Controller {
         $this->form_validation->set_rules('praktek', 'Full Name', 'required|xss_clean');
 
         if ($this->form_validation->run() == TRUE) {
-
-
             $config['upload_path'] = './uploads';
             $config['allowed_types'] = 'jpg|jpeg|gif|png';
             $config['max_size'] = '4000';
@@ -112,12 +110,12 @@ class Event extends CI_Controller {
             }
 
             $data = array(
-                'codeivent' => $id = $this->input->post('codeevent'),
                 'namaevent' => $this->input->post('namaevent'),
                 'gambar' => $uploadedFiles,
                 'materi' => $this->input->post('materi'),
                 'praktek' => $this->input->post('praktek')
             );
+            $id = $this->input->post('codeevent');
             $this->model_event->update_data($id, $data);
 
             redirect('/admin2/event');

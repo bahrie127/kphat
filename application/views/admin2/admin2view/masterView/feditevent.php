@@ -21,10 +21,10 @@
                 <div class="block">
                     <?php foreach ($data as $row): ?>
                     <?php echo form_open_multipart(base_url() . 'index.php/admin2/event/update'); ?> 
-
-                    <label>Kode Event</label> 
-                    <input name="codeevent" value="<?php echo $row->codeivent; ?>"title="Berisi kode event" type="text" class="medium required" autofocus> 
-                    
+                    <input type="hidden" value='<?php echo $row->codeivent; ?>' id="codeevent" name="codeevent"/>
+<!--                    <label>Kode Event</label> 
+                    <input name="codeevent" value=""title="Berisi kode event" type="text" class="medium required" autofocus> 
+                    -->
                     <label>Nama Event</label> 
                     <input name="namaevent" value="<?php echo $row->namaevent; ?>" title="Berisi nama event" type="text" class="large">
 

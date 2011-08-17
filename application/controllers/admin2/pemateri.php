@@ -63,23 +63,25 @@ class Pemateri extends CI_Controller {
 
     function update() {
 
-        $this->form_validation->set_rules('code', 'Full Name', 'required|xss_clean');
+        $this->form_validation->set_rules('codepemateri', 'Full Name', 'required|xss_clean');
         $this->form_validation->set_rules('nama', '-', 'required|xss_clean');
         $this->form_validation->set_rules('telepon', 'Full Name', 'required|xss_clean');
         $this->form_validation->set_rules('email', '-', 'required|xss_clean|valid_email');
-
+        
         if ($this->form_validation->run() == TRUE) {
 
             $data = array(
                 'nama' => $this->input->post('nama'),
-                'telepon' => $this->input->post('telephone'),
+                'telepon' => $this->input->post('telepon'),
                 'email' => $this->input->post('email')
             );
+         
             $id = $this->input->post('codepemateri');
             $this->model_pemateri->update_data($id, $data);
             $data['data'] = $this->model_pemateri->get_all();
             $this->load->view('admin2/admin2view/masterView/showtablepemateri', $data);
-        } else {
+        } 
+        else {
             redirect('admin2/pemateri');
         }
     }

@@ -6,7 +6,7 @@
                     <th>Nama Pemateri</th> 
                     <th>Telephone</th> 
                     <th>Email</th>
-                    <th>Edit | Delete</th> 
+                    <th>Edit</th> 
 
                 </tr> 
             </thead> 
@@ -23,8 +23,8 @@
             echo "<td>$row->email</td>";
             
             echo "<td align=\"center\"><a href=\"#\" class=\"edit\" codePemateri=\"$row->codepemateri\" namaPemateri=\"$row->nama\" telephonePemateri=\"$row->telepon\" emailPemateri=\"$row->email\">Edit</a>";
-            echo "   |   <a class=\"delbuttonpemateri\" id=\"$row->codepemateri\" href=\"#\" >Delete</a></td>";
-            echo "</tr>";
+           
+            echo "</td></tr>";
         }
         ?>
 
