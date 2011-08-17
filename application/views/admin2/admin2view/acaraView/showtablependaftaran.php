@@ -16,22 +16,30 @@
         </tr> 
     </thead> 
     <tbody> 
-        <?php $i=0;foreach ($data as $row): $i++;?>
+        <?php $i = 0;
+        foreach ($data as $row): $i++; ?>
             <tr>
-                <td><?php echo $i?></td>
+                <td><?php echo $i ?></td>
                 <td><?php echo $row->jadwalevent_codejadwalevent; ?></td>
-                <td><?php echo $row->pendaftaran_tanggal; ?></td>
+                <td>-</td>
                 <td><?php echo $row->user_nama; ?></td>
                 <td><?php echo $row->user_alamat; ?></td>
                 <td><?php echo $row->user_email; ?></td>
                 <td><?php echo $row->user_telepon; ?></td>
-                <td><?php echo $row->event_namaevent; ?></td>
-                <td><?php echo $row->tagihan_status; ?></td>
+                <td>-</td>
+                <td>-</td>
             </tr>
-        <?php endforeach; ?>
+<?php endforeach; ?>
     </tbody> 
 </table>
 
+
+    berdasarkan code Event=  <input type="text" name="kategori" id="kategori"/>
+    <input type="submit" id="cari">
+
+<div id="tabelfilter">
+<?php $this->load->view('admin2/admin2view/acaraView/showtablefilterpeserta'); ?>
+</div>
 <script text="javascript">
     $(document).ready(function() {
         // DataTables Config (more info can be found at http://www.datatables.net/)
@@ -90,5 +98,23 @@
         $(window).resize(function(){
             oTable.fnAdjustColumnSizing();
         });
+    });
+</script>
+<script type="text/javascript">
+    $('#cari').click(function(){
+       
+        var form_data={
+            kategori: $('#kategori').val(),
+            ajax:1
+        };
+        $.ajax({
+            url : "<?php echo site_url('admin2/pendaftaran/get_by_event') ?>",
+            type : 'POST',
+            data : form_data,
+            success: function(msg){ 
+                $('#tabelfilter').html(msg)
+            }
+        });
+        return false;
     });
 </script>

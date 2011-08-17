@@ -5,8 +5,10 @@
                     <th>No</th> 
                     <th>Code Tagihan</th> 
                     <th>Nama user</th> 
+                    
+                    <th>Tanggal</th>
                     <th>Total</th>
-                    <th>Tanggal</th> 
+                    <th>Kurang</th>
                     <th>Status</th>
                     <th>Confirm Pembayaran</th> 
 
@@ -17,16 +19,19 @@
         $i = 0;
         foreach ($data as $row) {
             $i++;
+            $rowkurang=$row->tagihan_jumlahharga-$row->tagihan_bayar;
             echo "<tr>";
             echo "<td>$i</td>";
             echo "<td>$row->tagihan_codepembayaran</td>";
             echo "<td>$row->user_nama</td>";
-            echo "<td>$row->tagihan_jumlahharga</td>";
+           
             echo "<td>$row->tagihan_tanggal</td>";
+            echo "<td>$row->tagihan_jumlahharga</td>";
+            echo "<td>$rowkurang</td>";
             echo "<td>$row->tagihan_status</td>";
             echo "<td align=\"center\">"; 
-            if($row->tagihan_status=="belum"){
-                echo "<a href=\"#\" class=\"conbuttontagihan\" idtagihan=\"$row->tagihan_codepembayaran\">Confirm</a>";
+            if($row->tagihan_status=="belum"||$row->tagihan_status=="dp"){
+                echo "<a href=\"#\" class=\"conbuttontagihan\" codeuser=\"$row->user_codeuser\" status=\"$row->tagihan_status\" dp=\"$row->tagihan_bayar\" kurang=\"$rowkurang\" idtagihan=\"$row->tagihan_codepembayaran\">Confirm</a>";
             }  else{
                 echo "sudah diconfirm";
             }

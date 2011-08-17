@@ -23,14 +23,28 @@ class pendaftaran extends CI_Controller {
 
     function index() {
         if ($this->model_join->get_all_peserta() == FALSE) {
+
             $data['data'] = array();
         } else {
+            $data['event'] = $this->model_join->get_jadwal_event();
+            $data['cek'] = array();
+            $data['kategori'] = array();
             $data['data'] = $this->model_join->get_all_peserta();
         }
 
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/fpendaftaran', $data);
         $this->load->view('admin2/footer');
+    }
+
+    function get_by_event() {
+        $kategori = $this->input->post('kategori');
+        if ($this->model_join->get_peserta_by_event($kategori) == TRUE) {
+            $data['kategori'] = $this->model_join->get_peserta_by_event($kategori);
+        } else {
+            $data['kategori'] = array();
+        }
+        $this->load->view('admin2/admin2view/acaraView/showtablefilterpeserta', $data);
     }
 
 }

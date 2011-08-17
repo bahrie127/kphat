@@ -23,6 +23,7 @@ class pembatalan extends CI_Controller {
         $this->load->model('model_join');
         $this->load->helper('string');
         $this->load->helper('date');
+        $this->load->library('form_validation');
         $this->load->model('model_detail_pembatalan');
         $this->load->model('model_pembatalan');
         $this->load->model('model_jadwal_event');
@@ -58,34 +59,56 @@ class pembatalan extends CI_Controller {
     }
 
     function add() {
-        $this->idpembatalan = random_string('alnum', 8);
-        $datestring = "%Y-%m-%d";
-        $time = time();
-        $date = mdate($datestring, $time);
-        foreach ($this->input->post('cek') as $row) {
-            $this->hitungHarga($row);
-        }
-        $databatal = array(
-            'codebatalpembayaran' => $this->idpembatalan,
-            'codepembayaran' => $this->input->post('codepembayaran'),
-            'tanggal' => $date,
-            'jumlah' => $this->totalKembali
-        );
-        $this->model_pembatalan->add($databatal);
-        foreach ($this->input->post('cek') as $row) {
-            $this->hitungHarga($row);
-            $datadetailbatal = array(
-                'codejadwalevent' => $row,
-                'codebatalpembayaran' => $this->idpembatalan
+        $b = 0;
+        $this->form_validation->set_rules('codepembayaran', 'Full Name', 'required|xss_clean');
+        if ($this->form_validation->run() == TRUE) {
+            $this->idpembatalan = random_string('alnum', 8);
+            $datestring = "%Y-%m-%d";
+            $time = time();
+            
+            $date = mdate($datestring, $time);
+            foreach ($this->input->post('cek') as $row) {
+                $this->hitungHarga($row);
+            }
+            $databatal = array(
+                'codebatalpembayaran' => $this->idpembatalan,
+                'codepembayaran' => $this->input->post('codepembayaran'),
+                'tanggal' => $date,
+                'jumlah' => $this->totalKembali
             );
-            $this->model_detail_pembatalan->add($datadetailbatal);
-        }
+            $dataPengeluaran = array(
+                'codeuser' => $this->input->post('codeuser'),
+                'tanggalkeluar' => $date,
+                'nilaikeluar' => $this->totalKembali
+            );
+            $this->model_pembatalan->insert_to_pengeluaran($dataPengeluaran);
 
-        $datachange = array(
-            'status' => 'batal'
-        );
-        $this->model_pembatalan->change_status($this->input->post('codepembayaran'), $datachange);
-        $this->index();
+            $this->model_pembatalan->add($databatal);
+            foreach ($this->input->post('cek') as $row) {
+                $b++;
+                $this->hitungHarga($row);
+                $datadetailbatal = array(
+                    'codejadwalevent' => $row,
+                    'codebatalpembayaran' => $this->idpembatalan
+                );
+                $this->model_detail_pembatalan->add($datadetailbatal);
+                $databataldetailtagihan = array(
+                    'status' => 'batal'
+                );
+
+                $this->model_detail_pembatalan->change_status_detail_tagih($this->input->post('codepembayaran'), $row, $databataldetailtagihan);
+            }
+            if ($this->input->post('jumlahcek') == $b) {
+                $datachange = array(
+                    'status' => 'batal'
+                );
+                $this->model_pembatalan->change_status($this->input->post('codepembayaran'), $datachange);
+            }
+            redirect('admin2/pembatalan');
+        } else {
+            
+        }
+        redirect('admin2/pembatalan');
     }
 
     function hitungHarga($code) {

@@ -16,5 +16,10 @@ class Model_pembatalan extends CI_Model {
             $update=$this->db->update('tagihan',$data);
             return $update;
         }
+        
+        function insert_to_pengeluaran($data) {
+        $insert = $this->db->insert('pengeluaran', $data);
+        return $insert;
+    }
 }
 ?>

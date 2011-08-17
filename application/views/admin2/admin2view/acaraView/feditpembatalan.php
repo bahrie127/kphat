@@ -22,8 +22,10 @@
                    
          <?php echo form_open(base_url() . 'index.php/admin2/pembatalan/add'); ?> 
                     <?php foreach ($data as $row): ?>
-                    <label>Kode User</label> 
-                    <input name="codepembayaran" value="<?php echo $row->tagihan_codepembayaran; ?>"title="Berisi kode event" type="text" readonly="readonly" class="medium required" autofocus> 
+                    <input type="hidden" value='<?php echo $row->user_codeuser; ?>' id="codeuser" name="codeuser">
+                    <input type="hidden" value='<?php echo $row->tagihan_codepembayaran; ?>' id="codepembayaran" name="codepembayaran">
+<!--                    <label>Kode Pembayaran</label> 
+                    <input name="codepembayaran" value="<?php echo $row->tagihan_codepembayaran; ?>"title="Berisi kode event" type="text" readonly="readonly" class="medium required" autofocus> -->
                     
                     <label>Nama</label> 
                     <input name="nama" value="<?php echo $row->user_nama; ?>"type="text" readonly="readonly" class="medium required" autofocus> 
@@ -31,10 +33,10 @@
                     
                     <label>Event yang dibatalkan</label> 
                     
-                    <?php foreach ($cek as $c): ?>
+                    <?php $a=0; foreach ($cek as $c): ?>
                     <input name="cek[]" value="<?php echo $c->jadwalevent_codejadwalevent;?>"  title="Berisi nama event" type="checkbox" class="large"><?php echo $c->event_namaevent; ?></input>
-                    <?php endforeach; ?>
-
+                    <?php $a++; endforeach; ?>
+                    <input type="hidden" value='<?php echo $a; ?>' id="jumlahcek" name="jumlahcek">
                            <br/> <br/>
 
                     <input type="submit" value="Update">

@@ -15,7 +15,7 @@
         <div  class="box grid_16 round_all tabs ui-tabs ui-widget ui-widget-content ui-corner-all" id="show">
             <ul id="touch_sort" class="tab_header grad_colour round_top clearfix">
                 <li><a href="#tabs-1" class="round_top">Lihat Data</a></li>
-             
+             <li><a href="#tabs-2" class="round_top">Add Data</a></li>
             </ul>	
             <a href="#" class="grabber">&nbsp;</a>
             <a href="#" class="toggle">&nbsp;</a>
@@ -28,6 +28,9 @@
                         <?php $this->load->view('admin2/admin2view/acaraView/showtablependaftaran'); ?>
                     </div>
 
+                </div>
+                 <div id="tabs-2" class="block">
+                    <?php $this->load->view('admin2/admin2view/masterView/faddpeserta'); ?>
                 </div>
                 
 

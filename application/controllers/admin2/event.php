@@ -53,7 +53,8 @@ class Event extends CI_Controller {
         // $this->form_validation->set_rules('gambar', 'Full Name', 'required|xss_clean');
         $this->form_validation->set_rules('materi', 'Full Name', 'required|xss_clean');
         $this->form_validation->set_rules('praktek', 'Full Name', 'required|xss_clean');
-
+        echo $this->input->post('materi');
+        exit;
         if ($this->form_validation->run() == TRUE) {
 
             $config['upload_path'] = './uploads';

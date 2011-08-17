@@ -16,17 +16,22 @@ class Model_tagihan extends CI_Model {
         $this->db->update('tagihan', $data);
     }
 
-    function get_all(){
-            $query = $this->db->get('tagihan');
-		if ($query->num_rows() > 0)
-		{
-			return $query->result();
-		}
-		else
-		{
-			return FALSE;
-		}
+    function get_all() {
+        $query = $this->db->get('tagihan');
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
         }
+    }
+
+    function insert_to_pemasukan($data) {
+        $insert = $this->db->insert('pemasukan', $data);
+        return $insert;
+    }
+
+    
+
 }
 
 ?>

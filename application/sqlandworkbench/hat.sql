@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 11, 2011 at 12:32 PM
+-- Generation Time: Aug 17, 2011 at 09:38 AM
 -- Server version: 5.1.49
 -- PHP Version: 5.3.3-1ubuntu9.1
 
@@ -20,21 +20,25 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `admin` (
-  `codeadmin` int(11) NOT NULL,
+  `codeadmin` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(100) NOT NULL,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `telepon` varchar(15) NOT NULL,
   PRIMARY KEY (`codeadmin`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`codeadmin`, `nama`, `username`, `password`, `email`, `telepon`) VALUES
-(21, 'Bahrie', 'bah', 'bah', 'bah@bah.bah', '085640899224');
+(1, 'Samsul KHairudin', 'admin@admin.com', 'password', 'Sahrul@s.com', '329847238'),
+(21, 'Bahrie', 'bah', 'c56efb94d3943fc77fef3eb949ab540d', 'bah@bah.bah', '085640899224'),
+(22, 'Suryono', 'sur', 'b6f9a184ace32b096213c3f7f08e25bb', 'suya@na..a', '32432534'),
+(23, 'fendi', 'fendi', 'fendi', 'fendithuk@gmail.com', '345345435'),
+(24, 'fendithuk', 'fendithuk', '202cb962ac59075b964b07152d234b70', 'fendithuk@gmail.com', '234325325');
 
 -- --------------------------------------------------------
 
@@ -58,8 +62,12 @@ CREATE TABLE IF NOT EXISTS `batalpembayaran` (
 --
 
 INSERT INTO `batalpembayaran` (`codebatalpembayaran`, `codepembayaran`, `tanggal`, `codeadmin`, `jumlah`) VALUES
+('3Eu012UC', 'BcXL6kaS', '2011-08-17', NULL, 150000),
 ('99DJMEGc', 'UUeYvMxf', '2011-08-11', NULL, 150000),
-('SnVTCQuo', 'BcXL6kaS', '2011-08-11', NULL, 200000);
+('IIuC2dHD', '55606hC9', '2011-08-17', NULL, 150000),
+('jxCoWsvU', 'BcXL6kaS', '2011-08-17', NULL, 200000),
+('SnVTCQuo', 'BcXL6kaS', '2011-08-11', NULL, 200000),
+('XcvgVRiA', '55606hC9', '2011-08-17', NULL, 200000);
 
 -- --------------------------------------------------------
 
@@ -81,7 +89,9 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('512ddf295198f9807781ff5ed716769b', '0.0.0.0', 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.24 (', 1313038483, 'a:5:{s:5:"email";s:15:"admin@admin.com";s:2:"id";s:1:"1";s:7:"user_id";s:1:"1";s:8:"group_id";s:1:"1";s:5:"group";s:5:"admin";}');
+('028f708c86b9d01ec17cf2eb40369cbe', '127.0.0.1', 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.24 (', 1313548683, 'a:5:{s:20:"SESS_LOGIN_STATEMENT";s:13:"Akses Ditolak";s:15:"SESS_ADMIN_CODE";s:2:"21";s:9:"SESS_NAME";s:6:"Bahrie";s:10:"SESS_EMAIL";s:11:"bah@bah.bah";s:5:"ADMIN";s:3:"bah";}'),
+('10d42a5ee60281691763de9993249556', '0.0.0.0', 'Mozilla/5.0 (X11; Linux i686; rv:5.0) Gecko/201001', 1313539270, 'a:5:{s:20:"SESS_LOGIN_STATEMENT";s:13:"Akses Ditolak";s:15:"SESS_ADMIN_CODE";s:2:"21";s:9:"SESS_NAME";s:6:"Bahrie";s:10:"SESS_EMAIL";s:11:"bah@bah.bah";s:5:"ADMIN";s:3:"bah";}'),
+('7a007e74dd38c0d4374dba0a30cc8045', '0.0.0.0', 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.24 (', 1313538104, 'a:5:{s:20:"SESS_LOGIN_STATEMENT";s:13:"Akses Ditolak";s:15:"SESS_ADMIN_CODE";s:2:"21";s:9:"SESS_NAME";s:6:"Bahrie";s:10:"SESS_EMAIL";s:11:"bah@bah.bah";s:5:"ADMIN";s:3:"bah";}');
 
 -- --------------------------------------------------------
 
@@ -96,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `detailbatalpembayaran` (
   PRIMARY KEY (`codedetailbatalpembayaran`),
   KEY `rk_1` (`codebatalpembayaran`),
   KEY `fk_2` (`codejadwalevent`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `detailbatalpembayaran`
@@ -104,7 +114,11 @@ CREATE TABLE IF NOT EXISTS `detailbatalpembayaran` (
 
 INSERT INTO `detailbatalpembayaran` (`codedetailbatalpembayaran`, `codebatalpembayaran`, `codejadwalevent`) VALUES
 (4, '99DJMEGc', 'HK29082011'),
-(5, 'SnVTCQuo', 'MR21082011');
+(5, 'SnVTCQuo', 'MR21082011'),
+(6, 'jxCoWsvU', 'MR21082011'),
+(7, '3Eu012UC', 'HK29082011'),
+(8, 'IIuC2dHD', 'HK29082011'),
+(9, 'XcvgVRiA', 'MR21082011');
 
 -- --------------------------------------------------------
 
@@ -116,19 +130,22 @@ CREATE TABLE IF NOT EXISTS `detailtagihan` (
   `codedetailpembayaran` int(11) NOT NULL AUTO_INCREMENT,
   `codepembayaran` varchar(45) DEFAULT NULL,
   `codejadwalevent` varchar(40) DEFAULT NULL,
+  `status` enum('ikut','batal') NOT NULL,
   PRIMARY KEY (`codedetailpembayaran`),
   KEY `fk_detailpembayaran_pembayaran` (`codepembayaran`),
   KEY `fk_detailpembayaran_jadwalevent` (`codejadwalevent`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
 
 --
 -- Dumping data for table `detailtagihan`
 --
 
-INSERT INTO `detailtagihan` (`codedetailpembayaran`, `codepembayaran`, `codejadwalevent`) VALUES
-(27, 'UUeYvMxf', 'HK29082011'),
-(28, 'BcXL6kaS', 'HK29082011'),
-(29, 'BcXL6kaS', 'MR21082011');
+INSERT INTO `detailtagihan` (`codedetailpembayaran`, `codepembayaran`, `codejadwalevent`, `status`) VALUES
+(27, 'UUeYvMxf', 'HK29082011', 'ikut'),
+(28, 'BcXL6kaS', 'HK29082011', 'batal'),
+(29, 'BcXL6kaS', 'MR21082011', 'batal'),
+(30, '55606hC9', 'HK29082011', 'batal'),
+(31, '55606hC9', 'MR21082011', 'batal');
 
 -- --------------------------------------------------------
 
@@ -150,6 +167,7 @@ CREATE TABLE IF NOT EXISTS `event` (
 --
 
 INSERT INTO `event` (`codeivent`, `namaevent`, `gambar`, `materi`, `praktek`) VALUES
+('ab', 'kdsa', 'IMG_0104.jpg', '<p>ldka</p>', '<p>dsfkd</p>'),
 ('HJ', 'Hack Jaringan', 'sending_flowers_to_south_africa.jpg', '<p>&nbsp;</p>\n<h3>\n<ul>\n<li>Materi pertama</li>\n</ul>\n<ul>\n<li>Materi Kedua</li>\n</ul>\n<ul>\n<li>Materi Ketiga&nbsp;</li>\n</ul>\n<ul>\n<li>Maetri empat</li>\n</ul>\n<ul>\n<li>dan seterusnya</li>\n</ul>\n</h3>\n<p>&nbsp;</p>', '<h3>\n<ul>\n<li>praktek satu belas</li>\n<li>praktek dua belas</li>\n<li>praktek tiga belas</li>\n<li>praktek empat belas</li>\n<li>dan seterusnya</li>\n</ul>\n</h3>'),
 ('MR2', 'Marah Merah', 'plane_tickets_to_south_africa.jpg', '<p>\n<h3>\n<ul>\n<li>mawar satu&nbsp;</li>\n<li>mawar dua</li>\n<li>mawar tiga</li>\n</ul>\n</h3>\n</p>', '<p>\n<h3>\n<ul>\n<li>praktekum mawar satu</li>\n</ul>\n<ul>\n<li>p mawar 2</li>\n</ul>\n<ul>\n<li>p mawar tiga</li>\n</ul>\n</h3>\n</p>');
 
@@ -172,27 +190,6 @@ CREATE TABLE IF NOT EXISTS `group` (
 INSERT INTO `group` (`codegroup`, `namagroup`) VALUES
 (1, 'faq'),
 (2, 'sidebar');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `groups`
---
-
-CREATE TABLE IF NOT EXISTS `groups` (
-  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) NOT NULL,
-  `description` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `groups`
---
-
-INSERT INTO `groups` (`id`, `name`, `description`) VALUES
-(1, 'admin', 'Administrator'),
-(2, 'members', 'General User');
 
 -- --------------------------------------------------------
 
@@ -245,7 +242,8 @@ CREATE TABLE IF NOT EXISTS `jadwalevent` (
 --
 
 INSERT INTO `jadwalevent` (`codejadwalevent`, `codeevent`, `tanggal`, `waktu`, `codepemateri`, `codetempat`, `harga`) VALUES
-('HK29082011', 'HJ', '2011-08-29', '10.00', 'code', '123', '150000'),
+('HK29082011', 'ab', '2011-08-29', '10.00', 'code', '123', '150000'),
+('HW21082011', 'HJ', '2011-08-21', '10.00 WIB', 'HK5', 'dsf1``', '200000'),
 ('MR21082011', 'MR2', '2011-08-21', '10.00 WIB', 'ffffff', 'sdf', '200000');
 
 -- --------------------------------------------------------
@@ -270,6 +268,29 @@ CREATE TABLE IF NOT EXISTS `meta` (
 
 INSERT INTO `meta` (`id`, `user_id`, `first_name`, `last_name`, `company`, `phone`) VALUES
 (1, 1, 'Admin', 'istrator', 'ADMIN', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pemasukan`
+--
+
+CREATE TABLE IF NOT EXISTS `pemasukan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `codeuser` varchar(45) NOT NULL,
+  `nilaimasuk` bigint(20) NOT NULL,
+  `tanggalmasuk` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `pemasukan`
+--
+
+INSERT INTO `pemasukan` (`id`, `codeuser`, `nilaimasuk`, `tanggalmasuk`) VALUES
+(1, '18733257', 350000, '2011-08-17'),
+(2, '34970887', 50000, '2011-08-17'),
+(3, '34970887', 300000, '2011-08-17');
 
 -- --------------------------------------------------------
 
@@ -309,7 +330,7 @@ CREATE TABLE IF NOT EXISTS `pendaftaran` (
   PRIMARY KEY (`codependaftaran`),
   KEY `fk_pendaftaran_jadwalevent` (`codejadwalevent`),
   KEY `fk_pendaftaran_user` (`codeuser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='tabel untuk pendaftaran, gabungan antara user dan dajwal eve' AUTO_INCREMENT=50 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='tabel untuk pendaftaran, gabungan antara user dan dajwal eve' AUTO_INCREMENT=52 ;
 
 --
 -- Dumping data for table `pendaftaran`
@@ -320,7 +341,33 @@ INSERT INTO `pendaftaran` (`codependaftaran`, `codeuser`, `codejadwalevent`, `ta
 (46, 92210863, 'HK29082011', '2011-08-10'),
 (47, 91162767, 'HK29082011', '2011-08-11'),
 (48, 18733257, 'HK29082011', '2011-08-11'),
-(49, 18733257, 'MR21082011', '2011-08-11');
+(49, 18733257, 'MR21082011', '2011-08-11'),
+(50, 34970887, 'HK29082011', '2011-08-12'),
+(51, 34970887, 'MR21082011', '2011-08-12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengeluaran`
+--
+
+CREATE TABLE IF NOT EXISTS `pengeluaran` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `codeuser` varchar(45) NOT NULL,
+  `nilaikeluar` bigint(20) NOT NULL,
+  `tanggalkeluar` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `pengeluaran`
+--
+
+INSERT INTO `pengeluaran` (`id`, `codeuser`, `nilaikeluar`, `tanggalkeluar`) VALUES
+(1, '18733257', 200000, '2011-08-17'),
+(2, '18733257', 150000, '2011-08-17'),
+(3, '34970887', 150000, '2011-08-17'),
+(4, '34970887', 200000, '2011-08-17');
 
 -- --------------------------------------------------------
 
@@ -336,12 +383,15 @@ CREATE TABLE IF NOT EXISTS `sertifikat` (
   PRIMARY KEY (`codesertifikat`),
   KEY `fk_sertifikat_user` (`codeuser`),
   KEY `codejadwalevent` (`codejadwalevent`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `sertifikat`
 --
 
+INSERT INTO `sertifikat` (`codesertifikat`, `nosertifikat`, `codeuser`, `codejadwalevent`) VALUES
+(11, '23432', 91162767, 'MR21082011'),
+(12, '3453798', 18733257, 'MR21082011');
 
 -- --------------------------------------------------------
 
@@ -353,8 +403,9 @@ CREATE TABLE IF NOT EXISTS `tagihan` (
   `codepembayaran` varchar(40) NOT NULL,
   `codeuser` int(11) NOT NULL,
   `jumlahharga` mediumtext NOT NULL,
+  `bayar` bigint(20) NOT NULL,
   `tanggal` date DEFAULT NULL,
-  `status` enum('bayar','belum','batal') DEFAULT NULL,
+  `status` enum('bayar','belum','batal','dp') DEFAULT NULL,
   `codeadmin` int(11) DEFAULT NULL,
   PRIMARY KEY (`codepembayaran`),
   KEY `fk_pembayaran_user` (`codeuser`),
@@ -365,9 +416,10 @@ CREATE TABLE IF NOT EXISTS `tagihan` (
 -- Dumping data for table `tagihan`
 --
 
-INSERT INTO `tagihan` (`codepembayaran`, `codeuser`, `jumlahharga`, `tanggal`, `status`, `codeadmin`) VALUES
-('BcXL6kaS', 18733257, '350000', '2011-08-11', 'batal', NULL),
-('UUeYvMxf', 91162767, '150000', '2011-08-11', 'batal', NULL);
+INSERT INTO `tagihan` (`codepembayaran`, `codeuser`, `jumlahharga`, `bayar`, `tanggal`, `status`, `codeadmin`) VALUES
+('55606hC9', 34970887, '350000', 350000, '2011-08-17', 'batal', NULL),
+('BcXL6kaS', 18733257, '350000', 350000, '2011-08-17', 'batal', NULL),
+('UUeYvMxf', 91162767, '150000', 0, '2011-08-11', 'belum', NULL);
 
 -- --------------------------------------------------------
 
@@ -390,7 +442,6 @@ CREATE TABLE IF NOT EXISTS `tempat` (
 
 INSERT INTO `tempat` (`codetempat`, `namatempat`, `alamat`, `telepon`, `linkpeta`) VALUES
 ('123', 'Sandika', 'jalan berbah', '09999999', '7777777777777777'),
-('aaa', 'Mirota', 'Jakal 0Km', '08345322', '88888888888888888'),
 ('dsad', 'UC UGM', 'UGM', '08549388282', '9999999999999'),
 ('dsf1``', 'Widyatama', 'jalan Adisutjipto', '099884838384', 'at55555555555555'),
 ('sdf', 'Jogjatronik', 'jalan brigjen', '089429129923', '232222222222222222222');
@@ -422,39 +473,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`codeuser`, `nama`, `alamat`, `jeniskelamin`, `telepon`, `email`, `tempatlahir`, `tanggallahir`, `pekerjaan`, `instansi`, `password`) VALUES
 (18733257, 'Cinta Bella', 'Jakarta Selatan', 'perempuan', '094832943', 'Cintia@bella.com', 'Jakarta', '1974-05-07', 'Mahasiswi', 'PT Suka Jaya', NULL),
+(34970887, 'Rahmat', 'Jogja', 'laki-laki', '03294329', 'saipul_bahrie@yahoo.co.id', 'Solo', '1983-07-09', 'Mahasiswa', 'PT Merpati putih', NULL),
 (75769213, 'Saiful', 'Jepara', 'laki-laki', '094329839', 'bahrie172@gmail.com', 'Jepara`', '1990-01-27', 'Mahasiswa', 'STTA', NULL),
-(91162767, 'Saiful', 'jepara', 'laki-laki', '3094329483', 'bahrie172@gmail.com', 'Jepara', '1962-06-09', 'Mahasiswa', 'PT Merpati putih', NULL),
+(91162767, 'Ipul', 'Kudus', 'laki-laki', '3094329483', 'bahri@gmail.com', 'Jepara', '1962-06-09', 'Programmer', 'PT Merpati putih', NULL),
 (92210863, 'jack', 'yogyakarta', 'laki-laki', '080989999', 'jack_bareno@gmail.com', 'Bandung', '1985-07-18', 'Administrator', 'pemerintahan', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `group_id` mediumint(8) unsigned NOT NULL,
-  `ip_address` char(16) NOT NULL,
-  `username` varchar(15) NOT NULL,
-  `password` varchar(40) NOT NULL,
-  `salt` varchar(40) DEFAULT NULL,
-  `email` varchar(100) NOT NULL,
-  `activation_code` varchar(40) DEFAULT NULL,
-  `forgotten_password_code` varchar(40) DEFAULT NULL,
-  `remember_code` varchar(40) DEFAULT NULL,
-  `created_on` int(11) unsigned NOT NULL,
-  `last_login` int(11) unsigned DEFAULT NULL,
-  `active` tinyint(1) unsigned DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `group_id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `remember_code`, `created_on`, `last_login`, `active`) VALUES
-(1, 1, '127.0.0.1', 'administrator', '59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4', '9462e8eee0', 'admin@admin.com', '', NULL, '9d029802e28cd9c768e8e62277c0df49ec65c48c', 1268889823, 1313027006, 1);
 
 --
 -- Constraints for dumped tables
@@ -506,8 +528,8 @@ ALTER TABLE `pendaftaran`
 -- Constraints for table `sertifikat`
 --
 ALTER TABLE `sertifikat`
-  ADD CONSTRAINT `sertifikat_ibfk_1` FOREIGN KEY (`codejadwalevent`) REFERENCES `jadwalevent` (`codejadwalevent`),
-  ADD CONSTRAINT `fk_sertifikat_user` FOREIGN KEY (`codeuser`) REFERENCES `user` (`codeuser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_sertifikat_user` FOREIGN KEY (`codeuser`) REFERENCES `user` (`codeuser`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `sertifikat_ibfk_1` FOREIGN KEY (`codejadwalevent`) REFERENCES `jadwalevent` (`codejadwalevent`);
 
 --
 -- Constraints for table `tagihan`
