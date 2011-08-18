@@ -29,18 +29,22 @@
                 <td>-</td>
                 <td>-</td>
             </tr>
-<?php endforeach; ?>
+        <?php endforeach; ?>
     </tbody> 
 </table>
 
 <div class="block">
-    <label>berdasarkan code Event</label>  
-    <input type="text" name="kategori" id="kategori"/>
-    <input class="btnsub"type="submit" id="cari">
+    <table class="tt">
+        <tr>
+            <td><label>Berdasarkan code Event </label>
+            <input type="text" name="kategori" id="kategori"/></td>
+        <td><br/><input class="btnsub"type="submit" id="cari"></td>
+        </tr>
+    </table>
 </div>
 
 <div id="tabelfilter">
-<?php $this->load->view('admin2/admin2view/acaraView/showtablefilterpeserta'); ?>
+    <?php $this->load->view('admin2/admin2view/acaraView/showtablefilterpeserta'); ?>
 </div>
 <script text="javascript">
     $(document).ready(function() {
