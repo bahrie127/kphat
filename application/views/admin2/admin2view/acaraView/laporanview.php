@@ -11,12 +11,10 @@
         <div class="block">
             <h3>Pendapatan / Pemasukan</h3>
             <ol>
-<<<<<<< HEAD
-                <table class="tt">
-=======
+
 <!--                <?php echo form_open(base_url() . 'index.php/admin2/pemasukan/cari_pemasukan'); ?> -->
                 <table>
->>>>>>> 2209a403867e2af05caccab78e116062693b4068
+
                     <tr>
                         <td><label>Dari Tanggal</label> 
                             <input id="tanggal" name="startdate" type="text" class="large datepicker LV_valid_field">
@@ -29,26 +27,16 @@
                     </tr>
 
                 </table>
-<!--                </form>-->
+
 
 
 
 
             </ol>
-<<<<<<< HEAD
-            <table class="tt">
-                <tr>
-                    <td><h3>Jumlah Pemasukan</h3></td>
-                    <td><strong></strong></td>
-                    <td><h3>Rp 300.000,-</h3></td>
-                </tr>
-            </table>
 
-=======
             <div id="pemasukan">
                 <?php $this->load->view('admin2/admin2view/acaraView/total_pemasukan') ?>
             </div>
->>>>>>> 2209a403867e2af05caccab78e116062693b4068
 
         </div>
 
