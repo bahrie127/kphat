@@ -364,18 +364,19 @@ blockquote {}
 #content section.blog article #comments .comment .top time{float: right; font-size: 11px; padding-top: 10px;}
 #content section.blog article #comments .comment .bottom{padding: 15px 20px; font-size: 12px; line-height: 18px;}
 /* comments form */
-#content section.blog article #comments #form table{width:auto;margin-top: 20px;margin-bottom: 20px;margin-left: 20px;}
+#content section.blog article #comments #form table{margin-top: 10px;margin-bottom: 20px;margin-left: 0px;}
 /*#content section.blog article #comments #form table, tr, td{width: 630px;text-align: left;padding: 10px;}*/
 #content section.blog article #comments #form table, tr, td {
     padding: 10px;
     text-align: left;
     width: 630px;
+    border: 2px solid #000;
 }
 #content section.blog article #comments #form table td input.error{border: 1px solid red;}
 #content section.blog article #comments #form table td select.error{border: 1px solid red;}
 #content section.blog article #comments #form table td label.error{color: red;padding-left: 10px;}
 
-#content section.blog article #comments #form th{border-color: #000; border:1px #000000; width: 200px;text-align: left;padding-bottom: 10px}
+#content section.blog article #comments #form th{color: #FFFFFF;background: #8C0003;border:2px solid #000000; width: auto;text-align: center;padding: 10px}
 #content section.blog article #comments #form table tr th.coba{border-color: #b60202}
 
 #content section.blog article #comments #form{margin-top: -20px;padding-left: 20px;background: #f7f7f7; border: 1px solid #efefef;}

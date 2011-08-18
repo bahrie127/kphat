@@ -126,10 +126,12 @@ fieldset {
 
 .block table.tt tr td, .block table.tt tr td{
     width: 200px;
+    height: 20px;
     color: #666;
-    padding:1em 0;
+    margin-bottom: 10px;
     border-bottom: 1px solid #eee;	
     line-height: 2em;
+    
     
 }
 
