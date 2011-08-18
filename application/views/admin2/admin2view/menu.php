@@ -53,6 +53,7 @@
                 <li><a href="<?php echo base_url(); ?>index.php/admin2/tagihan">Tagihan</a></li>
                 <li><a href="<?php echo base_url(); ?>index.php/admin2/pembatalan">Pembatalan</a></li>
                 <li><a href="<?php echo base_url(); ?>index.php/admin2/sertifikat">Sertifikat</a></li>
+                 <li><a href="<?php echo base_url(); ?>index.php/admin2/laporan">Laporan Pemasukan</a></li>
                 
             </ul>
         </li>

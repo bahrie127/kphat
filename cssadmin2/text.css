@@ -126,10 +126,32 @@ fieldset {
 
 .block ul li, .block ol li{
 	color: #666;
-	line-height: 2em;
+	
 	padding:1em 0;
-	border-bottom: 1px solid #eee;	
+        
+	
 }
+
+.block ul table tr td, .block ol table tr td{
+    width: 200px;
+    color: #666;padding:1em 0;
+    border-bottom: 1px solid #eee;
+    line-height: 2em;
+    
+}
+
+.block ul table tr td p, .block ol table tr td p{
+   margin-left: 10px;
+}
+
+.block table tr td, .block table tr td{
+    width: 200px;
+    color: #666;padding:1em 0;
+    
+    line-height: 2em;
+    
+}
+
 .flat_area ul li, .flat_area ul li {
 	color: #666;
 	padding:0.5em 0;

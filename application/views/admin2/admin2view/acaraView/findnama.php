@@ -1,4 +1,4 @@
-<option>-----------------</option>
+
 
 <?php foreach ($nama as $row):
 
