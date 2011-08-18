@@ -21,9 +21,9 @@
             <div class="toggle_container">					
                 <div class="block">
 
-                    <?php echo form_open(base_url() . 'index.php/admin2/admin/edit'); ?> 
+                    <?php echo form_open(base_url() . 'index.php/admin2/setting/edit'); ?> 
                     <?php foreach ($data as $row): ?>
-                        
+
                         <input name="codeadmin" value="<?php echo $row->codeadmin; ?>" readonly="readonly" title="Berisi kode admin" type="hidden" class="medium required" autofocus> 
 
                         <label>Nama</label> 
@@ -38,9 +38,26 @@
                         <label>username</label> 
                         <input name="username" value="<?php echo $row->username; ?>" title="Berisi username" type="text" class="large">
 
-                        <label>password</label> 
+                        <label>Password</label> 
                         <input name="password" value="" title="Berisi password" type="password" class="large">
                         
+                        <label>Confirm password</label> 
+                        <input name="cpassword" value="" title="Berisi konfirmasi password" type="password" class="large">
+
+
+                        <?php
+                        echo "<div id='error' class='error-message' ";
+
+                        if ($this->session->userdata('ERRMSG_ARR')) {
+                            echo ">";
+                            echo $this->session->userdata('ERRMSG_ARR');
+                            $this->session->unset_userdata('ERRMSG_ARR');
+                        } else {
+                            echo "style='display:none'>";
+                        }
+
+                        echo "</div>";
+                        ?>
                     <?php endforeach; ?>
 
                     <br/> <br/>
