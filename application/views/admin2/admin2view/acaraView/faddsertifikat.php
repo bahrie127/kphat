@@ -25,7 +25,8 @@
 
             <div class="input_group">
                 <select name="codeuser" id="combonama">
-                    
+                    <option>Pilih Nama</option>
+                    <option>-----------------</option>
                         <?php $this->load->view('admin2/admin2view/acaraView/combo_nama'); ?>
                    
                 </select>
