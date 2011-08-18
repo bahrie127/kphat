@@ -33,7 +33,8 @@ class Admin extends CI_Controller {
 //        $this->form_validation->set_rules('telepon', 'Full Name', 'required|xss_clean');
 //        $this->form_validation->set_rules('email', 'Full Name', 'required|xss_clean|valid_email');
 //        $this->form_validation->set_rules('username', 'Full Name', 'required|xss_clean');
-//        
+//$this->form_validation->set_rules('password', 'Password', 'trim|required|matches[cpassword]');
+			$this->form_validation->set_rules('cpassword', 'Ulangi Password', 'trim|required');
         if ($this->form_validation->run() == TRUE) {
         
         $password=$this->input->post('password');
@@ -88,6 +89,19 @@ class Admin extends CI_Controller {
         }
     }
 
+    function _user_validation($edit=0)
+	{
+		$this->form_validation->set_rules('nama', 'Nama Depan', 'trim|required|alpha');
+		$this->form_validation->set_rules('email', 'Nama Belakang', 'trim|required|alpha');
+		$this->form_validation->set_rules('telepon', 'Username', 'trim|required|alpha_underscores');
+		
+			$this->form_validation->set_rules('password', 'Password', 'trim|required|matches[cpassword]');
+			$this->form_validation->set_rules('cpassword', 'Ulangi Password', 'trim|required');
+		
+
+		return $this->form_validation->run();
+	}
+    
 }
 
 ?>
