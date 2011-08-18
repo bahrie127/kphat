@@ -13,15 +13,15 @@
             <ol>
                 <table>
                     <tr>
-                        <td><p>1. Nama Event 1</p></td>
-                        <td><strong></strong></td>
-                        <td><p>Rp 150.000,-</p></td>
+                        <td><label>Dari Tanggal</label> 
+                            <input id="tanggal" name="tanggal" type="text" class="large datepicker LV_valid_field">
+                        </td>
+                        <td><label>Sampai Tanggal</label> 
+                            <input id="tgl" name="tgl" type="text" class="large datepicker LV_valid_field">
+                        </td>
+                        <td></td>
                     </tr>
-                    <tr>
-                        <td><p>2. Nama Event 2</p></td>
-                        <td><strong></strong></td>
-                        <td><p>Rp 150.000,-</p></td>
-                    </tr>
+                    
                 </table>
 
 

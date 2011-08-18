@@ -66,7 +66,7 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/adminica/adminica_ui.js"></script>
         <!-- To calling form edit dan Delete -->
         <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ajax/cariNama.js"></script>
-        
+
 
         <style>
             #form_pemateri table tr label { display:block;font-size: 14px }
@@ -111,6 +111,12 @@
                 $( "#tanggalJadwal" ).datepicker();
                 $( "#tanggalJadwal" ).change(function() {
                     $( "#tanggalJadwal" ).datepicker( "option", "dateFormat","yy-mm-dd" );
+                });
+            });
+            $(function() {
+                $( "#tgl" ).datepicker();
+                $( "#tgl" ).change(function() {
+                    $( "#tgl" ).datepicker( "option", "dateFormat","yy-mm-dd" );
                 });
             });
         </script>
