@@ -11,7 +11,7 @@
         <div class="block">
             <h3>Pendapatan / Pemasukan</h3>
             <ol>
-                <table>
+                <table class="tt">
                     <tr>
                         <td><label>Dari Tanggal</label> 
                             <input id="tanggal" name="tanggal" type="text" class="large datepicker LV_valid_field">
@@ -29,7 +29,7 @@
 
 
             </ol>
-            <table>
+            <table class="tt">
                 <tr>
                     <td><h3>Jumlah Pemasukan</h3></td>
                     <td><strong></strong></td>

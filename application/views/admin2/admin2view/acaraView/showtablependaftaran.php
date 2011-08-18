@@ -1,4 +1,4 @@
-<table class="display datatable" > 
+<table class="display datatabl" > 
     <thead> 
         <tr> 
             <th>No</th> 
@@ -33,9 +33,11 @@
     </tbody> 
 </table>
 
-
-    berdasarkan code Event=  <input type="text" name="kategori" id="kategori"/>
-    <input type="submit" id="cari">
+<div class="block">
+    <label>berdasarkan code Event</label>  
+    <input type="text" name="kategori" id="kategori"/>
+    <input class="btnsub"type="submit" id="cari">
+</div>
 
 <div id="tabelfilter">
 <?php $this->load->view('admin2/admin2view/acaraView/showtablefilterpeserta'); ?>
@@ -43,7 +45,7 @@
 <script text="javascript">
     $(document).ready(function() {
         // DataTables Config (more info can be found at http://www.datatables.net/)
-        var oTable = $('.datatable').dataTable( {
+        var oTable = $('.datatabl').dataTable( {
             "bJQueryUI": true,
             "sScrollX": "",
             "bSortClasses": false,

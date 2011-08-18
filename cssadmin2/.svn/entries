@@ -1,0 +1,28 @@
+10
+
+dir
+0
+svn://192.168.2.2/mlm/kphat/cssadmin2
+svn://192.168.2.2/mlm
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7a08d188-78b7-4f38-83ec-de0816bcbea8
+

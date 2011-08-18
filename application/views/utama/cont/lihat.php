@@ -8,9 +8,7 @@
                         <h2>peserta</h2>
                         <br class="clear"/>
                         <br class="clear"/>
-                        <?php foreach ($data as $row): ?>
-                        <?php echo $row->event_namaevent;?></h3>
-                        <?php endforeach; ?>
+                        
                         <br/>
                         <table>
                             <tr>
