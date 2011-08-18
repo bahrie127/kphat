@@ -55,7 +55,11 @@
                             <div class="one white">
                                 <div class="one_quarter white">
                                     <div class="elements">
-                                        <p class="price"><?php echo $row->jadwalevent_harga;?></a>
+                                        <p class="price"><?php 
+                                        $harga = $row->jadwalevent_harga;
+                                        $har=substr($harga, 0,3);
+                                        $har1=substr($harga, 3,3);
+                                        echo "Rp $har.$har1,-" ?></a>
                                     </div>
                                 </div>
                                 <!--------------------- Button daftar dan lihat ----------------->
