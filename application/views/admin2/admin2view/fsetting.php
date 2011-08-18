@@ -24,23 +24,23 @@
                     <?php echo form_open(base_url() . 'index.php/admin2/setting/edit'); ?> 
                     <?php foreach ($data as $row): ?>
 
-                        <input name="codeadmin" value="<?php echo $row->codeadmin; ?>" readonly="readonly" title="Berisi kode admin" type="hidden" class="medium required" autofocus> 
+                        <input name="codeadmin" id="codeadmin" value="<?php echo $row->codeadmin; ?>" readonly="readonly" title="Berisi kode admin" type="hidden" class="medium required LV_valid_field" autofocus> 
 
                         <label>Nama</label> 
-                        <input name="nama" value="<?php echo $row->nama; ?>" title="Berisi nama" type="text" class="large">
+                        <input name="nama" id="nama" value="<?php echo $row->nama; ?>" title="Berisi nama" type="text" class="large LV_valid_field">
 
                         <label>Email</label> 
-                        <input name="email" value="<?php echo $row->email; ?>" title="Berisi email" type="text" class="large">
+                        <input name="email" id="email" value="<?php echo $row->email; ?>" title="Berisi email" type="text" class="large LV_valid_field">
 
                         <label>No Telpon</label> 
-                        <input name="telepon" value="<?php echo $row->telepon; ?>" title="Berisi Telepon" type="text" class="large">
+                        <input name="telepon" id="telepon"value="<?php echo $row->telepon; ?>" title="Berisi Telepon" type="text" class="large LV_valid_field">
 
                         <label>username</label> 
-                        <input name="username" value="<?php echo $row->username; ?>" title="Berisi username" type="text" class="large">
+                        <input name="username" id="username"value="<?php echo $row->username; ?>" title="Berisi username" type="text" class="large LV_valid_field">
 
                         <label>Password</label> 
                         <input name="password" value="" title="Berisi password" type="password" class="large">
-                        
+
                         <label>Confirm password</label> 
                         <input name="cpassword" value="" title="Berisi konfirmasi password" type="password" class="large">
 
@@ -90,8 +90,7 @@
     var username = new LiveValidation('username');
     username.add(Validate.Presence);
     
-    var ps = new LiveValidation('password');
-    ps.add(Validate.Presence);
+    
     
     
     

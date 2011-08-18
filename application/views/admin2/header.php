@@ -66,6 +66,7 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/adminica/adminica_ui.js"></script>
         <!-- To calling form edit dan Delete -->
         <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ajax/cariNama.js"></script>
+         
 
 
         <style>
@@ -96,6 +97,13 @@
             #form_sertifikat table h1 { font-size: 1.2em; margin: .6em 0; }
             #form_sertifikat table a{text-decoration:none;}
             #form_sertifikat table th,#form_sertifikat table td{padding: 5px;text-align: left}
+
+            #form_diskon table tr label { display:block;font-size: 14px }
+            #form_diskon table tr td input{font-size: 18px;width: 300px;background-color: #E7EDEF;border: 1px solid #B5B8BB; border-radius: 2px 2px 2px 2px;
+            }       #form_diskon table tr input.text { margin-bottom:12px; width:100%; padding: 4em;background:  #000; }
+            #form_diskon table h1 { font-size: 1.2em; margin: .6em 0; }
+            #form_diskon table a{text-decoration:none;}
+            #form_diskon table th,#form_diskon table td{padding: 5px;text-align: left}
 
         </style>
 
