@@ -17,8 +17,10 @@ class laporan extends CI_Controller{
     }
     
     function index(){
+        $data['masuk']=array();
+        $data['keluar']=array();
         $this->load->view('admin2/header');
-        $this->load->view('admin2/admin2view/flaporan');
+        $this->load->view('admin2/admin2view/flaporan',$data);
         $this->load->view('admin2/footer');
     }
 }

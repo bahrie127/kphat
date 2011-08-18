@@ -23,8 +23,8 @@
 
                     <?php echo form_open(base_url() . 'index.php/admin2/admin/edit'); ?> 
                     <?php foreach ($data as $row): ?>
-                        <label>Kode Admin</label> 
-                        <input name="codeadmin" value="<?php echo $row->codeadmin; ?>" readonly="readonly" title="Berisi kode admin" type="text" class="medium required" autofocus> 
+                        
+                        <input name="codeadmin" value="<?php echo $row->codeadmin; ?>" readonly="readonly" title="Berisi kode admin" type="hidden" class="medium required" autofocus> 
 
                         <label>Nama</label> 
                         <input name="nama" value="<?php echo $row->nama; ?>" title="Berisi nama" type="text" class="large">
@@ -40,6 +40,7 @@
 
                         <label>password</label> 
                         <input name="password" value="" title="Berisi password" type="password" class="large">
+                        
                     <?php endforeach; ?>
 
                     <br/> <br/>
