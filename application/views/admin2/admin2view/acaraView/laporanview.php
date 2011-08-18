@@ -12,10 +12,10 @@
             <h3>Pendapatan / Pemasukan</h3>
             <ol>
 
+
                 <table class="tt">
 
-<!--                <?php echo form_open(base_url() . 'index.php/admin2/pemasukan/cari_pemasukan'); ?> -->
-              
+
                     <tr>
                         <td><label>Tanggal</label>
                             <input id="tanggal" name="startdate" type="text"  class="large datepicker LV_valid_field">
@@ -33,7 +33,7 @@
                     </tr>
 
                 </table>
-<!--                </form>-->
+
 
 
 
