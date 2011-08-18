@@ -28,7 +28,7 @@
                         <td>
                             <input id="tgl" name="enddate" type="text" class="large datepicker LV_valid_field">
                         </td>
-                        <td><label> </label> <input class="btnsub" type="submit" value="Pendapatan" id="caripendapatan"/></td>
+                        <td><label> </label> <input class="btnsub" type="submit" value="Pemasukan" id="caripendapatan"/></td>
                         
                     </tr>
 

@@ -27,9 +27,11 @@ class pembatalan extends CI_Controller {
         $this->load->model('model_detail_pembatalan');
         $this->load->model('model_pembatalan');
         $this->load->model('model_jadwal_event');
+        $this->load->model('model_setting_potongan');
     }
 
     function index() {
+
         if ($this->model_join->get_batal_bayar_admin() == FALSE) {
             $data['cek'] = array();
             if ($this->model_join->get_batal_admin() == FALSE) {
@@ -59,13 +61,19 @@ class pembatalan extends CI_Controller {
     }
 
     function add() {
+        if ($this->model_setting_potongan->get_nominal_by_nama('potongan pembatalan') == TRUE) {
+            $potongan = $this->model_setting_potongan->get_nominal_by_nama('potongan pembatalan');
+        } else {
+            $potongan = 0;
+        }
+
         $b = 0;
         $this->form_validation->set_rules('codepembayaran', 'Full Name', 'required|xss_clean');
         if ($this->form_validation->run() == TRUE) {
             $this->idpembatalan = random_string('alnum', 8);
             $datestring = "%Y-%m-%d";
             $time = time();
-            
+
             $date = mdate($datestring, $time);
             foreach ($this->input->post('cek') as $row) {
                 $this->hitungHarga($row);
@@ -74,12 +82,12 @@ class pembatalan extends CI_Controller {
                 'codebatalpembayaran' => $this->idpembatalan,
                 'codepembayaran' => $this->input->post('codepembayaran'),
                 'tanggal' => $date,
-                'jumlah' => $this->totalKembali
+                'jumlah' => $this->totalKembali * ((100 - $potongan['nominal']) / 100)
             );
             $dataPengeluaran = array(
                 'codeuser' => $this->input->post('codeuser'),
                 'tanggalkeluar' => $date,
-                'nilaikeluar' => $this->totalKembali
+                'nilaikeluar' => $this->totalKembali * ((100 - $potongan['nominal']) / 100)
             );
             $this->model_pembatalan->insert_to_pengeluaran($dataPengeluaran);
 
