@@ -15,7 +15,8 @@
 |
 */
 $config['base_url']	= 'http://localhost/kphat/';
-
+$config['captcha_path']     = './captcha/';
+$config['captcha_url']      = $config['base_url'].'captcha/';
 /*
 |--------------------------------------------------------------------------
 | Index File

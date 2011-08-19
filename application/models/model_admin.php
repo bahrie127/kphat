@@ -21,20 +21,20 @@ class Model_admin extends CI_Model {
             return $insert;
         }
         
-        function check_username($id = '')
+        function cari_email($id)
 	{
-		$this->db->where('username', $data['username']);
+		$this->db->where('email', $id);
 		
-		if($id != '') $this->db->where('codeadmin !=', $id);
+		
 		$query = $this->db->get('admin');
 
 		if ($query->num_rows() > 0)
 		{
-			return FALSE;
+			return $query->row_array();
 		}
 		else
 		{
-			return TRUE;
+			return FALSE;
 		}
 	}
         
