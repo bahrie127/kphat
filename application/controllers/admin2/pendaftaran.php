@@ -40,9 +40,9 @@ class pendaftaran extends CI_Controller {
     function get_by_event() {
         $kategori = $this->input->post('kategori');
         if ($this->model_join->get_peserta_by_code_jadwal($kategori) == TRUE) {
-            $data['kategori'] = $this->model_join->get_peserta_by_code_jadwal($kategori);
+            $data['data'] = $this->model_join->get_peserta_by_code_jadwal($kategori);
         } else {
-            $data['kategori'] = array();
+            $data['data'] = array();
         }
         $this->load->view('admin2/admin2view/acaraView/showtablefilterpeserta', $data);
     }
