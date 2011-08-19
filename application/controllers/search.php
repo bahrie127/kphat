@@ -24,13 +24,16 @@ class Search extends CI_Controller {
     }
 
     function cari() {
-        
+
         $id = $this->uri->segment(3); //diaktifkan jika sudah rampung semua....
-        $data['data'] = $this->model_join->get_data_by_no_sertifikat($id);
-        if($data){
-            $this->load->view('utama/cont/fsearch', $data);
+        if ($id == '') {
+            
+        } else {
+            $data['data'] = $this->model_join->get_data_by_no_sertifikat($id);
+            if ($data) {
+                $this->load->view('utama/cont/fsearch', $data);
+            }
         }
-        
     }
 
 }
