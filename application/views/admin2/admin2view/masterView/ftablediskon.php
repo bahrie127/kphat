@@ -1,59 +1,55 @@
-<div class="block">
-    <table class="tt">
-        <tr>
-            <td><label>Pencarian Peserta Berdasarkan Code Acara </label>
-                <input type="text" name="kategori" id="kategori"/></td>
-            <td><br/><input class="btnsub"type="submit" id="cari"></td>
-        </tr>
-    </table>
-</div>
+<ul id="touch_sort" class="tab_header grad_colour round_top clearfix">
+    <li><a href="#tabs-1" class="round_top">Lihat Data</a></li>
+    
+   
+</ul>	
+<a href="#" class="grabber">&nbsp;</a>
+<a href="#" class="toggle">&nbsp;</a>
+<div class="toggle_container">
 
-<div id="tabelfilter">
-    <?php $this->load->view('admin2/admin2view/acaraView/showtablefilterpeserta'); ?>
-</div>
+    <div id="tabs-1" class="block no_padding">
+        <table class="display datatable" > 
+            <thead> 
+                <tr> 
+                    <th>No</th> 
+                    <th>Nama</th> 
+                    <th>Kena Potongan (%)</th> 
+                    
+                    <th>Edit</th> 
+                    
+                </tr> 
+            </thead> 
+            <tbody> 
+             <?
+        $i = 0;
 
-<table class="display datatabl" > 
-    <thead> 
-        <tr> 
-            <th>No</th> 
-            <th>Code</th> 
-            <th>Tanggal Daftar</th> 
-            <th>Nama</th>
-            <th>Alamat</th>
-            <th>Email</th>
-            <th>Telephone</th>
-            <th>Event</th>
-            <th>Status</th>
+        foreach ($data as $row) {
+            
+            $i++;
+            echo "<tr class=\"record\">";
+            
+            echo "<td>$row->id</td>";
+            echo "<td>$row->namapotongan</td>";
+            echo "<td>$row->nominal</td>";
+            
 
-
-
-        </tr> 
-    </thead> 
-    <tbody> 
-        <?php $i = 0;
-        foreach ($data as $row): $i++; ?>
-            <tr>
-                <td><?php echo $i ?></td>
-                <td><?php echo $row->jadwalevent_codejadwalevent; ?></td>
-                <td>-</td>
-                <td><?php echo $row->user_nama; ?></td>
-                <td><?php echo $row->user_alamat; ?></td>
-                <td><?php echo $row->user_email; ?></td>
-                <td><?php echo $row->user_telepon; ?></td>
-                <td>-</td>
-                <td>-</td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody> 
-</table>
+            echo "<td align=\"center\"><a href=\"#\" class=\"edit\" idpotongan=\"$row->id\" namapotongan=\"$row->namapotongan\" nominal=\"$row->nominal\">Edit</a>";
+//            echo "   |   <a class=\"delbuttonevent\" id=\"$row->codeivent\" href=\"#\" >Delete</a></td>";
+            echo "</td></tr>";
+        }
+        ?>
 
 
+                
+            </tbody> 
+        </table>
 
-
-<script text="javascript">
+    </div>
+    
+    <script text="javascript">
     $(document).ready(function() {
         // DataTables Config (more info can be found at http://www.datatables.net/)
-        var oTable = $('.datatabl').dataTable( {
+        var oTable = $('.datatable').dataTable( {
             "bJQueryUI": true,
             "sScrollX": "",
             "bSortClasses": false,
@@ -110,21 +106,4 @@
         });
     });
 </script>
-<script type="text/javascript">
-    $('#cari').click(function(){
-       
-        var form_data={
-            kategori: $('#kategori').val(),
-            ajax:1
-        };
-        $.ajax({
-            url : "<?php echo site_url('admin2/pendaftaran/get_by_event') ?>",
-            type : 'POST',
-            data : form_data,
-            success: function(msg){ 
-                $('#tabelfilter').html(msg)
-            }
-        });
-        return false;
-    });
-</script>
+   

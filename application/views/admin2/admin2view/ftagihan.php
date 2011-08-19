@@ -38,8 +38,8 @@
 <div id="confirm-formTagihan" title="Pembayaran"> 
     <input type="hidden" value='' id="idtagihan" name="del_id">
     <input type="hidden" value='' id="dp" name="dp">
-        <input type="hidden" value='' id="status" name="status">
-        <input type="hidden" value='' id="codeuser" name="status">
+    <input type="hidden" value='' id="status" name="status">
+    <input type="hidden" value='' id="codeuser" name="status">
     <table>
         <tr >
             <th> <?php echo form_label('Jumlah yg harus di bayar  '); ?></th>
@@ -51,4 +51,13 @@
         </tr>
     </table>
 </div>
+
+<div id="confirm-formKontan" title="Pembayaran Kontan"> 
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+        <input type="hidden" value='' id="idtotaltagihan" name="idtotaltagihan">
+        <input type="hidden" value='' id="totaltagihan" name="totaltagihan">
+        <input type="hidden" value='' id="user" name="user">
+		Bayar Semua?</p> 
+</div> 
 <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formTagihan.js"></script>

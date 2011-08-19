@@ -31,10 +31,12 @@
             echo "<td>$row->tagihan_status</td>";
             echo "<td align=\"center\">"; 
             if($row->tagihan_status=="belum"||$row->tagihan_status=="dp"){
-                echo "<a href=\"#\" class=\"conbuttontagihan\" codeuser=\"$row->user_codeuser\" status=\"$row->tagihan_status\" dp=\"$row->tagihan_bayar\" kurang=\"$rowkurang\" idtagihan=\"$row->tagihan_codepembayaran\">Confirm</a>";
+                echo "<a href=\"#\" class=\"conbuttontagihan\" codeuser=\"$row->user_codeuser\" status=\"$row->tagihan_status\" dp=\"$row->tagihan_bayar\" kurang=\"$rowkurang\" idtagihan=\"$row->tagihan_codepembayaran\">DP </a>";
             }  else{
-                echo "sudah diconfirm";
+                echo "sudah diconfirm  ";
             }
+            echo ' || ';
+            echo "<a href=\"#\" class=\"bayarkontan\" user=\"$row->user_codeuser\"  totaltagihan=\"$rowkurang\" idtotaltagihan=\"$row->tagihan_codepembayaran\">Kontan</a>";
             
             
             echo "</td></tr>";

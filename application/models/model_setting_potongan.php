@@ -16,6 +16,23 @@ class Model_setting_potongan extends CI_Model {
         }
     }
 
+    function get_all(){
+        $query=$this->db->get('settingpotongan');
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+    
+     function update_data($id,$data)
+	{
+		$this->db->where('id', $id);
+		$update = $this->db->update('settingpotongan', $data);
+		return $update;
+	}
+    
+    
 }
 
 ?>
