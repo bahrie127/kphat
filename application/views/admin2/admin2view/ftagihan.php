@@ -42,7 +42,7 @@
         <input type="hidden" value='' id="codeuser" name="status">
     <table>
         <tr >
-            <th> <?php echo form_label('Jumlah yg harus di bayar  '); ?></th>
+            <th> <?php echo form_label('Total Pembayaran '); ?></th>
             <td> <?php echo form_input('jumlahharga', '', 'id="kurang" readonly="readonly"'); ?></td>
         </tr>
         <tr>
