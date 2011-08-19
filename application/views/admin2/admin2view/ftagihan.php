@@ -47,7 +47,7 @@
         </tr>
         <tr>
             <th> <?php echo form_label('Bayar  '); ?> </th>
-            <td> <?php echo form_input('bayarharga', '', 'id="bayarharga"'); ?></td>
+            <td> <?php echo form_input('bayarharga', '', 'id="bayarharga"','onkeyup="check();return false;"'); ?></td>
         </tr>
     </table>
 </div>
@@ -60,4 +60,5 @@
         <input type="hidden" value='' id="user" name="user">
 		Bayar Semua?</p> 
 </div> 
+
 <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formTagihan.js"></script>
