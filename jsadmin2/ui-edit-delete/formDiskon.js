@@ -15,7 +15,9 @@ $(function() {
                 };
                 $.ajax({
                     type: "POST",
+
                     url : "diskon/edit",
+
                     data: del_id,
                     success: function(msg){
                         $('#show21').html(msg);           
@@ -42,22 +44,28 @@ $(function() {
             "Update": function() {
                
                 var form_data = {
+
                     id: $('#idpotongan').val(),
                     namapotongan: $('#namapotongan').val(),
                     nominal: $('#nominal').val(),
+
                    
                     ajax:1
                 };
                 $.ajax({
+
                     url : "diskon/edit",
+
                     type : 'POST',
                     data : form_data,
                     success: function(msg){
                     
                         $('#show21').html(msg),
+
                         $('#idpotongan').val(''),
                         $('#namapotongan').val(''),
                         $('#nominal').val(''),
+
                        
                                         
                                     
@@ -67,17 +75,21 @@ $(function() {
 				
             },
             Cancel: function() {
+
                 $('#idpotongan').val(''),
                         $('#namapotongan').val(''),
                         $('#nominal').val(''),
+
                
                 $( this ).dialog( "close" );
             }
         },
         close: function() {
+
             $('#idpotongan').val(''),
                         $('#namapotongan').val(''),
                         $('#nominal').val('')
+
            
                                 
         }
@@ -87,6 +99,7 @@ $(function() {
 });
 	
 $(".edit").live("click",function(){
+
     var code = $(this).attr("idpotongan");
     var nama = $(this).attr("namapotongan");
     var nominal = $(this).attr("nominal");
@@ -96,6 +109,7 @@ $(".edit").live("click",function(){
     $('#idpotongan').val(code);
     $('#namapotongan').val(nama);
     $('#nominal').val(nominal);
+
     
         
         

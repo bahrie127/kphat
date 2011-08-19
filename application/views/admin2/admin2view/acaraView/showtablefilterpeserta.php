@@ -16,17 +16,17 @@
         </tr> 
     </thead> 
     <tbody> 
-        <?php $i=0;foreach ($kategori as $row): $i++;?>
+        <?php $i=0;foreach ($data as $row): $i++;?>
             <tr>
                 <td><?php echo $i?></td>
                 <td><?php echo $row->jadwalevent_codejadwalevent; ?></td>
-                <td><?php echo $row->pendaftaran_tanggal; ?></td>
+                <td>-</td>
                 <td><?php echo $row->user_nama; ?></td>
                 <td><?php echo $row->user_alamat; ?></td>
                 <td><?php echo $row->user_email; ?></td>
                 <td><?php echo $row->user_telepon; ?></td>
                 <td><?php echo $row->event_namaevent; ?></td>
-                <td><?php echo $row->tagihan_status; ?></td>
+                <td>-</td>
             </tr>
         <?php endforeach; ?>
     </tbody> 

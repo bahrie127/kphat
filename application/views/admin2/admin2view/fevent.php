@@ -23,25 +23,25 @@
             <div class="toggle_container">
 
                 <div id="tabs-1" class="block no_padding">
-                    <div id="show21">
 
-                        <?php $this->load->view('admin2/admin2view/masterView/showtableevent'); ?>
-                    </div>
 
+                    <?php $this->load->view('admin2/admin2view/masterView/showtableevent'); ?>
                 </div>
+
+
                 <div id="tabs-2" class="block">
                     <?php $this->load->view('admin2/admin2view/masterView/faddevent'); ?>
                 </div>
             </div>
         </div>
     </div>
-  
+
 </div>
 
-    <div id="confirm-formEvent" title="Delete Event ?"> 
-        <p>
-            <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
-            <input type="hidden" value='' id="del_id" name="del_id">
+<div id="confirm-formEvent" title="Delete Event ?"> 
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+        <input type="hidden" value='' id="del_id" name="del_id">
 		Are you sure?</p> 
-    </div> 
+</div> 
 <script type="text/javascript" src="<?php echo base_url(); ?>jsadmin2/ui-edit-delete/formEvent.js"></script>

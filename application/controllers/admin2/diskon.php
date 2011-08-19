@@ -10,7 +10,7 @@
  *
  * @author phepen
  */
-class diskon extends CI_Controller {
+class Diskon extends CI_Controller {
 
     //put your code here
     public function __construct() {
@@ -40,10 +40,10 @@ class diskon extends CI_Controller {
             $dataubah = array(
                 'nominal' => $this->input->post('nominal')
             );
-           
+
 
             $this->model_setting_potongan->update_data($id, $dataubah);
-           
+
             $data['data'] = $this->model_setting_potongan->get_all();
             $this->load->view('admin2/admin2view/masterView/ftablediskon', $data);
         } else {

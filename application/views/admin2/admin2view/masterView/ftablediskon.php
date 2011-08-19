@@ -13,13 +13,15 @@
                 <tr> 
                     <th>No</th> 
                     <th>Nama</th> 
+
                     <th>Kena Potongan (%)</th> 
-                    
+
                     <th>Edit</th> 
                     
                 </tr> 
             </thead> 
             <tbody> 
+
              <?
         $i = 0;
 
@@ -38,9 +40,7 @@
             echo "</td></tr>";
         }
         ?>
-
-
-                
+           
             </tbody> 
         </table>
 
