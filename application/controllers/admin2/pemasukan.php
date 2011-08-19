@@ -16,12 +16,14 @@ class Pemasukan extends CI_Controller {
         function cari_pemasukan(){
             $date1=$this->input->post('startdate');
             $date2=$this->input->post('enddate');
-//            echo $date1;
-//            echo $date2;
-//            exit;
+//          
             $data['masuk']=$this->model_pemasukan->get_pemasukan($date1,$date2);
             
             $data['keluar']=$this->model_pengeluaran->get_pengeluaran($date1,$date2);
+            
+            $data['datamasuk']=$this->model_pemasukan->get_data_pemasukan($date1,$date2);
+            
+            $data['datakeluar']=$this->model_pengeluaran->get_data_pengeluaran($date1,$date2);
             
             $this->load->view('admin2/admin2view/acaraView/total_pemasukan',$data);
             

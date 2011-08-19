@@ -16,6 +16,16 @@ class Model_pengeluaran extends CI_Model {
         }
     }
 
+    function get_data_pengeluaran($date1, $date2) {
+        $sql = "select * from pengeluaran where tanggalkeluar between ? and ?";
+        $query = $this->db->query($sql, array($date1, $date2));
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
+    }
+
 }
 
 ?>
