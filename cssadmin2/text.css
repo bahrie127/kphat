@@ -135,6 +135,12 @@ fieldset {
     
 }
 
+.block table.tt tr td p, .block table.tt tr td p{
+   margin-left: 10px;
+    
+    
+}
+
 .block ul li, .block ol li{
 	color: #666;
 	line-height: 2em;
