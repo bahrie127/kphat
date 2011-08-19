@@ -5,7 +5,7 @@
             <div id="notice">
                 <h2>confirmasi pendaftaran</h2>
                 <div class="cc">
-                    Anda telah berhasil terdaftar,<br/>
+                    Anda telah berhasil terdaftar, Segera cek email anda dari<br/>
                     total biaya yang harus anda bayar sebesar : <?php echo $data;?>
                     <br/><br/>
                     <h3>pembayaran</h3>

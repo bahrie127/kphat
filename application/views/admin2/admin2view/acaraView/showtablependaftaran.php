@@ -2,7 +2,7 @@
     <table class="tt">
         <tr>
 
-            <td><label>Pencarian Peserta Berdasarkan Code Acara </label>
+            <td><label>Masukan Code Acara </label>
                 <input type="text" name="kategori" id="kategori"/></td>
             <td><br/><input class="btnsub"type="submit" id="cari"></td>
         </tr>

@@ -4,7 +4,7 @@
                     <?php echo form_open(base_url() . 'index.php/admin2/page/add'); ?> 
 
                     <label>Judul</label> 
-                    <input name="codepage" id="codepage"value=""title="Berisi kode event" type="text" class="medium LV_valid_field" autofocus> 
+                    <input name="codepage" id="codepage"value=""title="Berisi judul" type="text" class="medium LV_valid_field" autofocus> 
 
 
                     <label>Isi</label> 

@@ -3,13 +3,13 @@
         <div id="posts">
             <article>
                 <div id="comments">
-                    <div id="form">
+                    <div id="form" class="daf">
 
                         <h2>DAFTAR PESERTA</h2>
                         <br class="clear"/>
 
                         <form action="<?php echo base_url(); ?>index.php/daftar/add" method="post" id="dform" name="form">
-                            <table>
+                            <table class="daf">
                                 <tr>
 
                                     <th><label for="email">Email</label></th>

@@ -23,6 +23,7 @@ class Daftar extends CI_Controller {
         $this->load->model('model_detail_tagihan');
         $this->load->model('model_join');
         $this->load->model('model_jadwal_event');
+        $this->load->library('email');
         $codetagihan = random_string('alnum', 8);
         $codeuser = random_string('numeric', 8);
     }
@@ -122,6 +123,12 @@ class Daftar extends CI_Controller {
                 $this->load->view('utama/cont/daftarpeserta', $data);
                 $this->load->view('footer');
             }
+
+
+            // 
+            $this->konfirmasi();
+            $this->sendmail();
+
         } else {
             redirect('daftar');
         }
@@ -141,6 +148,43 @@ class Daftar extends CI_Controller {
         $this->load->view('utama/page');
         $this->load->view('utama/cont/confirmPendaftaran', $data);
         $this->load->view('footer');
+    }
+    
+    function sendmail(){
+        $to = $this->input->post('email');
+        
+        $config['protocol'] = 'sendmail';
+        $config['mailtype'] = 'text';
+        $config['charset'] = 'utf-8';
+        $config['wordwrap'] = TRUE;
+        $this->email->initialize($config);
+        $this->email->from('admin@hat.xcode.or.id', 'Konfirmasi pendaftaran');
+        $this->email->to($to);
+
+        $this->email->subject('Konfirmasi pendaftaran');
+        $this->email->message('
+            Thanks for your participation in this event.\n\n
+            Segera lakukan pembayaran untuk segera mendapatka tempat, karena tempat terbatas.\n
+            Silahkan membayar uang pendaftaran sejumlah:\n
+            Biaya Pendaftaran + 2 digit nomor identitas\n
+            Contoh\n
+            Biaya pendaftaran : 120.000\n
+            Nomor identitas : 32.7103.030888.00 03\n
+            Jumlah yang ditransfer : 120.003\n   
+            BANK MANDIRI\n
+            Nomor Rekening : 137 00 0677934 8\n
+            Kantor Cabang : KCP Yogyakarta UGM\n
+            Atas Nama : Novizul Evendi\n
+            BANK BCA\n
+            Nomor Rekening : 1260556670\n
+            Kantor Cabang : KCP Mangkubumi Yogyakarta\n
+            Atas Nama : Novizul Evendi\n\n
+             
+            terima kasih\n\n
+                admin');
+
+        $this->email->send();
+
     }
 
     function captchaImg() {
