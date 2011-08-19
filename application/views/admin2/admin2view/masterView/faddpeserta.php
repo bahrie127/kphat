@@ -1,6 +1,6 @@
 <div class="toggle_container">
     <div class="block">
-        <form action="<?php echo base_url(); ?>index.php/daftar/add" method="post" id="dform" name="form">
+        <form action="<?php echo base_url(); ?>index.php/admin2/pendaftaran/add" method="post" id="dform" name="form">
 
 
             <label for="email">Email</label>

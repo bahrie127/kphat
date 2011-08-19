@@ -29,7 +29,7 @@ class Tagihan extends CI_Controller {
         } else {
             $data['data'] = $this->model_join->get_tagih_admin();
         }
-
+        $data['status']='';
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/ftagihan', $data);
         $this->load->view('admin2/footer');
@@ -48,7 +48,13 @@ class Tagihan extends CI_Controller {
             $status = $this->input->post('status');
             $dp = $this->input->post('dp');
             $date = mdate($datestring, $time);
-
+            if($kurang<$bayar){
+                $status="invalid, bayar tidak boleh lebih dari harga";
+                $data['data'] = $this->model_join->get_tagih_admin();
+                $data['status']=$status;
+            $this->load->view('admin2/admin2view/acaraView/showtabletagihan', $data);
+                
+            }else{
             if ($status == "dp") {
                 if ($kurang == $bayar) {
                     $data = array(
@@ -93,9 +99,12 @@ class Tagihan extends CI_Controller {
             $id = $this->input->post('id');
             $this->model_tagihan->update_data($id, $data);
             $data['data'] = $this->model_join->get_tagih_admin();
+                 $data['status']='';
             $this->load->view('admin2/admin2view/acaraView/showtabletagihan', $data);
+            }
         } else {
             redirect('admin2/tagihan');
+        
         }
     }
 
@@ -134,6 +143,7 @@ class Tagihan extends CI_Controller {
             $id = $this->input->post('id');
             $this->model_tagihan->update_data($id, $data);
             $data['data'] = $this->model_join->get_tagih_admin();
+                 $data['status']='';
             $this->load->view('admin2/admin2view/acaraView/showtabletagihan', $data);
         } else {
             redirect('admin2/tagihan');
