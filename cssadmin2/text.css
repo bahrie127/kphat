@@ -141,6 +141,17 @@ fieldset {
     
 }
 
+block table.tt tr th{
+   margin-left: 10px;
+    width: 200px;
+    height: 20px;
+    color: #666;
+    margin-top:  10px;
+    border-bottom: 1px solid #eee;	
+    
+    
+}
+
 .block ul li, .block ol li{
 	color: #666;
 	line-height: 2em;

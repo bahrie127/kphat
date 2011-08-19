@@ -1,64 +1,48 @@
-
-<b>Pemasukan</b>
-<br/><br/>
+<table class="tt">
+    <tr>
+        <td><h3>Pemasukan</h3></td><td></td><td></td>
+    </tr>
 <?php foreach ($datamasuk as $msk): ?>
-    <?php echo $msk->tanggalmasuk; ?><br/>
-    <?php echo $msk->nilaimasuk; ?>    <br/>
-    <?php echo $msk->namaadmin; ?><br/>
-<?php endforeach; ?>
-<?php foreach ($masuk as $msk): ?>
-    <?php echo $msk->masuk; ?>
-
-<?php endforeach; ?>
-<br/>
-<br/>
-<b>Pengeluaran</b><br/><br/>
-<?php foreach ($datakeluar as $klr): ?>
-    <?php echo $klr->tanggalkeluar; ?><br/>
-    <?php echo $klr->nilaikeluar; ?>    <br/>
-    <?php echo $klr->namaadmin; ?><br/>
-<?php endforeach; ?>
-<?php foreach ($keluar as $klr): ?>
-    <?php echo $klr->keluar; ?>
-
-<?php endforeach; ?>
-<br/>
-<br/>
-
-<?php foreach ($masuk as $msk): ?>
-    <?php $pemasukan = $msk->masuk; ?>
-
-<?php endforeach; ?>
-
-<?php foreach ($keluar as $klr): ?>
-    <?php $pengeluaran = $klr->keluar; ?>
-
-
-
-
-    <table class="tt">
         <tr>
-            <td><h3>Pemasukan</h3></td>
-        </tr>
-        <tr>
-            <td><li>Coba</li></td>
+
+            <td><li><?php echo $msk->tanggalmasuk; ?></li></td>
     <td></td>
-    <td><p>Harga</p></td>
-    </tr>
+    <td><?php echo $msk->nilaimasuk; ?></td>
+    <td><?php echo $msk->namaadmin; ?></td>
+
+    </tr> <?php endforeach; ?>
     
-    <tr><br/><br/>
-        <td><h3>Pengeluaran</h3></td>
-    </tr>
-    <tr>
-        <td><li>Coba</li></td>
-    <td></td>
-    <td><p>Harga</p></td>
-    </tr>
+<tr>
+    <td><h3>Pengeluaran</h3></td>
+    <td></td><td></td>
+</tr>
+<?php foreach ($datakeluar as $klr): ?>
     <tr>
 
-        <td><h3>Jumlah Pemasukan: </h3></td>
-        <td></td>
-        <td><h3><?php echo $pemasukan - $pengeluaran; ?></h3></td>
-    </tr>
-    </table>
-<?php endforeach; ?>
+        <td><li><?php echo $klr->tanggalkeluar; ?></li></td>
+    <td></td>
+    <td><?php echo $klr->nilaikeluar; ?></td>
+    <td><?php echo $klr->namaadmin; ?></td>
+    </tr><?php endforeach; ?>
+<tr>
+
+    <td><h3>Jumlah Pemasukan: </h3></td>
+    <td></td>
+    <td><h3><?php
+    $pemasukan=0;
+    $pengeluaran=0;
+foreach ($masuk as $msk):
+    $pemasukan = $msk->masuk;
+    
+endforeach;
+
+foreach ($keluar as $klr):
+    $pengeluaran = $klr->keluar;
+endforeach;
+
+echo $pemasukan - $pengeluaran;
+
+
+?></h3></td>
+</tr>
+</table>
