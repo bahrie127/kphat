@@ -2,6 +2,36 @@ $(function() {
 	
     $( "#dialog:ui-dialog" ).dialog( "destroy" );
 		
+      $( "#confirm-formKontan" ).dialog({
+        autoOpen: false,
+        resizable: false,
+        height:140,
+        modal: true,
+        hide: 'Slide',
+        buttons: {
+            "Bayar": function() {
+                var del_id = {
+                    id : $('#idtotaltagihan').val(),
+                    kurang: $('#totaltagihan').val(),
+                    codeuser: $('#user').val()
+                };
+                $.ajax({
+                    type: "POST",
+                    url : "tagihan/all",
+                    data: del_id,
+                    success: function(msg){
+                            $('#show21').html(msg);       
+                        $('#confirm-formKontan' ).dialog( "close" );
+                    }
+                });
+                return false;
+            },
+            Cancel: function() {
+                $( this ).dialog( "close" );
+            }
+        }
+    });
+                
     $( "#confirm-formTagihan" ).dialog({
         autoOpen: false,
                     
@@ -12,6 +42,7 @@ $(function() {
                    
         buttons: {
             "Bayar": function() {
+                
                 var form_data = {
                     id: $('#idtagihan').val(),
                     kurang: $('#kurang').val(),
@@ -38,7 +69,7 @@ $(function() {
                         $( '#confirm-formTagihan' ).dialog( "close" )
                     }
                 });
-				
+            		
             },
             Cancel: function() {
                 $('#idtagihan').val(''),
@@ -84,3 +115,17 @@ $(".conbuttontagihan").live("click",function(){
     return false;
 });
    
+   $(".bayarkontan").live("click",function(){
+       
+    var element = $(this);
+    var del_id = element.attr("idtotaltagihan");
+    var kurang=element.attr("totaltagihan");
+    var codeuser=element.attr("user");
+    var info = 'id=' + del_id;
+     $('#user').val(codeuser);
+    $('#idtotaltagihan').val(del_id);
+    $('#totaltagihan').val(kurang);
+    $( "#confirm-formKontan" ).dialog( "open" );
+    	
+    return false;
+});

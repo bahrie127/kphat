@@ -15,7 +15,9 @@ $(function() {
                 };
                 $.ajax({
                     type: "POST",
-                    url : "pemateri/delete",
+
+                    url : "diskon/edit",
+
                     data: del_id,
                     success: function(msg){
                         $('#show21').html(msg);           
@@ -42,22 +44,28 @@ $(function() {
             "Update": function() {
                
                 var form_data = {
-                    codepemateri: $('#code').val(),
-                    nama: $('#namadiskon').val(),
-                    diskon: $('#diskon').val(),
+
+                    id: $('#idpotongan').val(),
+                    namapotongan: $('#namapotongan').val(),
+                    nominal: $('#nominal').val(),
+
                    
                     ajax:1
                 };
                 $.ajax({
-                    url : "",
+
+                    url : "diskon/edit",
+
                     type : 'POST',
                     data : form_data,
                     success: function(msg){
                     
                         $('#show21').html(msg),
-                        $('#code').val(''),
-                        $('#namadiskon').val(''),
-                        $('#diskon').val(''),
+
+                        $('#idpotongan').val(''),
+                        $('#namapotongan').val(''),
+                        $('#nominal').val(''),
+
                        
                                         
                                     
@@ -67,17 +75,21 @@ $(function() {
 				
             },
             Cancel: function() {
-                $('#code').val(''),
-                $('#namadiskon').val(''),
-                $('#diskon').val(''),
+
+                $('#idpotongan').val(''),
+                        $('#namapotongan').val(''),
+                        $('#nominal').val(''),
+
                
                 $( this ).dialog( "close" );
             }
         },
         close: function() {
-            $('#code').val(''),
-            $('#namadiskon').val(''),
-            $('#diskon').val('')
+
+            $('#idpotongan').val(''),
+                        $('#namapotongan').val(''),
+                        $('#nominal').val('')
+
            
                                 
         }
@@ -87,15 +99,17 @@ $(function() {
 });
 	
 $(".edit").live("click",function(){
-    var code = $(this).attr("code");
-    var nama = $(this).attr("namadiskon");
-    var diskon = $(this).attr("diskon");
+
+    var code = $(this).attr("idpotongan");
+    var nama = $(this).attr("namapotongan");
+    var nominal = $(this).attr("nominal");
    
                
 
-    $('#code').val(code);
-    $('#namadiskon').val(nama);
-    $('#diskon').val(diskon);
+    $('#idpotongan').val(code);
+    $('#namapotongan').val(nama);
+    $('#nominal').val(nominal);
+
     
         
         

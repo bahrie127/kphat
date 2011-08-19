@@ -13,7 +13,11 @@
 
 
         <div class="box grid_16 round_all tabs ui-tabs ui-widget ui-widget-content ui-corner-all">
+
+            <div id="show21">
             <?php $this->load->view('admin2/admin2view/masterView/ftablediskon'); ?>
+                </div>
+
         </div>
     </div>
 </div>
@@ -21,17 +25,18 @@
 
 <div id="form_diskon" title="Manage Diskon">
     <table>
-       <tr>
-            <th> <?php echo form_label('Code'); ?> </th>
-            <td> <?php echo form_input('code', '', 'id="code"'); ?></td>
-        </tr>
+
+         <input type="hidden" value='' id="idpotongan" name="idpotongan">
+       
         <tr>
             <th> <?php echo form_label('Nama Diskon'); ?> </th>
-            <td> <?php echo form_input('namadiskon', '', 'id="namadiskon"'); ?></td>
+            <td> <?php echo form_input('namapotongan', '', 'id="namapotongan" readonly="readonly"'); ?></td>
         </tr>
         <tr>
             <th> <?php echo form_label('Besar Diskon'); ?> </th>
-            <td> <?php echo form_input('diskon', '', 'id="diskon"'); ?></td>
+            <td> <?php echo form_input('nominal', '', 'id="nominal"'); ?></td>
+
+       
         </tr>
     </table>
 </div>

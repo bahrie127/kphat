@@ -13,19 +13,34 @@
                 <tr> 
                     <th>No</th> 
                     <th>Nama</th> 
-                    <th>Banyak Diskon</th> 
-                    
+
+                    <th>Kena Potongan (%)</th> 
+
                     <th>Edit</th> 
                     
                 </tr> 
             </thead> 
             <tbody> 
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td align="center"><a href="#" class="edit">Edit</a></td>
 
-                
+             <?
+        $i = 0;
+
+        foreach ($data as $row) {
+            
+            $i++;
+            echo "<tr class=\"record\">";
+            
+            echo "<td>$row->id</td>";
+            echo "<td>$row->namapotongan</td>";
+            echo "<td>$row->nominal</td>";
+            
+
+            echo "<td align=\"center\"><a href=\"#\" class=\"edit\" idpotongan=\"$row->id\" namapotongan=\"$row->namapotongan\" nominal=\"$row->nominal\">Edit</a>";
+//            echo "   |   <a class=\"delbuttonevent\" id=\"$row->codeivent\" href=\"#\" >Delete</a></td>";
+            echo "</td></tr>";
+        }
+        ?>
+           
             </tbody> 
         </table>
 

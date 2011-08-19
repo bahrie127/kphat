@@ -36,53 +36,101 @@ class Tagihan extends CI_Controller {
     }
 
     function update() {
-
+        $codeadmin = $this->session->userdata('SESS_ADMIN_CODE');
+        $namaadmin = $this->session->userdata('SESS_NAME');
         $this->form_validation->set_rules('kurang', 'Full Name', 'required|xss_clean');
         if ($this->form_validation->run() == TRUE) {
-            
+
             $datestring = "%Y-%m-%d";
             $time = time();
-            $kurang=  $this->input->post('kurang');
-            $bayar=  $this->input->post('bayar');
-            $status=$this->input->post('status');
-            $dp=  $this->input->post('dp');
+            $kurang = $this->input->post('kurang');
+            $bayar = $this->input->post('bayar');
+            $status = $this->input->post('status');
+            $dp = $this->input->post('dp');
             $date = mdate($datestring, $time);
-            
-            if($status=="dp"){
-             if ($kurang == $bayar) {
-                $data = array(
-                    'status' => "bayar",
-                    'bayar' => $dp+$bayar,
-                    'tanggal' => $date
-                );
+
+            if ($status == "dp") {
+                if ($kurang == $bayar) {
+                    $data = array(
+                        'status' => "bayar",
+                        'bayar' => $dp + $bayar,
+                        'tanggal' => $date,
+                        'codeadmin' => $codeadmin
+                    );
+                } else {
+                    $data = array(
+                        'status' => "dp",
+                        'bayar' => $dp + $bayar,
+                        'tanggal' => $date,
+                        'codeadmin' => $codeadmin
+                    );
+                }
             } else {
-                $data = array(
-                    'status' => "dp",
-                    'bayar' => $dp+$bayar,
-                    'tanggal' => $date
-                );
-            }   
-            }else{
-            if ($kurang == $bayar) {
-                $data = array(
-                    'status' => "bayar",
-                    'bayar' => $kurang,
-                    'tanggal' => $date
-                );
-            } else {
-                $data = array(
-                    'status' => "dp",
-                    'bayar' => $bayar,
-                    'tanggal' => $date
-                );
-            }}
-            $dataPemasukan=array(
-                'codeuser'=>$this->input->post('codeuser'),
-                'tanggalmasuk'=>$date,
-                'nilaimasuk'=>$bayar
+                if ($kurang == $bayar) {
+                    $data = array(
+                        'status' => "bayar",
+                        'bayar' => $kurang,
+                        'tanggal' => $date,
+                        'codeadmin' => $codeadmin
+                    );
+                } else {
+                    $data = array(
+                        'status' => "dp",
+                        'bayar' => $bayar,
+                        'tanggal' => $date,
+                        'codeadmin' => $codeadmin
+                    );
+                }
+            }
+            $dataPemasukan = array(
+                'codeuser' => $this->input->post('codeuser'),
+                'tanggalmasuk' => $date,
+                'nilaimasuk' => $bayar,
+                'namaadmin' => $namaadmin
             );
             $this->model_tagihan->insert_to_pemasukan($dataPemasukan);
-            
+
+            $id = $this->input->post('id');
+            $this->model_tagihan->update_data($id, $data);
+            $data['data'] = $this->model_join->get_tagih_admin();
+            $this->load->view('admin2/admin2view/acaraView/showtabletagihan', $data);
+        } else {
+            redirect('admin2/tagihan');
+        }
+    }
+
+    function all() {
+        $codeadmin = $this->session->userdata('SESS_ADMIN_CODE');
+        $namaadmin = $this->session->userdata('SESS_NAME');
+        $this->form_validation->set_rules('kurang', 'Full Name', 'required|xss_clean');
+        if ($this->form_validation->run() == TRUE) {
+
+            $datestring = "%Y-%m-%d";
+            $time = time();
+            $kurang = $this->input->post('kurang');
+//            $bayar=  $this->input->post('bayar');
+//            $status=$this->input->post('status');
+//            $dp=  $this->input->post('dp');
+            $date = mdate($datestring, $time);
+
+
+
+
+            $data = array(
+                'status' => "bayar",
+                'bayar' => $kurang,
+                'tanggal' => $date,
+                'codeadmin' => $codeadmin
+            );
+
+            $dataPemasukan = array(
+                'codeuser' => $this->input->post('codeuser'),
+                'tanggalmasuk' => $date,
+                'namaadmin' => $namaadmin,
+                'nilaimasuk' => $kurang
+            );
+            $this->model_tagihan->insert_to_pemasukan($dataPemasukan);
+
             $id = $this->input->post('id');
             $this->model_tagihan->update_data($id, $data);
             $data['data'] = $this->model_join->get_tagih_admin();
