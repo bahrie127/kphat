@@ -4,8 +4,8 @@ class Reset_password extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->library('auth');
-        $this->auth->check_user_authentification();
+//        $this->load->library('auth');
+//        $this->auth->check_user_authentification();
         $this->load->model('model_admin');
         $this->load->library('form_validation');
     }
