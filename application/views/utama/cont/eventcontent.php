@@ -23,7 +23,7 @@
                                 <div class="elements">
                                     <h3><?php echo $row->event_namaevent ; ?></h3>
                                     <h4>Code</h4>
-                                    <p><?php echo $row->jadwalevent_codejadwalevent; ?></p>
+                                    <p><?php echo $row->jadwalevent_codenamaevent; ?></p>
 
                                     <h4>Waktu</h4>
                                     <p><?php echo $row->jadwalevent_waktu;?></p>

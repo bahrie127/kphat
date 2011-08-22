@@ -21,20 +21,29 @@ class Pemasukan extends CI_Controller {
         if ($this->form_validation->run() == TRUE) {
             $date1 = $this->input->post('startdate');
             $date2 = $this->input->post('enddate');
-//          
-            if ($this->model_pemasukan->get_pemasukan($date1, $date2) == TRUE) {
+          
+            if ($this->model_pemasukan->get_data_pemasukan($date1, $date2) == TRUE) {
+                
                 $data['masuk'] = $this->model_pemasukan->get_pemasukan($date1, $date2);
-
-                $data['keluar'] = $this->model_pengeluaran->get_pengeluaran($date1, $date2);
-
                 $data['datamasuk'] = $this->model_pemasukan->get_data_pemasukan($date1, $date2);
-
-                $data['datakeluar'] = $this->model_pengeluaran->get_data_pengeluaran($date1, $date2);
+                if($this->model_pengeluaran->get_data_pengeluaran($date1, $date2)==TRUE){
+                    
+                    
+                    $data['keluar'] = $this->model_pengeluaran->get_pengeluaran($date1, $date2);
+                    $data['datakeluar'] = $this->model_pengeluaran->get_data_pengeluaran($date1, $date2);
+                }else{
+                    $data['keluar']=array();
+                    $data['datakeluar'] = array();
+                    $data['status']="tidak ada data pembatalan";
+                }
+   
             } else {
+               
                 $data['masuk'] = array();
                 $data['keluar'] = array();
                 $data['datamasuk'] = array();
                 $data['datakeluar'] = array();
+                $data['status'] = "tidak ada data";
             }
             $this->load->view('admin2/admin2view/acaraView/total_pemasukan', $data);
         }else{

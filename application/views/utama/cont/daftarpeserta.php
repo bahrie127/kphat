@@ -204,7 +204,7 @@
                                 </tr>
                                 <tr>
 
-                                    <th><label for="name">Event yang Diikuti&nbsp;</label></th>
+                                    <th><label for="name">Kode Event yang Diikuti&nbsp;</label></th>
                                     <td>
                                         <?php foreach ($data as $row): ?>
 
@@ -212,7 +212,7 @@
                                         if ($row->jadwalevent_codejadwalevent == $cek): echo "checked='yes'";
                                         else: echo "";
                                         endif;
-                                        ?> />&nbsp;<?php echo $row->event_namaevent; ?><br/>
+                                        ?> />&nbsp;<?php echo $row->jadwalevent_codenamaevent; ?><br/>
 
 <?php endforeach; ?>
                                     </td>

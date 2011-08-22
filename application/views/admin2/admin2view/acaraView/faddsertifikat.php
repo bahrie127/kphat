@@ -13,7 +13,7 @@
 
                         <option selected value="<?php echo $row->jadwalevent_codejadwalevent; ?>">
 
-                            <?php echo $row->event_namaevent; ?></option>
+                            <?php echo $row->jadwalevent_codenamaevent; ?></option>
                     <?php endforeach; ?>
 
                 </select>

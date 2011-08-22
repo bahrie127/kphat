@@ -35,7 +35,9 @@
             if($row->tagihan_status=="belum"||$row->tagihan_status=="dp"){
                 echo "<a href=\"#\" class=\"conbuttontagihan\" codeuser=\"$row->user_codeuser\" status=\"$row->tagihan_status\" dp=\"$row->tagihan_bayar\" kurang=\"$rowkurang\" idtagihan=\"$row->tagihan_codepembayaran\">DP </a>";
                 echo ' || ';
+                if($row->tagihan_status=="belum"){
             echo "<a href=\"#\" class=\"bayarkontan\" user=\"$row->user_codeuser\"  totaltagihan=\"$rowkurang\" idtotaltagihan=\"$row->tagihan_codepembayaran\">Kontan</a>";
+                }
             }  else{
                 echo "sudah diconfirm  ";
             }

@@ -21,6 +21,7 @@ class laporan extends CI_Controller{
         $data['keluar']=array();
         $data['datamasuk']=array();
         $data['datakeluar']=array();
+        $data['status']="";
         $this->load->view('admin2/header');
         $this->load->view('admin2/admin2view/flaporan',$data);
         $this->load->view('admin2/footer');

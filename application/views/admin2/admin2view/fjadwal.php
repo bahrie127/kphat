@@ -43,10 +43,10 @@
 <div id="form_jadwal" title="Edit Jadwal">
     <table>
 
-
+        <input type="hidden" value="" id="codeJadwal"/>
         <tr >
             <th> <?php echo form_label('Code Jadwal'); ?></th>
-            <td> <?php echo form_input('codeJadwal', '', 'id="codeJadwal" readonly="readonly"'); ?></td>
+            <td> <?php echo form_input('codeJadwal', '', 'id="codeNamaJadwal"'); ?></td>
         </tr>
         <tr>
             <th> <?php echo form_label('Nama Event'); ?> </th>
