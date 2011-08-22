@@ -42,9 +42,14 @@ class Admin extends CI_Controller {
             if ($this->model_admin->cari_email($email) == TRUE) {
                 $data = $this->model_admin->cari_email($email);
 
-                $this->sendMail($data['email']); 
+                $this->sendMail($data['email'],$data['username']); 
                
-               
+               $data = array(
+					'SESS_LOGIN_STATEMENT' => 'Login Gagal',
+					'ERRMSG_ARR' => "Cek Email Anda"
+				);
+				$this->session->set_userdata($data);
+				redirect('login');
                 ////codingan kirim email ada disini
             } else {
                 $data['status'] = "Email Tidak Tersedia";
@@ -60,7 +65,7 @@ class Admin extends CI_Controller {
         }
     }
     
-    function sendMail($to){
+    function sendMail($to,$username){
         
         
         $config['protocol'] = 'sendmail';
@@ -75,7 +80,7 @@ class Admin extends CI_Controller {
         $this->email->message("
             Lupa dengan password anda.\n
             Klik link dibawah ini dibawah ini : \n
-            http://hat.xcode.or.id/index.php/reset/$to \n
+           http://localhost/kphat/index.php/admin2/reset_password/resetpassword/$username \n
             masukan password baru anda.
             
             ");

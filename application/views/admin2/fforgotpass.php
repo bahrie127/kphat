@@ -7,7 +7,7 @@
     <div id="bar" class="round_bottom">
         </form>
         <?php echo $status;?><br/>
-        <label>Password will be sent to your email.</label>
+        <label>Will be sent to your email.</label>
          <a href="<?php echo base_url(); ?>index.php/admin">Back to login!</a>
        
     </div>		
