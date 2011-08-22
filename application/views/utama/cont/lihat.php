@@ -10,6 +10,7 @@
                         <br class="clear"/>
                         
                         <br/>
+                        
                         <table>
                             <tr>
                                 <th>Tgl Daftar</th>

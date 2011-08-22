@@ -219,8 +219,9 @@
 
                                 </tr>
                                 <tr>
-                                <img src="<?php echo base_url() ?>cap/cap.php"/>
-                                <input name="cap" type="text" id="number">
+                                    <th></th>
+                                   <td><img src="<?php echo base_url() ?>cap/cap.php"/><br/>
+                                    <input name="cap" type="text" id="number"></td>
                                 </tr>
                                 <tr>
 
@@ -229,7 +230,7 @@
 
                                 </tr>
 
-<?php echo $status; ?>
+
                                 <div class="clear"></div>
                             </table>
 

@@ -366,17 +366,18 @@ blockquote {}
 /* comments form */
 #content section.blog article #comments #form table{margin-top: 10px;margin-bottom: 20px;margin-left: 0px;}
 /*#content section.blog article #comments #form table, tr, td{width: 630px;text-align: left;padding: 10px;}*/
-#content section.blog article #comments #form table, tr, td {
+#content section.blog article #comments #form table tr td {
     padding: 10px;
     text-align: left;
     width: 630px;
     border: 1px solid #999999;
 }
-#content section.blog article #comments #form table.daf,tr,td {
+#content section.blog article #comments #form table.daf tr td {
     padding: 10px;
     text-align: left;
     width: 630px;
     border: none;
+    
 }
 #content section.blog article #comments #form table td input.error{border: 1px solid red;}
 #content section.blog article #comments #form table td select.error{border: 1px solid red;}
