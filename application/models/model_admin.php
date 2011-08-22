@@ -91,8 +91,8 @@ class Model_admin extends CI_Model {
 		}
 	}
         
-        function reset($email,$data){
-            $this->db->where('email',$email);
+        function reset($username,$data){
+            $this->db->where('username',$username);
             $update=$datadb->update('admin',$data);
             return $update;
         }

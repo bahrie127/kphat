@@ -1,7 +1,7 @@
 <div id="login_box" class="reset round_all clearfix">
     <form action="<?php echo base_url(); ?>index.php/admin2/reset_password/reset" method="post">
         <?php echo $status;?>
-        <input type="hidden" name="email" value="<?php echo $email;?>"/>
+        <input type="hidden" name="username" value="<?php echo $username;?>"/>
         <label class="fields"><strong class="reset">New Password</strong><input type="password" name="npassword" id="npassword" class="inden round_all"></label>
 
         <label class="fields"><strong class="reset">Confirm New Password</strong><input type="password" name="cnpassword" id="cnpassword" class="inden round_all"></label>
