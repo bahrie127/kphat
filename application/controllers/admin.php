@@ -17,7 +17,8 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->model('model_admin');
         $this->load->library('form_validation');
-        $this->load->library('encrypt');
+        
+        $this->load->library('email');
     }
 
     function index() {
@@ -41,9 +42,14 @@ class Admin extends CI_Controller {
             if ($this->model_admin->cari_email($email) == TRUE) {
                 $data = $this->model_admin->cari_email($email);
 
-                echo $data['email']; 
-                echo ($data['password']);
+                $this->sendMail($data['email'],$data['username']); 
                
+               $data = array(
+					'SESS_LOGIN_STATEMENT' => 'Login Gagal',
+					'ERRMSG_ARR' => "Cek Email Anda"
+				);
+				$this->session->set_userdata($data);
+				redirect('login');
                 ////codingan kirim email ada disini
             } else {
                 $data['status'] = "Email Tidak Tersedia";
@@ -57,6 +63,30 @@ class Admin extends CI_Controller {
                 $this->load->view('admin2/fforgotpass', $data);
                 $this->load->view('admin2/footer');
         }
+    }
+    
+    function sendMail($to,$username){
+        
+        
+        $config['protocol'] = 'sendmail';
+        $config['mailtype'] = 'text';
+        $config['charset'] = 'utf-8';
+        $config['wordwrap'] = TRUE;
+        $this->email->initialize($config);
+        $this->email->from('admin@hat.xcode.or.id', 'Forgotten Password');
+        $this->email->to($to);
+
+        $this->email->subject('Link to new password');
+        $this->email->message("
+            Lupa dengan password anda.\n
+            Klik link dibawah ini dibawah ini : \n
+           http://localhost/kphat/index.php/admin2/reset_password/resetpassword/$username \n
+            masukan password baru anda.
+            
+            ");
+
+        $this->email->send();
+
     }
 
 }
