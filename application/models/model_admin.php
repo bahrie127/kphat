@@ -90,5 +90,11 @@ class Model_admin extends CI_Model {
 			return FALSE;
 		}
 	}
+        
+        function reset($email,$data){
+            $this->db->where('email',$email);
+            $update=$datadb->update('admin',$data);
+            return $update;
+        }
 }
 ?>
