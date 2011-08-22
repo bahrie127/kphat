@@ -187,10 +187,6 @@ class Daftar extends CI_Controller {
 
     }
 
-    function captchaImg() {
-        $this->load->library('captcha');
-        $captchaImg = $this->captcha->captchaImg();
-        return $captchaImg;
-    }
+    
 
 }
