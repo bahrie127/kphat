@@ -17,6 +17,7 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->model('model_admin');
         $this->load->library('form_validation');
+        $this->load->library('encrypt');
     }
 
     function index() {
@@ -40,7 +41,10 @@ class Admin extends CI_Controller {
             if ($this->model_admin->cari_email($email) == TRUE) {
                 $data = $this->model_admin->cari_email($email);
 
-                echo $data['email']; //codingan kirim email ada disini
+                echo $data['email']; 
+                echo ($data['password']);
+               
+                ////codingan kirim email ada disini
             } else {
                 $data['status'] = "Email Tidak Tersedia";
                 $this->load->view('admin2/header');
