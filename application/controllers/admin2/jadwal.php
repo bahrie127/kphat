@@ -120,9 +120,10 @@ class jadwal extends CI_Controller {
         $this->form_validation->set_rules('harga', 'Full Name', 'required|xss_clean');
 
         if ($this->form_validation->run() == TRUE) {
-
+            
             $data = array(
                 'codejadwalevent' => $this->input->post('codejadwal'),
+                'codenamaevent'=>  $this->input->post('codejadwal'),
                 'codeevent' => $this->input->post('codeevent'),
                 'tanggal' => $this->input->post('tanggal'),
                 'waktu' => $this->input->post('waktu'),
@@ -149,6 +150,7 @@ class jadwal extends CI_Controller {
         if ($this->form_validation->run() == TRUE) {
 
             $data = array(
+                'codenamaevent'=>  $this->input->post('codenamaevent'),
                 'codeevent' => $this->input->post('codeevent'),
                 'codepemateri' => $this->input->post('codepemateri'),
                 'codetempat' => $this->input->post('codetempat'),

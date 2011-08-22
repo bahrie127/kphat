@@ -20,14 +20,14 @@
             $i++;
             echo "<tr class=\"record\">";
             echo "<td>$i</td>";
-            echo "<td>$row->jadwalevent_codejadwalevent</td>";
+            echo "<td>$row->jadwalevent_codenamaevent</td>";
             echo "<td>$row->event_namaevent</td>";
             echo "<td>$row->pemateri_nama</td>";
             echo "<td>$row->tempat_namatempat</td>";
             echo "<td>$row->jadwalevent_tanggal</td>";
             echo "<td>$row->jadwalevent_harga</td>";
             
-            echo "<td align=\"center\"><a href=\"#\" class=\"editJadwal\" codejadwalevent=\"$row->jadwalevent_codejadwalevent\" waktu=\"$row->jadwalevent_waktu\" tanggal=\"$row->jadwalevent_tanggal\" hargaJadwal=\"$row->jadwalevent_harga\">Edit</a>";
+            echo "<td align=\"center\"><a href=\"#\" class=\"editJadwal\" codenamaevent=\"$row->jadwalevent_codenamaevent\" codejadwalevent=\"$row->jadwalevent_codejadwalevent\" waktu=\"$row->jadwalevent_waktu\" tanggal=\"$row->jadwalevent_tanggal\" hargaJadwal=\"$row->jadwalevent_harga\">Edit</a>";
             
             echo "</td></tr>";
         }

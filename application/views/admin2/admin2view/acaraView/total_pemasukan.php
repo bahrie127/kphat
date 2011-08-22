@@ -1,3 +1,4 @@
+<?php echo $status;?>
 <table class="tt">
     <tr>
         <td><h3>Pemasukan</h3></td><td></td><td></td>
@@ -24,7 +25,7 @@
     <td><?php echo $klr->nilaikeluar; ?></td>
     <td><?php echo $klr->namaadmin; ?></td>
     </tr>
-    <?php endforeach; ?>
+<?php endforeach; ?>
 <tr>
 
     <td><h3>Jumlah Pemasukan: </h3></td>

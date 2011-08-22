@@ -46,7 +46,7 @@ class Model_join extends CI_Model {
         $date = mdate($datestring, $time);
 
         if ($this->db->get('jadwalevent')->num_rows() >= 4) {
-            $this->db->select('jadwalevent.codejadwalevent as jadwalevent_codejadwalevent, pemateri.nama as pemateri_nama, tempat.namatempat as tempat_namatempat');
+            $this->db->select('jadwalevent.codejadwalevent as jadwalevent_codejadwalevent,jadwalevent.codenamaevent as jadwalevent_codenamaevent, pemateri.nama as pemateri_nama, tempat.namatempat as tempat_namatempat');
 
             $this->db->select(',tempat.alamat as tempat_alamat, tempat.telepon as tempat_telepon, event.gambar as event_gambar, event.materi as event_materi, event.praktek as event_praktek');
             $this->db->select(',event.namaevent as event_namaevent, jadwalevent.waktu as jadwalevent_waktu,jadwalevent.harga as jadwalevent_harga');
@@ -64,7 +64,7 @@ class Model_join extends CI_Model {
                 return FALSE;
             }
         } else {
-            $this->db->select('jadwalevent.codejadwalevent as jadwalevent_codejadwalevent, pemateri.nama as pemateri_nama, tempat.namatempat as tempat_namatempat');
+            $this->db->select('jadwalevent.codejadwalevent as jadwalevent_codejadwalevent,jadwalevent.codenamaevent as jadwalevent_codenamaevent, pemateri.nama as pemateri_nama, tempat.namatempat as tempat_namatempat');
 
             $this->db->select(',tempat.alamat as tempat_alamat, tempat.telepon as tempat_telepon, event.gambar as event_gambar, event.materi as event_materi, event.praktek as event_praktek');
             $this->db->select(',event.namaevent as event_namaevent, jadwalevent.waktu as jadwalevent_waktu,jadwalevent.harga as jadwalevent_harga');
@@ -85,7 +85,7 @@ class Model_join extends CI_Model {
     }
 
     function get_jadwal_event_admin() {
-        $this->db->select('jadwalevent.tanggal as jadwalevent_tanggal, jadwalevent.codejadwalevent as jadwalevent_codejadwalevent');
+        $this->db->select('jadwalevent.tanggal as jadwalevent_tanggal,jadwalevent.codenamaevent as jadwalevent_codenamaevent, jadwalevent.codejadwalevent as jadwalevent_codejadwalevent');
         $this->db->select(',jadwalevent.harga as jadwalevent_harga,event.namaevent as event_namaevent,pemateri.nama as pemateri_nama');
         $this->db->select(',tempat.namatempat as tempat_namatempat,jadwalevent.waktu as jadwalevent_waktu');
         $this->db->from('event');
