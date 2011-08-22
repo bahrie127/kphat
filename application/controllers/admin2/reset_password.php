@@ -10,7 +10,18 @@ class Reset_password extends CI_Controller {
         $this->load->library('form_validation');
     }
 
+    function resetpassword($email){
+        $data['email']=$email;
+        $data['status']="";
+        $this->load->view('admin2/header');
+        $this->load->view('admin2/admin2view/freset',$data);
+        $this->load->view('admin2/footer');
+        
+    }
+
+
     function reset() {
+        
         $this->form_validation->set_rules('password', 'Password', 'trim|required|matches[cpassword]');
         $this->form_validation->set_rules('cpassword', 'Confirm Password', 'trim|required');
         if ($this->form_validation->run() == TRUE) {
@@ -26,8 +37,10 @@ class Reset_password extends CI_Controller {
             redirect('login');
         } else {
             $data['email'] = $this->input->post('email');
-            $data['status']="kedua password tidak sama.";
-            $this->load->view('');
+            $data['status']="kedua password tidak sama atau tidak di isi.";
+            $this->load->view('admin2/header');
+            $this->load->view('admin2/admin2view/freset',$data);
+            $this->load->view('admin2/footer');
         }
     }
 
