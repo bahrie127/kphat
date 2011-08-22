@@ -113,8 +113,13 @@ class Daftar extends CI_Controller {
                     $this->model_detail_tagihan->add($dataDetailTagihan);
                 }
                 // 
+                
                 $this->konfirmasi();
-            } else {
+                $this->sendmail();
+                @session_destroy();
+            } elseif (!$_SESSION['security_code'] == $this->input->post('cap')){
+                redirect('daftar');
+            }else {
                 $data['data'] = $this->model_join->get_jadwal_event();
                 $data['cek'] = "";
                 $data['status'] = "security code salah";
@@ -126,8 +131,8 @@ class Daftar extends CI_Controller {
 
 
             // 
-            $this->konfirmasi();
-            $this->sendmail();
+            
+            
 
         } else {
             redirect('daftar');
